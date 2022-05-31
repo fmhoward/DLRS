@@ -1,0 +1,26 @@
+{
+"UCH_BRCA_RS": {
+	"slides": "/auto/pearson-lab/QUPATH/UCH_BRCA_RS/images",
+	"roi": "/mnt/labshare/SLIDES/UCH_BRCA_RS/AT/",
+	"tiles": "/mnt/data/TILES/TUMOR/UCH_BRCA_RS",
+	"tfrecords": "/mnt/data/TFRECORDS/TUMOR/UCH_BRCA_RS"
+},
+"TCGA_BRCA_FULL_ROI": {
+	"slides": "/mnt/labshare/SLIDES/TCGA-BRCA/images",
+	"roi": "/mnt/labshare/QUPATH/TCGA/TCGA_BRCA_REMAKE/ROI",
+	"tiles": "/mnt/data/TILES/TUMOR/TCGA_BRCA_FULL_ROI",
+	"tfrecords": "/mnt/data/TFRECORDS/TUMOR/TCGA_BRCA_FULL_ROI"
+},
+"TCGA_BRCA_NO_ROI": {
+	"slides": "/mnt/labshare/SLIDES/TCGA-BRCA/images",
+	"roi": "/mnt/labshare/QUPATH/TCGA/TCGA_BRCA_REMAKE/ROI",
+	"tiles": "/mnt/data/TILES/TUMOR/TCGA_BRCA_NO_ROI",
+	"tfrecords": "/mnt/data/TFRECORDS/TUMOR/TCGA_BRCA_NO_ROI"
+},
+"TCGA_BRCA_NORMAL": {
+	"slides": "/mnt/labshare/SLIDES/TCGA-BRCA/images",
+	"roi": "/mnt/labshare/QUPATH/TCGA/TCGA_BRCA_REMAKE/ROI_NORM",
+	"tiles": "/mnt/data/TILES/TUMOR/TCGA_BRCA_NORMAL",
+	"tfrecords": "/mnt/data/TFRECORDS/TUMOR/TCGA_BRCA_NORMAL"
+}
+}
