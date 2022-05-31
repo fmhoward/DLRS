@@ -607,7 +607,7 @@ def train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2'):
     
 def main(): 
     setup_projects()
-    #train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2')
+    train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2')
     
 if __name__ == '__main__':
     main()
