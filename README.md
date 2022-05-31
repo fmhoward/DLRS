@@ -30,16 +30,18 @@ Slide extraction and model training can be performed by running model_training.p
 
 ```python
 def train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2'):
-    """Extracts tiles to setup all projects
+    """Trains models described in our research project.
 
     Parameters
     ----------
     hpsearch - whether to perform a hyperparameter search. 'old' - will use saved hyperparameters. 'read' - will read hyperparameters from the model directory. 'run' - will run hyperparameter optimization
-	prefix_hpopt - prefix for models trained under hyperparameter search
+    prefix_hpopt - prefix for models trained under hyperparameter search
     """   
 ```
 
 Finally, to generate statistics and figures, run the model_analysis.py file.
+
+To make new predictions using our trained models, please <a href='https://zenodo.org/record/6597167'>download the trained models from Zenodo</a> and extract the zip into the PROJECTS folder. Predictions can be made with the <a href='https://slideflow.dev/'>Slideflow evaluate function</a>.
 
 ## Reproduction
 To recreate our cross validation setup from publication, please ensure the RUN_FROM_OLD_STATS variable to True in model_analysis.py, which will perform the analysis on saved models. Digital slides from the TCGA cohort can be obtained from https://www.cbioportal.org/. To replicate our full model training, the CSV files with associated annotations are provided in the PROJECTS/UCH_RS and PROJECTS/TCGA_BRCA_ROI directories. Given the non-deterministic nature of some features of training such as dropout, results may vary slightly despite identical training parameters.
