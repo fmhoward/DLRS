@@ -16,8 +16,9 @@ import json
 import pandas as pd
 import shutil
 from os.path import basename, dirname, join
+import argparse
 
-PROJECT_ROOT = "/mnt/data/fred/slideflow-uq/PROJECTS/"
+PROJECT_ROOT = os.getcwd() + "/PROJECTS/"
 
 hp_roi = ModelParams(tile_px= 299,
                     tile_um = 302,
@@ -229,13 +230,12 @@ def assign_tumor_roi_model(SFP_TUMOR_ROI, tile_px, normalizer):
         else:
             return find_model(SFP_TUMOR_ROI, roi_prefix + "_NONORM_299", outcome = "roi", epoch = 1)   
 
-def get_best_model_params(SFP, SFP_TUMOR_ROI, prefix, start, max_count):
+def get_best_model_params(SFP, prefix, start, max_count):
     """Get the hyperparameters of the best model after optimization
 
     Parameters
     ----------
     SFP - slideflow project in which model is housed
-    SFP_TUMOR_ROI - slideflow project for the Tumor ROI model
     prefix - experiment prefix 
     start - first model index for hyperparameter optimization
     max_count - maximum number of models tested during hyperparameter optimization
@@ -256,7 +256,7 @@ def get_best_model_params(SFP, SFP_TUMOR_ROI, prefix, start, max_count):
             cur_index = count
         count = count + 2
     json_dict = get_model_hyperparameters(SFP, prefix, cur_index)
-    json_dict["weight_model"] = assign_tumor_roi_model(SFP_TUMOR_ROI, json_dict["tile_px"], json_dict["normalizer"])
+    export_hpopt_to_csv(SFP, prefix, start, max_count)
     return sf.model.ModelParams.from_dict(json_dict)
 
 
@@ -276,7 +276,7 @@ def get_runner(SFP, prefix):
     def train_model(config):
         model_name = f'odx85-{prefix}-HP0-kfold1'
         matching = [
-            o for o in os.listdir(project.models_dir)
+            o for o in os.listdir(SFP.models_dir)
             if re.search("\d{5}-(odx85|GHI_RS_Model_NJEM\.2004_PMID\.15591335)-"+prefix+"\d{1,3}-kfold1", o)
         ]
         model_count = len(matching) + 1
@@ -344,13 +344,14 @@ def get_runner(SFP, prefix):
         return 1 - res_avg
     return train_model
         
-def hyperparameter_optimization(SFP, prefix):
+def hyperparameter_optimization(SFP, prefix, runcount = 50):
     """Run Bayesian Optimization of model hyperparameters
 
     Parameters
     ----------
     SFP - slideflow project for model optimization
     prefix - model prefix to be used for hyperparameter optimization
+    runcount - number of sets of hyperparameters to evaluate
     """    
     configspace = ConfigurationSpace()
     configspace.add_hyperparameter(UniformFloatHyperparameter("dropout", 0, 0.5))
@@ -385,7 +386,7 @@ def hyperparameter_optimization(SFP, prefix):
     # Provide meta data for the optimization
     scenario = Scenario({
         "run_obj": "quality",  # Optimize quality (alternatively runtime)
-        "runcount-limit": 50,  # Max number of function evaluations (the more the better)
+        "runcount-limit": runcount,  # Max number of function evaluations (the more the better)
         "cs": configspace,
     })
 
@@ -404,6 +405,9 @@ def brca_cancer_detection_module(tile_px = 299, tile_um = 302, normalizer = 'rei
     normalizer - normalizer method ('reinhard_fast' or None)
     """    
     SFP = sf.Project(join(PROJECT_ROOT, "TCGA_BRCA_ROI"))
+    SFP.annotations = join(PROJECT_ROOT, "TCGA_BRCA_ROI", "tumor_roi.csv")
+    SFP.sources = ["TCGA_BRCA_FULL_ROI", "TCGA_BRCA_NORMAL"]
+
     hp = hp_roi
     hp.tile_px = tile_px
     hp.tile_um = tile_um
@@ -429,39 +433,6 @@ def brca_cancer_detection_module(tile_px = 299, tile_um = 302, normalizer = 'rei
             continue
         res += [get_model_results(m, outcome=outcome, variable="tile_auc")]
     print("AVERAGE TILE-LEVEL AUROC FOR CANCER PREDICTION: " + str(sum(res)/len(res)))
-
-def generate_cancer_detection_heatmaps(tile_px = 299, tile_um = 302, normalizer = 'reinhard_fast'):
-    """Generates  out of distribution heatmaps from cancer detection module
-
-    Parameters
-    ----------
-    tile_px - tile pixel size
-    tile_um - tile size in micrometers
-    normalizer - normalizer method ('reinhard_fast' or None)
-    """    
-    SFP = sf.Project(join(PROJECT_ROOT, "TCGA_BRCA_ROI")) 
-    exp_label = "brca_roi_evaluate"
-    if normalizer == 'reinhard_fast':
-        exp_label += "_rhn"
-    exp_label += "_" + str(tile_px)
-    for i in [1,2,3]:
-        m = find_model(SFP, exp_label, epoch=1, kfold=i, outcome='roi')
-        SFP.generate_heatmaps(model=m, filters={'CV3_odx85_mip':str(i)}, outdir = join(PROJECT_ROOT, 'TCGA_BRCA_ROI/heatmaps'), resolution='low', batch_size=32, roi_method ='none', show_roi = True, buffer=join(PROJECT_ROOT, 'buffer'))
-
-def generate_prediction_heatmaps():
-    """Generates  out of distribution heatmaps from cancer detection module
-
-    Parameters
-    ----------
-    tile_px - tile pixel size
-    tile_um - tile size in micrometers
-    normalizer - normalizer method ('reinhard_fast' or None)
-    """    
-    SFP = sf.Project("/mnt/data/fred/PROJECTS_NEW/UCH_RS")
-    exp_label = "ODX_Final_BRCAROI"
-    for i in [1,2,3]:
-        m = find_model(SFP, exp_label, outcome='GHI_RS_Model_NJEM.2004_PMID.15591335', epoch=1, kfold=i)
-        SFP.generate_heatmaps(model=m, filters={'CV3_odx85_mip':str(i)}, outdir = join(PROJECT_ROOT, 'UCH_RS/heatmaps_fixed'), resolution='low', batch_size=32, roi_method ='none', show_roi = True, buffer=join(PROJECT_ROOT, 'buffer'))
 
 
 def export_hpopt_to_csv(SFP, prefix, start, max_count):
@@ -514,7 +485,7 @@ def setup_projects(tile_px = 299, tile_um = 302, overwrite = False):
     SFP.sources = ["TCGA_BRCA_NO_ROI"]
     SFP.extract_tiles(tile_px=tile_px, tile_um=tile_um, skip_missing_roi=False, save_tiles=False, skip_extracted=overwrite, roi_method = 'ignore', source="TCGA_BRCA_NO_ROI", buffer=join(PROJECT_ROOT, "buffer"))
     SFP = sf.Project(join(PROJECT_ROOT, "TCGA_BRCA_ROI"))
-    SFP.annotations = join(PROJECT_ROOT, "TCGA_BRCA_ROI", "tcga_brca_roi.csv")
+    SFP.annotations = join(PROJECT_ROOT, "TCGA_BRCA_ROI", "tumor_roi.csv")
     dataset = SFP.dataset(299, 302, verification=None, sources = ["TCGA_BRCA_NORMAL"])
     normal_slide = dataset.slide_paths()
     for slide in normal_slide:
@@ -522,30 +493,32 @@ def setup_projects(tile_px = 299, tile_um = 302, overwrite = False):
         base_name = os.path.basename(slide)
         shutil.move(join(dir_name, base_name), join(dir_name, "norm_" + base_name))
     SFP.extract_tiles(tile_px=299, tile_um=302, skip_missing_roi=True, save_tiles=False, skip_extracted=overwrite, roi_method = 'outside', source="TCGA_BRCA_NORMAL",  buffer=join(PROJECT_ROOT, "buffer"))
+    dataset = SFP.dataset(299, 302, verification=None, sources = ["TCGA_BRCA_NORMAL"])
     normal_slide = dataset.slide_paths()
     for slide in normal_slide:
         dir_name = os.path.dirname(slide)
         base_name = os.path.basename(slide)
         shutil.move(join(dir_name, base_name), join(dir_name, base_name[5:]))
 
-def train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2'):
+def train_models(hpsearch = 'old', prefix_hpopt = 'hp_new2', start = 0, max_count = 50):
     SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
     SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "tcga_brca_complete.csv")
     SFP.sources = ["TCGA_BRCA_FULL_ROI"]
     SFP_TUMOR_ROI = sf.Project(join(PROJECT_ROOT, "TCGA_BRCA_ROI"))
-    #Train Breast Cancer Detection Module
-    brca_cancer_detection_module()
     hp = None
 
     #Get optimal hyperparameters for recurrence score prediction
     if hpsearch == 'old':
         hp = hp_opt
-        hp["weight_model"] = assign_tumor_roi_model(SFP_TUMOR_ROI, hp["tile_px"], hp["normalizer"])
     elif hpsearch == 'read':
-        hp = get_best_model_params(SFP, SFP_TUMOR_ROI, prefix = prefix_hpopt, start = 3, max_count = 103)
-    elif hpsearch == 'run':
-        hyperparameter_optimization(SFP, prefix)
-        hp = get_best_model_params(SFP, SFP_TUMOR_ROI, prefix = prefix_hpopt, start = 3, max_count = 103)
+        hp = get_best_model_params(SFP, prefix = prefix_hpopt, start = start, max_count = max_count *2)
+
+    #Train Breast Cancer Detection Module
+    brca_cancer_detection_module(hp.tile_px, hp.tile_um, hp.normalizer)
+
+    hp.weight_model = assign_tumor_roi_model(SFP_TUMOR_ROI, hp.tile_px, hp.normalizer)
+
+
     exp_label = "ODX_Final_BRCAROI"
     exp_label_mp = "MP_Final_BRCAROI"
     #Train external model on all data
@@ -557,9 +530,9 @@ def train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2'):
     SFP.train(exp_label=exp_label_mp, outcome_label_headers="Pcorr_NKI70_Good_Correlation_Nature.2002_PMID.11823860",  val_outcome_label_headers="mphr", params = hp, val_strategy = 'k-fold-manual', val_k_fold=3, val_k_fold_header = "CV3_mp85_mip", multi_gpu=True, save_predictions=True)
 
     exp_label_roi = "brca_roi_evaluate"
-    if hp["normalizer"] == 'reinhard_fast':
+    if hp.normalizer == 'reinhard_fast':
         exp_label_roi += "_rhn"
-    exp_label_roi += "_" + str(hp["tile_px"])
+    exp_label_roi += "_" + str(hp.tile_px)
 
     SFP.sources = ["TCGA_BRCA_NO_ROI"]
     for i in [1,2,3]:
@@ -582,9 +555,15 @@ def train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2'):
         params["weight_model"] = find_model(SFP_TUMOR_ROI, exp_label_roi, outcome='roi', epoch=1, kfold=i)
         sf.util.write_json(params, join(m, "params_eval.json"))
         SFP.evaluate(m, outcome_label_headers = 'mphr', filters={'CV3_mp85_mip':str(i)}, save_predictions=True, model_config=join(m, "params_eval.json"))
-    
+
+def test_models():
     #Finally, validate on external dataset
+    SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
+    SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv")
     SFP.sources = ["UCH_BRCA_RS"]
+    SFP_TUMOR_ROI = sf.Project(join(PROJECT_ROOT, "TCGA_BRCA_ROI"))
+    SFP_TUMOR_ROI.annotations = join(PROJECT_ROOT, "TCGA_BRCA_ROI", "tumor_roi.csv")
+
     SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv")
     m = find_model(SFP, exp_label, outcome = "GHI_RS_Model_NJEM.2004_PMID.15591335", epoch=hp.epochs[0])
     params = sf.util.get_model_config(m)
@@ -606,8 +585,92 @@ def train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2'):
 
     
 def main(): 
-    setup_projects()
-    train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2')
-    
+    parser = argparse.ArgumentParser(description = "Helper to guide through model training.")
+    parser.add_argument('-p', '--project_root', required=False, type=str, help='Path to project directory (if not provided, assumes subdirectory of this script).')
+    parser.add_argument('--hpsearch', required=False, type=str, help='Set to \'old\' to use saved hyperparameters, \'run\' to perform hyperparameter search, \'read\' to find best hyperparameters from prior run.')
+    parser.add_argument('-e', '--extract', required=False, action="store_true", help='If provided, will extract tiles from slide directory.')
+    parser.add_argument('-t', '--train', required=False, action="store_true", help='If provided, will train models in TCGA for tumor ROI / recurrnece score prediction.')
+    parser.add_argument('-v', '--validate', required=False, action="store_true", help='If provided, will validate models in the University of Chicago dataset.')
+
+    parser.add_argument('--hpprefix', required=False, type=str, help='Provide prefix for models trained during hyperparameter search (must be specified if desired to read hyperparameters from old HP search).')
+    parser.add_argument('--hpstart', required=False, type=int, help='Provide the starting index for models to check among prior hyperparameter search.')
+    parser.add_argument('--hpcount', required=False, type=int, help='Provide the number of models to check among prior hyperparameter search.')
+    parser.add_argument('--heatmaps_tumor_roi', required=False, type=str, help='Will save heatmaps for tumor region of interest model. Set to TCGA to provide heatmaps from TCGA and UCH to provide heatmaps from validation dataset.')
+    parser.add_argument('--heatmaps_odx_roi', required=False, type=str, help='Will save heatmaps for OncotypeDx model. Set to TCGA to provide heatmaps from TCGA and UCH to provide heatmaps from validation dataset.')
+
+    args = parser.parse_args()  
+    global PROJECT_ROOT
+    if args.project_root:
+        PROJECT_ROOT = args.project_root
+    if args.extract:
+        setup_projects()
+    if not args.hpsearch:
+        args.hpsearch = 'old'
+    if not args.hpprefix:
+        args.hpprefix = 'hp_new2'
+    if not args.hpstart:
+        args.hpstart = 0
+    if not args.hpcount:
+        args.hpcount = 50
+    if args.hpsearch == 'run':
+        SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
+        SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "tcga_brca_complete.csv")
+        SFP.sources = ["TCGA_BRCA_FULL_ROI"]
+        hyperparameter_optimization(SFP, args.hpprefix, args.hpcount)
+        args.hpsearch = 'read'
+    if args.train:
+        train_models(args.hpsearch, args.hpprefix, args.hpstart, args.hpcount)
+    if args.validate:
+        test_models()
+    if args.heatmaps_odx_roi:
+        if args.heatmaps_tumor_roi == 'TCGA':
+            SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
+            exp_label = "ODX_Final_BRCAROI"
+            SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "tcga_brca_complete.csv")            
+            SFP.sources = ["TCGA_BRCA_FULL_ROI"]
+            for i in [1,2,3]:
+                m = find_model(SFP, exp_label, outcome='GHI_RS_Model_NJEM.2004_PMID.15591335', epoch=1, kfold=i)
+                SFP.generate_heatmaps(model=m, filters={'CV3_odx85_mip':str(i)}, outdir = join(PROJECT_ROOT, 'UCH_RS/heatmaps_tcga'), resolution='low', batch_size=32, roi_method ='none', show_roi = True, buffer=join(PROJECT_ROOT, 'buffer'))
+        if args.heatmaps_tumor_roi == 'UCH':
+            SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
+            SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv")
+            SFP.sources = ["UCH_BRCA_RS"]
+            exp_label = "ODX_Final_BRCAROI"
+            m = find_model(SFP, exp_label, outcome='GHI_RS_Model_NJEM.2004_PMID.15591335', epoch=1)
+            SFP.generate_heatmaps(model=m, outdir = join(PROJECT_ROOT, 'UCH_RS/heatmaps_uch'), resolution='low', batch_size=32, roi_method ='none', show_roi = True, buffer=join(PROJECT_ROOT, 'buffer'))
+
+    if args.heatmaps_tumor_roi:
+        hp = None
+        if hpsearch == 'old':
+            hp = hp_opt
+        elif hpsearch == 'read':
+            hp = get_best_model_params(SFP, args.hpprefix, args.hpstart, 2*args.hpcount)
+        normalizer = hp.normalizer
+        tile_px = hp.tile_px
+        if args.heatmaps_tumor_roi == 'TCGA':
+            SFP = sf.Project(join(PROJECT_ROOT, "TCGA_BRCA_ROI")) 
+            SFP.sources = ["TCGA_BRCA_FULL_ROI"]
+            SFP.annotations = join(PROJECT_ROOT, "TCGA_BRCA_ROI", "tumor_roi.csv")
+            exp_label = "brca_roi_evaluate"
+            if normalizer == 'reinhard_fast':
+                exp_label += "_rhn"
+            exp_label += "_" + str(tile_px)
+            for i in [1,2,3]:
+                m = find_model(SFP, exp_label, epoch=1, kfold=i, outcome='roi')
+                SFP.generate_heatmaps(model=m, filters={'CV3_odx85_mip':str(i)}, outdir = join(PROJECT_ROOT, 'TCGA_BRCA_ROI/heatmaps_tcga'), resolution='low', batch_size=32, roi_method ='none', show_roi = True, buffer=join(PROJECT_ROOT, 'buffer'))
+
+        if args.heatmaps_tumor_roi == 'UCH':
+            SFP = sf.Project(join(PROJECT_ROOT, "TCGA_BRCA_ROI")) 
+            SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv")
+            SFP.sources = ["UCH_BRCA_RS"]
+            exp_label = "BRCA_NONORM_"
+            if normalizer == 'reinhard_fast':
+                exp_label = "BRCA_RHNORM_"
+            exp_label += str(tile_px)
+            m = find_model(SFP, exp_label, outcome='GHI_RS_Model_NJEM.2004_PMID.15591335', epoch=1)
+            SFP.generate_heatmaps(model=m, outdir = join(PROJECT_ROOT, 'TCGA_BRCA_ROI/heatmaps_uch'), resolution='low', batch_size=32, roi_method ='none', show_roi = True, buffer=join(PROJECT_ROOT, 'buffer'))
+
+
+
 if __name__ == '__main__':
     main()

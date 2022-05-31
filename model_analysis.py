@@ -22,53 +22,15 @@ from tableone import TableOne
 import openpyxl
 from os.path import join
 import slideflow as sf
+import os
+import argparse
 
 RUN_FROM_OLD_STATS = True
-PROJECT_ROOT = "/mnt/data/fred/slideflow-uq/PROJECTS/"
+PROJECT_ROOT = os.getcwd() + "/PROJECTS/"
 
 ##Saved optimal features for clinical model generated using 10 fold cross validation
 MP_vars = ['grade', 'tumor_size', 'PR', 'lymph_vasc_inv', 'ductal', 'mucinous', 'medullary', 'metaplasia', 'race_asian', 'race_black']#['grade', 'tumor_size', 'PR', 'age', 'ductal', 'lobular', 'ductlob']
 ODX_vars = ['grade', 'tumor_size', 'PR', 'ductal', 'lobular', 'ductlob', 'medullary', 'metaplasia', 'race_black']# ['grade', 'tumor_size', 'PR', 'inflammatory', 'lymph_vasc_inv', 'ductal', 'lobular', 'medullary', 'metaplasia', 'paget', 'race_black']
-
-
-
-def find_model(project, label, outcome, epoch=None, kfold=None):
-    """Searches for a model in a project model directory.
-
-    Parameters:
-    ----------
-    project (slideflow.Project): Project.
-    label (str): Experimental label.
-    outcome (str): Outcome name. 
-    epoch (int, optional): Epoch to search for. If not None, returns
-        path to the saved model. If None, returns path to parent model
-        folder. Defaults to None.
-    kfold (int, optional): K-fold iteration. Defaults to None.
-
-    Returns:
-    ----------
-    str: Path to matching model.
-    """
-    tail = '' if kfold is None else f'-kfold{kfold}'
-    model_name = f'{outcome}-{label}-HP0{tail}'
-    matching = [
-        o for o in os.listdir(project.models_dir)
-        if o[6:] == model_name
-    ]
-    if len(matching) > 1:
-        msg = f"Multiple matching models found matching {model_name}"
-        raise Exception(msg)
-    elif not len(matching):
-        msg = f"No matching model found matching {model_name}."
-        raise Exception(msg)
-    elif epoch is not None:
-        return join(
-            project.models_dir,
-            matching[0],
-            f'{outcome}-{label}-HP0{tail}_epoch{epoch}'
-        )
-    else:
-        return join(project.models_dir, matching[0])
 
 
 def find_eval(project, label, outcome, epoch=1, kfold = None):
@@ -90,10 +52,12 @@ def find_eval(project, label, outcome, epoch=1, kfold = None):
         str: path to eval directory
     """
     tail = '' if kfold is None else f'-kfold{kfold}'
+    print(project.eval_dir)
     matching = [
         o for o in os.listdir(project.eval_dir)
-        if o[11:] == f'{OUTCOME}-{label}-HP0{tail}_epoch{epoch}'
+        if o[11:] == f'{outcome}-{label}-HP0{tail}_epoch{epoch}'
     ]
+    print(matching)
     if len(matching) > 1:
         msg = f"Multiple matching eval experiments found for label {label}"
         raise Exception(msg)
@@ -1723,7 +1687,7 @@ def fitMultivariate(ax = None, avg_coefs=True, outcome="odx85_cat", NCDB=False):
             dfa = pd.read_csv(join(PROJECT_ROOT, "saved_results", outcome + str(i)+ ".csv"))
         else:
             SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
-            if outcome == "odx85":
+            if outcome == "odx85_cat":
                 dfa = pd.read_csv(join(find_eval(SFP, "ODX_Final_BRCAROI", "GHI_RS_Model_NJEM.2004_PMID.15591335", 1, i), "patient_predictions_odx85_eval.csv"))
             else:
                 dfa = pd.read_csv(join(find_eval(SFP, "MP_Final_BRCAROI", "Pcorr_NKI70_Good_Correlation_Nature.2002_PMID.11823860", 1, i), "patient_predictions_mphr_eval.csv"))
@@ -1926,8 +1890,11 @@ def testODX(ten_score = True, NCDB = False, race_subset = None, prognostic_plots
     df1 = pd.read_csv(join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv"))
     df1.dropna(subset=['percent_tiles_positive0_odx'])
     if not RUN_FROM_OLD_STATS:
+        SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
         df2 = pd.read_csv(join(find_eval(SFP, "ODX_Final_BRCAROI", "GHI_RS_Model_NJEM.2004_PMID.15591335", 1), "patient_predictions_RSHigh_eval.csv"))
         df2 = df2[['patient', 'percent_tiles_positive0']]
+        df1['patient'] = df1['patient'].astype(str)
+        df2['patient'] = df2['patient'].astype(str)
         df1 = df1.merge(df2, on='patient', how='left')
     else:
         df1['percent_tiles_positive0'] = df1['percent_tiles_positive0_odx']
@@ -1940,7 +1907,6 @@ def testODX(ten_score = True, NCDB = False, race_subset = None, prognostic_plots
         prognostic_plots = False
 
     df1 = df1[df1.hist_type != 'DCIS'].copy()
-    df1 = df1.drop_duplicates(subset='patient')
     if ten_score:
         r0 = testMultivariate(df1, show = True, outcome = 'RS', NCDB = False, prognostic_plots = prognostic_plots)
     if NCDB:
@@ -1965,8 +1931,11 @@ def testMP(ten_score = False, NCDB = True, prognostic_plots = False):
     df1 = pd.read_csv(join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv"))
     df1.dropna(subset=['percent_tiles_positive0_mp'])
     if not RUN_FROM_OLD_STATS:
+        SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
         df2 = pd.read_csv(join(find_eval(SFP, "MP_Final_BRCAROI", "Pcorr_NKI70_Good_Correlation_Nature.2002_PMID.11823860", 1), "patient_predictions_MPHigh_eval.csv"))
         df2 = df2[['patient', 'percent_tiles_positive0']]
+        df1['patient'] = df1['patient'].astype(str)
+        df2['patient'] = df2['patient'].astype(str)
         df1 = df1.merge(df2, on='patient', how='left')
     else:
         df1['percent_tiles_positive0'] = df1['percent_tiles_positive0_odx']
@@ -2103,14 +2072,30 @@ def describeCohortTCGA():
 
 
 def main():
-    RUN_FROM_OLD_STATS = False
+
+    parser = argparse.ArgumentParser(description = "Helper to guide through model training.")
+    parser.add_argument('-s', '--saved', action="store_true", help='If provided, will use saved stats for parameter calculation.')
+    parser.add_argument('-p', '--project_root', required=False, type=str, help='Path to project directory (if not provided, assumes subdirectory of this script).')
+    args = parser.parse_args()  
+    global RUN_FROM_OLD_STATS
+    global PROJECT_ROOT
+    if args.project_root:
+        PROJECT_ROOT = args.project_root
+    print(PROJECT_ROOT)
+    RUN_FROM_OLD_STATS = args.saved
+
     describeCohortODX()
     describeCohortMP()
     describeCohortTCGA()
     plot_hp_search('hpopt.csv')
+	print("---------PREDICTIONS FOR ONCOTYPE MODEL---------")
     testODX(ten_score = True, NCDB = False, prognostic_plots = True)
+	print("---------PREDICTIONS FOR MAMMAPRINT MODEL---------")
     testMP(ten_score = False, NCDB = True, prognostic_plots = False)
-    testODX(ten_score = True, NCDB = False, race_subset = 'White')
-    testODX(ten_score = True, NCDB = False, race_subset = 'Black')
+    print("---------PREDICTIONS FOR ONCOTYPE MODEL (WHITE SUBSET)---------")
+	testODX(ten_score = True, NCDB = False, race_subset = 'White')
+    print("---------PREDICTIONS FOR ONCOTYPE MODEL (BLACK SUBSET)---------")
+	testODX(ten_score = True, NCDB = False, race_subset = 'Black')
 
-main()
+if __name__ == '__main__':
+    main()
