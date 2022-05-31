@@ -22,14 +22,21 @@ If you use this code in your work or find it helpful, please consider citing our
 ```
 
 ## Installation
-The associated files can be downloaded to a project directory. Installation takes < 5 minutes on a standard desktop computer. All software was tested on Windows 10 version 1909, with a Intel Core i5-10210U processor with integrated Intel UHD graphics processor.
+The associated files can be downloaded to a project directory. Installation takes < 5 minutes on a standard desktop computer. Runtime for hyperparameter optimization is approximately 96 hours for 50 iterations. Runtime for model training of the tumor region of interest and recurence score predictive models was approximately 4 hours. The analysis of results is performed in < 1 minute. All software was tested on CentOS 8 with an AMD EPYC 7302 16-Core Processor and 4x A100 SXM 40 GB GPUs.
 
 Requirements:
-* python 3.7
-* pandas 1.0.5
-* cvxpy 1.1.7
-* numpy 1.19.0
+* python 3.8
+* tensorflow 2.8.0
+* opencv 4.5.5.62
+* scipy 1.7.3
+* scikit-image 0.18.3
+* pixman 0.40.0
+* OpenSlide
+* Libvips 8.9
+* pandas 1.3.5
+* numpy 1.21.2
 * IBM's CPLEX 12.10.0 and <a href='https://www.ibm.com/support/knowledgecenter/en/SSSA5P_12.8.0/ilog.odms.cplex.help/CPLEX/GettingStarted/topics/set_up/Python_setup.html'>CPLEX's python API</a>
+For full environment used for model testing please see the requirements.yml file
 
 ## Overview
 First, to replicate model results, the datasets file must be configured to navigate to local slide storage and region of interest directories. Additionally, please update the 'PROJECT_ROOT' variable in the model_training.py and model_analysis.py files. 
