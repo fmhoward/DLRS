@@ -24,24 +24,49 @@ Requirements:
 For full environment used for model testing please see the requirements.yml file
 
 ## Overview
-First, to replicate model results, the datasets file must be configured to navigate to local slide storage and region of interest directories. Additionally, please update the 'PROJECT_ROOT' variable in the model_training.py and model_analysis.py files. 
+First, to replicate model results, the datasets file must be configured to navigate to local slide storage and region of interest annotations for the TCGA and external validation / testing datasets. Please also specify directory for TFRECORD file storage.
 
-Slide extraction and model training can be performed by running model_training.py. By default, this will train models with our saved optimal hyperparameters without performing additional hyperparameter search. To run an additional hyperparameter search, pass hpsearch = 'run' to the train_test_models function.
+## Slide Extraction
+Slide extraction can be performed by running the model_training.py file with the -e option.
 
-```python
-def train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2'):
-    """Trains models described in our research project.
-
-    Parameters
-    ----------
-    hpsearch - whether to perform a hyperparameter search. 'old' - will use saved hyperparameters. 'read' - will read hyperparameters from the model directory. 'run' - will run hyperparameter optimization
-    prefix_hpopt - prefix for models trained under hyperparameter search
-    """   
+## Hyperparameter optimization
+To perform hyperparameter optimization, run the model_training.py file with the following parameters (for 50 runs for hyperparameter optimization):
+```
+model_training.py --hpsearch run --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
 ```
 
-Finally, to generate statistics and figures, run the model_analysis.py file.
+## Model training
+To train models for tumor detection and region of interest annotation, run model_training.py with the following parameters:
+```
+model_training.py -t --hpsearch read --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
+```
 
-To make new predictions using our trained models, please <a href='https://zenodo.org/record/6597167'>download the trained models from Zenodo</a> and extract the zip into the PROJECTS folder. Predictions can be made with the <a href='https://slideflow.dev/'>Slideflow evaluate function</a>.
+Or, if you do not want to rerun hyperparameter optimization and would prefer to use stored hyperparameters from our optimization:
+```
+model_training.py -t --hpsearch old
+```
+
+## Model validation
+To validate models in an external dataset, run model_training.py with the -v flag:
+```
+model_training.py -v
+```
+
+To evaluate performance characteristics of the trained model, run model_analysis.py. If you want to assess performance of the external validation dataset from our model training, you can use the saved predictions from our trained models with the -s flag:
+```
+model_analysis.py -s
+```
+
+To make new predictions using our trained models, please <a href='https://zenodo.org/record/6597167'>download the trained models from Zenodo</a> and extract the zip into the PROJECTS folder. Predictions can be made with the <a href='https://slideflow.dev/'>Slideflow evaluate function</a> or by specifying slides and associated clinical characteristics in the UCH_RS project folder, and running model_training.py -v and model_analysis.py as above.
+
+## Model interpretation
+To view heatmaps from trained models, run model_training.py with the --heatmaps_tumor_roi or --heatmaps_odx_roi, and specify 'TCGA' or 'UCH' depending on which dataset you want to generate heatmaps for:
+```
+model_training.py --heatmaps_tumor_roi TCGA
+model_training.py --heatmaps_odx_roi TCGA
+```
+<img src="https://github.com/fmhoward/DLRS/blob/main/heatmaps.png?raw=true" width="600">
+
 
 ## Reproduction
 To recreate our cross validation setup from publication, please ensure the RUN_FROM_OLD_STATS variable to True in model_analysis.py, which will perform the analysis on saved models. Digital slides from the TCGA cohort can be obtained from https://www.cbioportal.org/. To replicate our full model training, the CSV files with associated annotations are provided in the PROJECTS/UCH_RS and PROJECTS/TCGA_BRCA_ROI directories. Given the non-deterministic nature of some features of training such as dropout, results may vary slightly despite identical training parameters.
