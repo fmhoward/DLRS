@@ -32,52 +32,24 @@ Requirements:
 * IBM's CPLEX 12.10.0 and <a href='https://www.ibm.com/support/knowledgecenter/en/SSSA5P_12.8.0/ilog.odms.cplex.help/CPLEX/GettingStarted/topics/set_up/Python_setup.html'>CPLEX's python API</a>
 
 ## Overview
-Stratification can be performed by loading data from an annotations file into a DataFrame. Stratification can be performed with the following function:
+First, to replicate model results, the datasets file must be configured to navigate to local slide storage and region of interest directories. Additionally, please update the 'PROJECT_ROOT' variable in the model_training.py and model_analysis.py files. 
+
+Slide extraction and model training can be performed by running model_training.py. By default, this will train models with our saved optimal hyperparameters without performing additional hyperparameter search. To run an additional hyperparameter search, pass hpsearch = 'run' to the train_test_models function.
+
 ```python
-def generate(data, category, values, crossfolds = 3, target_column = 'CV3', patient_column = 'submitter_id', site_column = 'SITE', timelimit = 100):
-    ''' Generates 3 site preserved cross folds with optimal stratification of category
-    Input:
-        data: dataframe with slides that must be split into crossfolds.
-        category: the column in data to stratify by
-        values: a list of possible values within category to include for stratification
-        crossfolds: number of crossfolds to split data into
-        target_column: name for target column to contain the assigned crossfolds for each patient in the output dataframe
-        patient_column: column within dataframe indicating unique identifier for patient
-        site_column: column within dataframe indicating designated site for a patient
-        timelimit: maximum time to spend solving
-    Output:
-        dataframe with a new column, 'CV3' that contains values 1 - 3, indicating the assigned crossfold
-    '''
+def train_test_models(hpsearch = 'old', prefix_hpopt = 'hp_new2'):
+    """Extracts tiles to setup all projects
+
+    Parameters
+    ----------
+    hpsearch - whether to perform a hyperparameter search. 'old' - will use saved hyperparameters. 'read' - will read hyperparameters from the model directory. 'run' - will run hyperparameter optimization
+	prefix_hpopt - prefix for models trained under hyperparameter search
+    """   
 ```
 
-## Example
-Please see test.py for example use applied to the accompanying 'example.csv' data file.  In our tests on above hardware, execution of this code takes 0.34 seconds.
-```python
-import preservedsite.crossfolds as cv
-import pandas as pd
-
-data = pd.read_csv("example.csv", dtype=str)
-data = cv.generate(data, "feature", ["A", "B"], crossfolds=3, patient_column='patient', site_column='site')
-```
-
-The resulting segregation of sites into crossfolds is printed as follows, with the appropriate assignment of patients to folds for cross validation appended to the dataframe.
-```
-Crossfold 1: A - 54 B - 251  Sites: ['Site 0', 'Site 7', 'Site 9', 'Site 10', 'Site 11', 'Site 13', 'Site 19', 'Site 28']
-Crossfold 2: A - 54 B - 250  Sites: ['Site 1', 'Site 2', 'Site 4', 'Site 5', 'Site 8', 'Site 14', 'Site 15', 'Site 18', 'Site 20', 'Site 21', 'Site 22', 'Site 23', 'Site 25', 'Site 26', 'Site 30', 'Site 32', 'Site 34', 'Site 36']
-Crossfold 3: A - 54 B - 250  Sites: ['Site 3', 'Site 6', 'Site 12', 'Site 16', 'Site 17', 'Site 24', 'Site 27', 'Site 29', 'Site 31', 'Site 33', 'Site 35', 'Site 37']
-```
-
-<b>Note:</b> <a href="https://www.ibm.com/support/pages/note-reproducibility-cplex-runs">due to the nature of how CPLEX arrives at solutions</a>, slightly different results are expected on different hardware than what is specified above. Unfortunately, testing suggested CPLEX reproducibility parameters such as feasibility tolerance, optimilty tolernace, and Markowitz tolerance still does not ensure identical results on different hardware. Additionally, CPLEX will continue to search for solutions until either it arrives at an optimal solution or a pre-specified time limit is exhausted. This can be set with the timelimit parameter of the generate function above. While in our tests, optimal solutions were achieved in <1 second, it is possible for example code to run for up to 100s by default searching for optimal solutions, depending on the specific hardware used.
+Finally, to generate statistics and figures, run the model_analysis.py file.
 
 ## Reproduction
-To recreate our cross validation setup for <a href="https://www.nature.com/articles/s41467-021-24698-1">our work describing batch effect in TCGA</a>, clinical annotations should be downloaded from https://www.cbioportal.org/ for TCGA datasets for the six cancers of interest. Immune subtype annotations were obtained from the work of <a href="https://pubmed.ncbi.nlm.nih.gov/29628290/">Thorsson et al</a>, and genomic ancestry annotations were obtained from <a href="https://www.cell.com/cancer-cell/pdfExtended/S1535-6108(20)30211-7">Carrot-Zhang et al</a>. The CSV files with annotations from cbioportal can then be loaded into a dataframe as per the above example to generate 3 groups of sites for preserved site cross validation.
-
-To generate the folds used for cross validation, we ran our preserved site cross validation tool for each feature of interest:
-```
-data = cv.generate(data, "ER status", ["Positive", "Negative"], crossfolds=3, patient_column='patient', site_column='site')
-data = cv.generate(data, "BRCA mutation", ["Present", "Absent"], crossfolds=3, patient_column='patient', site_column='site')
-...
-```
-Given the non-deterministic nature of CPLEX, we have included the genereated splits used for our work to allow for replication in the Annotation Files folder.
+To recreate our cross validation setup from publication, please ensure the RUN_FROM_OLD_STATS variable to True in model_analysis.py, which will perform the analysis on saved models. Digital slides from the TCGA cohort can be obtained from https://www.cbioportal.org/. To replicate our full model training, the CSV files with associated annotations are provided in the PROJECTS/UCH_RS and PROJECTS/TCGA_BRCA_ROI directories. Given the non-deterministic nature of some features of training such as dropout, results may vary slightly despite identical training parameters.
 
 
