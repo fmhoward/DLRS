@@ -1,0 +1,13 @@
+{
+ "name": "TCGA_BRCA_ROI",
+ "slideflow_version": "1.11.3",
+ "annotations": "./tumor_roi.csv",
+ "dataset_config": "/mnt/data/fred/slideflow-uq/datasets",
+ "sources": [
+  "TCGA_BRCA_FULL_ROI",
+  "TCGA_BRCA_NORMAL"
+ ],
+ "models_dir": "./models",
+ "mixed_precision": true,
+ "batch_train_config": "./batch_train.tsv"
+}

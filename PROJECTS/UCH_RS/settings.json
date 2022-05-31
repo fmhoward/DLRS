@@ -1,0 +1,13 @@
+{
+ "name": "UCH_BRCA_RS",
+ "slideflow_version": "1.11.3",
+ "annotations": "./tcga_brca_complete.csv",
+ "dataset_config": "/mnt/data/fred/slideflow-uq/datasets.json",
+ "sources": [
+  "TCGA_BRCA_FULL_ROI",
+  "UCH_BRCA_RS"
+ ],
+ "models_dir": "./models",
+ "mixed_precision": true,
+ "batch_train_config": "./batch_train.tsv"
+}

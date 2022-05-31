@@ -1,0 +1,641 @@
+slide,patient,Age,sex,race_1,Spanish_Hispanic_Origin,hist_type,grade,tumor_size,regionalnodespositive,ER,PR,HER2,RS,RSHigh,mpscore,MPHigh,dup_chemo,year_FU,year_recur,recur,dead,lymphvascularinvasion,percent_tiles_positive0_mp,percent_tiles_positive0_odx
+UCH_BRCA_RS_1,UCH_BRCA_RS_1,61,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,40,0,Pos,Pos,Neg,31,H,,,1,15.13757706,15.13757706,0,0,,,-0.025782378
+UCH_BRCA_RS_2,UCH_BRCA_RS_2,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Pos,Pos,Neg,18,L,,,1,10.92676258,10.92676258,0,0,,,-0.022615302
+UCH_BRCA_RS_3,UCH_BRCA_RS_3,72,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,27,0,Pos,Pos,Neg,26,H,,,,14.40109539,14.40109539,0,0,,,-0.38526684
+UCH_BRCA_RS_4,UCH_BRCA_RS_4,51,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,25,L,,,,13.91375732,13.91375732,0,0,,,0.2533264
+UCH_BRCA_RS_5,UCH_BRCA_RS_5,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,19,0,Pos,Pos,Neg,26,H,,,1,14.45858955,14.45858955,0,0,,,-0.11125663
+UCH_BRCA_RS_6,UCH_BRCA_RS_6,64,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Pos,Pos,Neg,8,L,,,,13.99863148,13.99863148,0,0,,,-0.37223074
+UCH_BRCA_RS_7,UCH_BRCA_RS_7,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,15,0,Pos,Pos,Neg,19,L,,,,14.1273098,14.1273098,0,0,,,-0.1806125
+UCH_BRCA_RS_8,UCH_BRCA_RS_8,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,15,L,,,,13.40451717,13.40451717,0,0,,,-0.53614396
+UCH_BRCA_RS_9,UCH_BRCA_RS_9,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,25,0,Pos,Pos,Neg,30,H,,,,9.757699966,9.757699966,0,0,,,-0.39853013
+UCH_BRCA_RS_10,UCH_BRCA_RS_10,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,16,0,Pos,Pos,Neg,15,L,,,,14.28610516,14.28610516,0,0,,,-0.024280129
+UCH_BRCA_RS_11,UCH_BRCA_RS_11,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,28,H,,,,14.18206692,14.18206692,0,0,,,0.15565373
+UCH_BRCA_RS_12,UCH_BRCA_RS_12,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Pos,,27,H,,,,14.81998634,14.81998634,0,0,,,0.1980364
+UCH_BRCA_RS_13,UCH_BRCA_RS_13,53,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,17,L,,,,13.25667381,13.25667381,0,0,,,-0.5296188
+UCH_BRCA_RS_14,UCH_BRCA_RS_14,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,28,0,Pos,Pos,Neg,18,L,,,,14.1273098,14.1273098,0,0,,,-0.05978227
+UCH_BRCA_RS_15,UCH_BRCA_RS_15,34,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,11,0,Pos,Pos,Neg,23,L,,,1,13.43189621,13.43189621,0,0,,,0.21144044
+UCH_BRCA_RS_16,UCH_BRCA_RS_16,45,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,10,0,Pos,Pos,Neg,18,L,,,,14.38740635,14.38740635,0,0,,,-0.6606732
+UCH_BRCA_RS_17,UCH_BRCA_RS_17,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,21,0,Pos,Pos,Neg,13,L,,,,14.06707764,14.06707764,0,0,,,-0.58054334
+UCH_BRCA_RS_18,UCH_BRCA_RS_18,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Tabular,1,13,0,Pos,Pos,Neg,12,L,,,,14.23134804,14.23134804,0,0,,,-0.2447598
+UCH_BRCA_RS_18(2),UCH_BRCA_RS_18,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Tabular,1,13,0,Pos,Pos,Neg,12,L,,,,14.23134804,14.23134804,0,0,,,-0.2447598
+UCH_BRCA_RS_19,UCH_BRCA_RS_19,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Tabular,1,15,0,Pos,Neg,Neg,25,L,,,,12.44353199,2.863791943,1,0,,,-0.40157777
+UCH_BRCA_RS_19(2),UCH_BRCA_RS_19,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Tabular,1,15,0,Pos,Neg,Neg,25,L,,,,12.44353199,2.863791943,1,0,,,-0.40157777
+UCH_BRCA_RS_20,UCH_BRCA_RS_20,45,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,20,0,Pos,Pos,Neg,18,L,,,1,13.48117733,13.48117733,0,0,,,-0.28277022
+UCH_BRCA_RS_21,UCH_BRCA_RS_21,40,2 Female,04 Chinese,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Pos,Pos,22,L,,,,12.55304623,12.55304623,0,0,,,-0.14394784
+UCH_BRCA_RS_22,UCH_BRCA_RS_22,50,2 Female,05 Japanese,0 Non-Spanish; non-Hispanic,Ductal,2,22,0,Pos,Pos,Neg,21,L,,,1,12.6762495,12.6762495,0,0,,,-0.07607288
+UCH_BRCA_RS_23,UCH_BRCA_RS_23,54,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Pos,Pos,Neg,20,L,,,,13.28952789,13.28952789,0,0,,,0.19295317
+UCH_BRCA_RS_24,UCH_BRCA_RS_24,54,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,25,0,Pos,Pos,Neg,21,L,,,1,8.44353199,4.733744144,1,1,,,-0.730854
+UCH_BRCA_RS_25,UCH_BRCA_RS_25,60,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,3,30,0,Pos,Pos,Neg,17,L,,,1,13.66187572,13.66187572,0,0,,,0.3757613
+UCH_BRCA_RS_26,UCH_BRCA_RS_26,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Tabular,1,14,0,Pos,Pos,Neg,11,L,,,1,13.38535213,13.38535213,0,0,,,-0.29061735
+UCH_BRCA_RS_27,UCH_BRCA_RS_27,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,13,0,Pos,Pos,Neg,27,H,,,1,13.49760437,13.49760437,0,0,,,-0.31567436
+UCH_BRCA_RS_28,UCH_BRCA_RS_28,36,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,30,0,Pos,Pos,Neg,19,L,,,1,3.132101297,3.132101297,0,0,,,-0.34666944
+UCH_BRCA_RS_29,UCH_BRCA_RS_29,30,2 Female,"96 Other Asian, including Asian/Oriental, NOS",0 Non-Spanish; non-Hispanic,Ductal,3,26,0,Pos,Pos,Pos,60,H,,,1,13.9548254,13.9548254,0,0,,,0.41523293
+UCH_BRCA_RS_30,UCH_BRCA_RS_30,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,20,0,Pos,Pos,Neg,24,L,,,,14.05886364,14.05886364,0,0,,,-0.39861032
+UCH_BRCA_RS_31,UCH_BRCA_RS_31,68,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,22,0,Pos,Pos,Neg,16,L,,,,14.09171772,14.09171772,0,0,,,-0.21967566
+UCH_BRCA_RS_32,UCH_BRCA_RS_32,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,19,0,Pos,Pos,Neg,33,H,,,1,6.308008194,4.021903038,1,1,,,0.02888125
+UCH_BRCA_RS_33,UCH_BRCA_RS_33,36,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,25,0,Pos,Pos,Neg,30,H,,,1,14.0451746,14.0451746,0,0,,,0.1639819
+UCH_BRCA_RS_34,UCH_BRCA_RS_34,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,17,0,Pos,Pos,Neg,15,L,,,,12.38056087,12.38056087,0,0,,,-0.45337805
+UCH_BRCA_RS_35,UCH_BRCA_RS_35,72,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,23,0,Pos,Pos,Neg,23,L,,,,12.27926064,12.27926064,0,0,,,-0.45384866
+UCH_BRCA_RS_36,UCH_BRCA_RS_36,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,10,98,Pos,Pos,Neg,25,L,,,1,12.65708447,12.65708447,0,0,,,-0.10543385
+UCH_BRCA_RS_37,UCH_BRCA_RS_37,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Neg,Neg,28,H,,,,12.19986343,12.19986343,0,0,,,-0.22696331
+UCH_BRCA_RS_38,UCH_BRCA_RS_38,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,18,0,Pos,Pos,Neg,9,L,,,,12.55304623,12.55304623,0,0,,,-0.44910932
+UCH_BRCA_RS_39,UCH_BRCA_RS_39,39,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Pos,Pos,Neg,25,L,,,1,12.85694695,12.85694695,0,0,,,0.43146434
+UCH_BRCA_RS_40,UCH_BRCA_RS_40,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,15,0,Pos,Pos,Neg,30,H,,,1,12.90896606,12.90896606,0,0,,,0.16281468
+UCH_BRCA_RS_41,UCH_BRCA_RS_41,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,27,0,Pos,Pos,Neg,46,H,,,1,12.82135487,10.23134804,1,0,,,0.11784813
+UCH_BRCA_RS_42,UCH_BRCA_RS_42,58,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Pos,Neg,19,L,,,1,11.35112953,11.35112953,0,0,,,-0.47189873
+UCH_BRCA_RS_43,UCH_BRCA_RS_43,45,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,20,0,Pos,Pos,Neg,17,L,,,,12.45722103,12.45722103,0,0,,,-0.42258722
+UCH_BRCA_RS_44,UCH_BRCA_RS_44,42,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,45,2,Pos,Pos,Neg,14,L,,,1,12.22450352,12.22450352,0,0,,,-0.29039744
+UCH_BRCA_RS_45,UCH_BRCA_RS_45,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,24,L,,,,1.804243684,1.804243684,0,1,,,-0.4281401
+UCH_BRCA_RS_46,UCH_BRCA_RS_46,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Neg,Pos,Neg,22,L,,,,12.50376415,12.50376415,0,0,,,-0.16541047
+UCH_BRCA_RS_47,UCH_BRCA_RS_47,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,14,0,Pos,Pos,Neg,24,L,,,1,13.21012974,13.21012974,0,0,,,-0.61297995
+UCH_BRCA_RS_48,UCH_BRCA_RS_48,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Pos,Neg,17,L,,,,12.41889095,12.41889095,0,0,,,-0.12653986
+UCH_BRCA_RS_49,UCH_BRCA_RS_49,56,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,5,0,Pos,Pos,Neg,34,H,,,,10.87748146,10.87748146,0,0,,,0.196809
+UCH_BRCA_RS_50,UCH_BRCA_RS_50,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,18,0,Pos,Pos,Neg,14,L,,,,10.17111588,10.17111588,0,0,,,-0.5129683
+UCH_BRCA_RS_51,UCH_BRCA_RS_51,40,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,11,0,Pos,Pos,Neg,12,L,,,,12.52840519,12.52840519,0,0,,,0.054739613
+UCH_BRCA_RS_52,UCH_BRCA_RS_52,54,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,66,0,Pos,Pos,Neg,14,L,,,,0.629705667,0.629705667,0,1,,,-0.5492323
+UCH_BRCA_RS_53,UCH_BRCA_RS_53,60,2 Female,01 White,1 Mexican (includes Chicano),D&L,2,15,0,Pos,Pos,Neg,8,L,,,,11.96440792,11.96440792,0,0,,,0.1243715
+UCH_BRCA_RS_54,UCH_BRCA_RS_54,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,27,0,Pos,Pos,Neg,32,H,,,1,12.33675575,12.33675575,0,0,,,-0.25379115
+UCH_BRCA_RS_55,UCH_BRCA_RS_55,45,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,0,Pos,Pos,Neg,17,L,,,,3.457905531,3.457905531,0,0,,,-0.1400404
+UCH_BRCA_RS_56,UCH_BRCA_RS_56,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,28,H,,,,12.46817207,12.46817207,0,0,,,-0.022243952
+UCH_BRCA_RS_56 (2),UCH_BRCA_RS_56,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,28,H,,,,12.46817207,12.46817207,0,0,,,-0.022243952
+UCH_BRCA_RS_57,UCH_BRCA_RS_57,57,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,25,0,Pos,Pos,Neg,24,L,,,,7.069130898,7.069130898,0,0,0,,-0.12826535
+UCH_BRCA_RS_58,UCH_BRCA_RS_58,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Pos,Neg,19,L,,,,12.1724844,12.1724844,0,0,,,-0.6087343
+UCH_BRCA_RS_59,UCH_BRCA_RS_59,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,16,0,Pos,Pos,Neg,20,L,,,,12.94729614,12.94729614,0,0,,,-0.13198213
+UCH_BRCA_RS_60,UCH_BRCA_RS_60,36,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,11,L,,,,13.18001366,13.18001366,0,0,,,-0.522612
+UCH_BRCA_RS_61,UCH_BRCA_RS_61,54,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,5,0,Pos,Neg,Neg,12,L,,,,8.733743668,5.790554523,1,1,,,-0.42105287
+UCH_BRCA_RS_62,UCH_BRCA_RS_62,42,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,24,L,,,1,8.952772141,8.952772141,0,0,,,0.061109107
+UCH_BRCA_RS_63,UCH_BRCA_RS_63,49,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,17,0,Pos,Pos,Neg,21,L,,,,12.59958935,12.59958935,0,0,,,-0.037861075
+UCH_BRCA_RS_64,UCH_BRCA_RS_64,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,21,0,Pos,Pos,Neg,15,L,,,,13.16906261,13.16906261,0,0,,,-0.6324032
+UCH_BRCA_RS_65,UCH_BRCA_RS_65,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,16,0,Pos,Pos,Neg,34,H,,,1,12.75564671,12.75564671,0,0,,,-0.53953654
+UCH_BRCA_RS_66,UCH_BRCA_RS_66,41,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,9,0,Pos,Pos,Neg,18,L,,,,13.23477077,13.23477077,0,0,,,-0.031989913
+UCH_BRCA_RS_67,UCH_BRCA_RS_67,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,8,0,Pos,Pos,Neg,8,L,,,,12.99384022,12.99384022,0,0,,,-0.24205601
+UCH_BRCA_RS_68,UCH_BRCA_RS_68,65,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,30,0,Pos,Pos,Neg,27,H,,,,11.12388802,11.12388802,0,0,,,0.22025363
+UCH_BRCA_RS_69,UCH_BRCA_RS_69,69,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,12,0,Pos,Neg,Neg,28,H,,,1,4.303901672,4.303901672,0,1,,,-0.2792832
+UCH_BRCA_RS_70,UCH_BRCA_RS_70,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,16,0,Pos,Pos,Neg,11,L,,,,11.39219666,11.39219666,0,0,,,-0.49066535
+UCH_BRCA_RS_70 (2),UCH_BRCA_RS_70,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,16,0,Pos,Pos,Neg,11,L,,,,11.39219666,11.39219666,0,0,,,-0.49066535
+UCH_BRCA_RS_71,UCH_BRCA_RS_71,72,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,27,0,Pos,Pos,Neg,5,L,,,,11.63860416,11.63860416,0,0,,,0.37555456
+UCH_BRCA_RS_72,UCH_BRCA_RS_72,72,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,27,98,Pos,Neg,Neg,20,L,,,,10.85284042,10.85284042,0,0,,,0.24276191
+UCH_BRCA_RS_73,UCH_BRCA_RS_73,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,20,L,,,,11.41957569,11.41957569,0,0,,,0.5625416
+UCH_BRCA_RS_74,UCH_BRCA_RS_74,63,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,19,0,Pos,Pos,Neg,18,L,,,1,11.69609833,11.69609833,0,0,,,-0.43391025
+UCH_BRCA_RS_75,UCH_BRCA_RS_75,58,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,2,21,1,Pos,Pos,Neg,9,L,,,,3.45516777,3.263518095,1,1,,,-0.17579788
+UCH_BRCA_RS_76,UCH_BRCA_RS_76,62,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,2,18,2,Pos,Pos,Neg,23,L,,,,2.135523558,2.135523558,0,0,,,-0.18701945
+UCH_BRCA_RS_77,UCH_BRCA_RS_77,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,15,0,Pos,Pos,Neg,9,L,,,,10.29158115,10.29158115,0,0,,,0.18061318
+UCH_BRCA_RS_78,UCH_BRCA_RS_78,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,15,0,Pos,Pos,Neg,14,L,,,,11.47980881,11.47980881,0,0,,,0.23084135
+UCH_BRCA_RS_79,UCH_BRCA_RS_79,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,Others,2,16,0,Pos,Pos,Neg,9,L,,,,10.72963715,10.72963715,0,0,,,-0.1447041
+UCH_BRCA_RS_80,UCH_BRCA_RS_80,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Neg,Neg,39,H,,,1,11.63586617,10.28336716,1,0,,,-0.52201563
+UCH_BRCA_RS_81,UCH_BRCA_RS_81,60,2 Female,06 Filipino,0 Non-Spanish; non-Hispanic,Lobular,2,38,98,Pos,Pos,Neg,22,L,,,,10.26420307,10.26420307,0,0,,,-0.41562834
+UCH_BRCA_RS_82,UCH_BRCA_RS_82,37,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,150,0,Pos,Pos,Neg,13,L,,,,10.98699474,3.01711154,1,0,,,-0.15200925
+UCH_BRCA_RS_83,UCH_BRCA_RS_83,58,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,6,98,Pos,Pos,Neg,5,L,,,,10.11362076,10.11362076,0,0,,,-0.009673683
+UCH_BRCA_RS_84,UCH_BRCA_RS_84,49,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,9,0,Pos,Pos,Neg,20,L,,,,11.37029457,11.37029457,0,0,,,-0.52754575
+UCH_BRCA_RS_85,UCH_BRCA_RS_85,64,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,2,16,0,Pos,Pos,Neg,20,L,,,,6.099931717,6.099931717,0,1,,,-0.20334367
+UCH_BRCA_RS_86,UCH_BRCA_RS_86,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Pos,Neg,9,L,,,,12.2573576,12.2573576,0,0,,,-0.3711146
+UCH_BRCA_RS_87,UCH_BRCA_RS_87,69,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,0,Pos,Pos,Neg,10,L,,,,11.96440792,11.96440792,0,0,,,-0.28996122
+UCH_BRCA_RS_88,UCH_BRCA_RS_88,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,23,0,Pos,Pos,Neg,18,L,,,,11.84941864,11.84941864,0,0,,,-0.20827052
+UCH_BRCA_RS_89,UCH_BRCA_RS_89,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,25,0,Pos,Pos,Neg,14,L,,,,11.86310768,11.86310768,0,0,,,-0.48061237
+UCH_BRCA_RS_90,UCH_BRCA_RS_90,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,25,0,Pos,Pos,Neg,18,L,,,,10.30800819,10.30800819,0,0,,,-0.51184624
+UCH_BRCA_RS_91,UCH_BRCA_RS_91,67,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,41,0,Pos,Pos,Neg,9,L,,,,11.94798088,11.94798088,0,0,,,-0.44132766
+UCH_BRCA_RS_92,UCH_BRCA_RS_92,48,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,27,H,,,1,11.95893192,11.95893192,0,0,,,-0.41754487
+UCH_BRCA_RS_93,UCH_BRCA_RS_93,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,9,L,,,,11.73442841,11.73442841,0,0,,,-0.5567458
+UCH_BRCA_RS_94,UCH_BRCA_RS_94,51,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,25,0,Pos,Pos,Neg,25,L,,,,9.886379242,9.886379242,0,1,,,-0.4331903
+UCH_BRCA_RS_95,UCH_BRCA_RS_95,54,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Pos,12,L,,,,10.90485954,10.90485954,0,0,0,,-0.2809485
+UCH_BRCA_RS_96,UCH_BRCA_RS_96,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,22,L,,,,10.61464787,10.61464787,0,0,0,,-0.5944213
+UCH_BRCA_RS_97,UCH_BRCA_RS_97,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,58,0,Pos,Pos,Neg,12,L,,,,10.8090353,10.8090353,0,0,,,0.005681926
+UCH_BRCA_RS_98,UCH_BRCA_RS_98,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,18,0,Pos,Pos,Neg,21,L,,,,10.76796722,10.76796722,0,1,,,-0.20572117
+UCH_BRCA_RS_99,UCH_BRCA_RS_99,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Others,2,23,10,Pos,Pos,Neg,18,L,,,1,10.68583202,10.68583202,0,0,1,,-0.41123915
+UCH_BRCA_RS_99 (2),UCH_BRCA_RS_99,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Others,2,23,10,Pos,Pos,Neg,18,L,,,1,10.68583202,10.68583202,0,0,1,,-0.41123915
+UCH_BRCA_RS_100,UCH_BRCA_RS_100,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,22,0,Pos,Pos,Neg,16,L,,,,10.62559891,10.62559891,0,0,0,,-0.30749887
+UCH_BRCA_RS_101,UCH_BRCA_RS_101,55,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,10,1,Pos,Pos,Neg,19,L,,,1,10.62012291,10.62012291,0,0,0,,-0.09633368
+UCH_BRCA_RS_102,UCH_BRCA_RS_102,72,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,44,0,Pos,Pos,Neg,5,L,,,,3.49075985,3.49075985,0,1,9,,-0.7221552
+UCH_BRCA_RS_103,UCH_BRCA_RS_103,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,1,15,0,Pos,Pos,Neg,6,L,,,,10.48870659,10.48870659,0,0,0,,-0.29451653
+UCH_BRCA_RS_103 (2),UCH_BRCA_RS_103,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,1,15,0,Pos,Pos,Neg,6,L,,,,10.48870659,10.48870659,0,0,0,,-0.29451653
+UCH_BRCA_RS_103 (3),UCH_BRCA_RS_103,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,1,15,0,Pos,Pos,Neg,6,L,,,,10.48870659,10.48870659,0,0,0,,-0.29451653
+UCH_BRCA_RS_104,UCH_BRCA_RS_104,71,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Others,1,19,0,Pos,Pos,Neg,18,L,,,,10.52977371,10.52977371,0,0,1,,-0.26814538
+UCH_BRCA_RS_105,UCH_BRCA_RS_105,40,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,15,0,Neg,Neg,Pos,59,H,,,1,11.89048576,11.89048576,0,0,,,-0.015665915
+UCH_BRCA_RS_106,UCH_BRCA_RS_106,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,28,0,Pos,Pos,Neg,28,H,,,1,9.566050529,9.566050529,0,0,9,,0.23886387
+UCH_BRCA_RS_107,UCH_BRCA_RS_107,50,2 Female,10 Vietnamese,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,13,L,,,,10.36824131,10.36824131,0,0,1,,-0.40202692
+UCH_BRCA_RS_108,UCH_BRCA_RS_108,72,2 Female,99 Unknown,9 Unknown whether Spanish or not; not stated in pt record,Ductal,2,28,0,Pos,Pos,Neg,0,L,,,,10.40109539,10.40109539,0,0,0,,0.002891041
+UCH_BRCA_RS_109,UCH_BRCA_RS_109,59,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,32,0,Pos,Pos,Neg,12,L,,,,11.23066425,11.23066425,0,0,,,-0.53689307
+UCH_BRCA_RS_109 (2),UCH_BRCA_RS_109,59,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,32,0,Pos,Pos,Neg,12,L,,,,11.23066425,11.23066425,0,0,,,-0.53689307
+UCH_BRCA_RS_109 (3),UCH_BRCA_RS_109,59,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,32,0,Pos,Pos,Neg,12,L,,,,11.23066425,11.23066425,0,0,,,-0.53689307
+UCH_BRCA_RS_110,UCH_BRCA_RS_110,64,1 Male,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,30,0,Pos,Pos,,11,L,,,,10.85831642,10.85831642,0,0,0,,-0.32414657
+UCH_BRCA_RS_111,UCH_BRCA_RS_111,47,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,9,0,Pos,Pos,Neg,17,L,,,,6.110882759,6.110882759,0,0,,,-0.52290636
+UCH_BRCA_RS_111 (2),UCH_BRCA_RS_111,47,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,9,0,Pos,Pos,Neg,17,L,,,,6.110882759,6.110882759,0,0,,,-0.52290636
+UCH_BRCA_RS_111 (3),UCH_BRCA_RS_111,47,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,9,0,Pos,Pos,Neg,17,L,,,,6.110882759,6.110882759,0,0,,,-0.52290636
+UCH_BRCA_RS_112,UCH_BRCA_RS_112,55,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,27,1,Pos,Pos,Neg,8,L,,,,11.32922649,11.32922649,0,0,1,,-0.41843417
+UCH_BRCA_RS_112 (2),UCH_BRCA_RS_112,55,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,27,1,Pos,Pos,Neg,8,L,,,,11.32922649,11.32922649,0,0,1,,-0.41843417
+UCH_BRCA_RS_112 (3),UCH_BRCA_RS_112,55,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,27,1,Pos,Pos,Neg,8,L,,,,11.32922649,11.32922649,0,0,1,,-0.41843417
+UCH_BRCA_RS_113,UCH_BRCA_RS_113,55,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Tabular,1,13,0,Pos,Pos,Neg,8,L,,,,11.11841202,11.11841202,0,0,0,,-0.4955614
+UCH_BRCA_RS_114,UCH_BRCA_RS_114,63,2 Female,01 White,9 Unknown whether Spanish or not; not stated in pt record,D&L,2,21,0,Pos,Pos,Neg,23,L,,,,9.949349403,9.949349403,0,0,0,,0.2395205
+UCH_BRCA_RS_115,UCH_BRCA_RS_115,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,3,26,0,Pos,Pos,Neg,30,H,,,1,9.686515808,9.686515808,0,0,,,-0.19014585
+UCH_BRCA_RS_115 (2),UCH_BRCA_RS_115,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,3,26,0,Pos,Pos,Neg,30,H,,,1,9.686515808,9.686515808,0,0,,,-0.19014585
+UCH_BRCA_RS_116,UCH_BRCA_RS_116,48,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,2,16,1,Pos,Pos,Neg,12,L,,,,5.763175964,5.763175964,0,1,1,,-0.49143192
+UCH_BRCA_RS_117,UCH_BRCA_RS_117,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,20,0,Pos,Pos,Neg,28,H,,,1,5.716632366,5.716632366,0,0,1,,-0.36978045
+UCH_BRCA_RS_118,UCH_BRCA_RS_118,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,15,0,Pos,Pos,Neg,4,L,,,,10.17385387,10.17385387,0,0,0,,-0.45132914
+UCH_BRCA_RS_119,UCH_BRCA_RS_119,56,2 Female,04 Chinese,0 Non-Spanish; non-Hispanic,Ductal,2,41,0,Pos,Pos,Neg,27,H,,,1,5.095140457,4.845995903,1,1,0,,0.048735082
+UCH_BRCA_RS_120,UCH_BRCA_RS_120,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Neg,Neg,20,L,,,,9.790554047,9.790554047,0,0,0,,-0.6403452
+UCH_BRCA_RS_120 (2),UCH_BRCA_RS_120,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Neg,Neg,20,L,,,,9.790554047,9.790554047,0,0,0,,-0.6403452
+UCH_BRCA_RS_120 (3),UCH_BRCA_RS_120,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Neg,Neg,20,L,,,,9.790554047,9.790554047,0,0,0,,-0.6403452
+UCH_BRCA_RS_120 (4),UCH_BRCA_RS_120,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Neg,Neg,20,L,,,,9.790554047,9.790554047,0,0,0,,-0.6403452
+UCH_BRCA_RS_121,UCH_BRCA_RS_121,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,0,Pos,Pos,Neg,10,L,,,,9.905544281,9.905544281,0,0,0,,0.21422185
+UCH_BRCA_RS_122,UCH_BRCA_RS_122,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,30,2,Pos,Pos,Neg,9,L,,,,9.670088768,9.670088768,0,0,0,,-0.6910826
+UCH_BRCA_RS_123,UCH_BRCA_RS_123,45,2 Female,08 Korean,0 Non-Spanish; non-Hispanic,Ductal,2,22,0,Pos,Pos,Neg,20,L,,,,9.774127007,9.774127007,0,0,0,,0.24540432
+UCH_BRCA_RS_124,UCH_BRCA_RS_124,74,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,17,0,Pos,Pos,Neg,25,L,,,,10.2997942,10.2997942,0,0,0,,-0.080994524
+UCH_BRCA_RS_125,UCH_BRCA_RS_125,69,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,17,1,Pos,Pos,Neg,18,L,,,,9.744010925,9.744010925,0,0,9,,-0.19486617
+UCH_BRCA_RS_126,UCH_BRCA_RS_126,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,2,Pos,Pos,Neg,12,L,,,,8.04928112,8.04928112,0,0,1,,-0.25085023
+UCH_BRCA_RS_127,UCH_BRCA_RS_127,64,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,22,0,Pos,Neg,Neg,18,L,,,,9.494866371,9.494866371,0,0,0,,-0.2109041
+UCH_BRCA_RS_128,UCH_BRCA_RS_128,58,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Ductal,2,19,0,Pos,Pos,Neg,4,L,,,,8.88706398,8.88706398,0,0,0,,-0.41761798
+UCH_BRCA_RS_129,UCH_BRCA_RS_129,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Neg,Neg,20,L,,,,9.667350769,9.667350769,0,0,0,,-0.47326294
+UCH_BRCA_RS_130,UCH_BRCA_RS_130,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,11,0,Pos,Pos,Neg,17,L,,,,9.51403141,9.51403141,0,0,0,,-0.49802634
+UCH_BRCA_RS_131,UCH_BRCA_RS_131,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,18,1,Pos,Pos,Neg,6,L,,,,9.801506042,9.801506042,0,0,1,,0.20339724
+UCH_BRCA_RS_132,UCH_BRCA_RS_132,41,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,9,1,Pos,Pos,Neg,27,H,,,1,9.527720451,9.527720451,0,0,0,,0.2285497
+UCH_BRCA_RS_133,UCH_BRCA_RS_133,76,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,35,0,Pos,Pos,Neg,33,H,,,,4.848733902,2.332648754,1,1,0,,-0.38312274
+UCH_BRCA_RS_134,UCH_BRCA_RS_134,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,22,0,Pos,Pos,Neg,16,L,,,,7.94250536,7.94250536,0,0,0,,-0.46657512
+UCH_BRCA_RS_135,UCH_BRCA_RS_135,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,0,Pos,Pos,Neg,19,L,,,,4.224503994,4.224503994,0,0,0,,-0.31730062
+UCH_BRCA_RS_136,UCH_BRCA_RS_136,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,0,Pos,Pos,Neg,9,L,,,,9.270362854,9.270362854,0,0,0,,-0.44726253
+UCH_BRCA_RS_137,UCH_BRCA_RS_137,63,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,11,0,Pos,Pos,Neg,15,L,,,,9.51403141,9.51403141,0,0,0,,-0.4972944
+UCH_BRCA_RS_138,UCH_BRCA_RS_138,40,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,7,0,Pos,Pos,Neg,13,L,,,,9.587953568,9.587953568,0,0,0,,-0.41003892
+UCH_BRCA_RS_139,UCH_BRCA_RS_139,45,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,28,0,Neg,Neg,Neg,25,L,,,1,8.783025742,8.783025742,0,0,0,,-0.13390794
+UCH_BRCA_RS_140,UCH_BRCA_RS_140,69,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,28,0,Pos,Pos,Neg,11,L,,,,9.453798294,9.453798294,0,0,0,,-0.4446284
+UCH_BRCA_RS_141,UCH_BRCA_RS_141,74,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Pos,Pos,Neg,7,L,,,,9.377139091,9.377139091,0,0,0,,-0.22915676
+UCH_BRCA_RS_142,UCH_BRCA_RS_142,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,90,3,Pos,Pos,Neg,4,L,,,,8.621492386,8.621492386,0,0,1,,-0.19276893
+UCH_BRCA_RS_143,UCH_BRCA_RS_143,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,45,0,Pos,Pos,Neg,8,L,,,,8.980150223,8.980150223,0,0,0,,-0.61023444
+UCH_BRCA_RS_144,UCH_BRCA_RS_144,75,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,67,0,Pos,Pos,Neg,9,L,,,,8.06570816,8.06570816,0,1,0,,-0.6733788
+UCH_BRCA_RS_145,UCH_BRCA_RS_145,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,15,0,Pos,Pos,Neg,11,L,,,,9.278575897,9.278575897,0,0,1,,-0.2771073
+UCH_BRCA_RS_145 (2),UCH_BRCA_RS_145,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,15,0,Pos,Pos,Neg,11,L,,,,9.278575897,9.278575897,0,0,1,,-0.2771073
+UCH_BRCA_RS_146,UCH_BRCA_RS_146,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Pos,Pos,Neg,8,L,,,,9.002053261,9.002053261,0,0,0,,0.026990904
+UCH_BRCA_RS_147,UCH_BRCA_RS_147,60,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,21,L,,,,9.084188461,9.084188461,0,0,0,,-0.07593527
+UCH_BRCA_RS_148,UCH_BRCA_RS_148,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,12,1,Pos,Pos,Neg,6,L,,,,10.20396996,10.20396996,0,0,0,,-0.011175322
+UCH_BRCA_RS_149,UCH_BRCA_RS_149,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,25,0,Pos,Pos,Neg,31,H,,,1,7.852156162,7.852156162,0,0,0,,0.050688315
+UCH_BRCA_RS_149  (2,UCH_BRCA_RS_149,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,25,0,Pos,Pos,Neg,31,H,,,1,7.852156162,7.852156162,0,0,0,,0.050688315
+UCH_BRCA_RS_150,UCH_BRCA_RS_150,65,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,8,0,Pos,Pos,Neg,30,H,,,1,9.333333015,9.333333015,0,0,0,,0.45763353
+UCH_BRCA_RS_151,UCH_BRCA_RS_151,45,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,23,0,Pos,Pos,Neg,20,L,,,1,8.50924015,8.50924015,0,0,0,,0.28431797
+UCH_BRCA_RS_152,UCH_BRCA_RS_152,61,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,2,13,0,Pos,Pos,Neg,25,L,,,1,10.214921,10.214921,0,0,0,,-0.14223973
+UCH_BRCA_RS_153,UCH_BRCA_RS_153,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,13,0,Pos,Pos,Neg,13,L,,,,9.678302765,9.678302765,0,0,0,,-0.3414399
+UCH_BRCA_RS_154,UCH_BRCA_RS_154,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,11,0,Pos,Pos,Neg,15,L,,,,9.527720451,9.527720451,0,0,0,,-0.51101685
+UCH_BRCA_RS_155,UCH_BRCA_RS_155,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Others,1,26,0,Pos,Pos,Neg,24,L,,,,10.20123196,4.396988392,1,0,0,,-0.17230135
+UCH_BRCA_RS_156,UCH_BRCA_RS_156,68,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,30,0,Pos,Pos,Neg,29,H,,,1,10.17111588,10.17111588,0,0,1,,0.14989077
+UCH_BRCA_RS_157,UCH_BRCA_RS_157,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,0,L,,,,8.780287743,8.780287743,0,0,0,,-0.343721
+UCH_BRCA_RS_158,UCH_BRCA_RS_158,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,24,1,Pos,Neg,Neg,28,H,,,1,8.328541756,8.328541756,0,0,0,,-0.19372706
+UCH_BRCA_RS_159,UCH_BRCA_RS_159,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,8,0,Pos,Pos,Neg,0,L,,,,6.124572277,6.124572277,0,0,1,,0.20788041
+UCH_BRCA_RS_160,UCH_BRCA_RS_160,65,1 Male,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Pos,11,L,,,,8.402463913,8.402463913,0,0,0,,0.356919
+UCH_BRCA_RS_161,UCH_BRCA_RS_161,34,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,45,1,Neg,Neg,Neg,20,L,,,1,17.68103981,17.68103981,0,0,,,-0.03051327
+UCH_BRCA_RS_162,UCH_BRCA_RS_162,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,8,1,Pos,Pos,Neg,22,L,,,1,8.37782383,8.37782383,0,0,1,,0.3293769
+UCH_BRCA_RS_163,UCH_BRCA_RS_163,65,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,3,28,1,Pos,Pos,Neg,33,H,,,1,8.845995903,8.845995903,0,0,1,,0.63642585
+UCH_BRCA_RS_164,UCH_BRCA_RS_164,74,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,1,Pos,Neg,Neg,14,L,,,1,7.05544138,7.05544138,0,0,1,,0.07679151
+UCH_BRCA_RS_165,UCH_BRCA_RS_165,49,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,D&L,2,20,0,Pos,Pos,Pos,16,L,,,1,8.54483223,8.54483223,0,0,0,,-0.50282854
+UCH_BRCA_RS_166,UCH_BRCA_RS_166,51,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Pos,Pos,Neg,27,H,,,1,8.648870468,8.648870468,0,0,0,,-0.32415468
+UCH_BRCA_RS_167,UCH_BRCA_RS_167,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,19,0,Pos,Neg,Neg,58,H,,,,4.128678799,4.128678799,0,0,1,,0.16259694
+UCH_BRCA_RS_168,UCH_BRCA_RS_168,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,3,16,3,Pos,Pos,Neg,9,L,,,1,8.698151588,8.698151588,0,0,0,,-0.5597192
+UCH_BRCA_RS_169,UCH_BRCA_RS_169,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,87,0,Pos,Pos,Neg,8,L,,,,8.761122704,8.761122704,0,0,0,,0.041893028
+UCH_BRCA_RS_170,UCH_BRCA_RS_170,71,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,8,0,Pos,Pos,Neg,14,L,,,,6.743326664,1.232032895,1,1,1,,-0.16721997
+UCH_BRCA_RS_171,UCH_BRCA_RS_171,45,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,8,0,Pos,Pos,Neg,8,L,,,,8.383298874,8.383298874,0,0,0,,0.2638868
+UCH_BRCA_RS_172,UCH_BRCA_RS_172,69,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,15,0,Pos,Pos,Neg,16,L,,,,8.648870468,8.648870468,0,0,0,,-0.43867457
+UCH_BRCA_RS_173,UCH_BRCA_RS_173,34,2 Female,99 Unknown,9 Unknown whether Spanish or not; not stated in pt record,Ductal,1,30,0,Pos,Pos,Neg,14,L,,,1,14.96783066,7.45516777,1,0,,,-0.29192552
+UCH_BRCA_RS_174,UCH_BRCA_RS_174,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,12,0,Pos,Pos,Neg,12,L,,,,4.736481667,4.736481667,0,1,0,,-0.34796494
+UCH_BRCA_RS_175,UCH_BRCA_RS_175,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,2,Pos,Pos,Neg,10,L,,,,8.673511505,8.673511505,0,0,1,,-0.30952093
+UCH_BRCA_RS_175 (2),UCH_BRCA_RS_175,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,2,Pos,Pos,Neg,10,L,,,,8.673511505,8.673511505,0,0,1,,-0.30952093
+UCH_BRCA_RS_175 (3),UCH_BRCA_RS_175,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,2,Pos,Pos,Neg,10,L,,,,8.673511505,8.673511505,0,0,1,,-0.30952093
+UCH_BRCA_RS_176,UCH_BRCA_RS_176,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,11,0,Pos,Pos,Neg,26,H,,,,8.517454147,3.151266336,1,0,0,,0.13159591
+UCH_BRCA_RS_177,UCH_BRCA_RS_177,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Neg,Neg,27,H,,,1,7.912388802,7.912388802,0,0,0,,-0.20986447
+UCH_BRCA_RS_178,UCH_BRCA_RS_178,83,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,12,1,Pos,Pos,Neg,26,H,,,,8.772073746,8.772073746,0,0,1,,0.2608309
+UCH_BRCA_RS_179,UCH_BRCA_RS_179,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,86,1,Pos,Pos,Neg,13,L,,,,7.362080574,7.362080574,0,0,,,-0.6618369
+UCH_BRCA_RS_180,UCH_BRCA_RS_180,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,2,Pos,Pos,Neg,23,L,,,,8.673511505,8.673511505,0,0,1,,-0.30952093
+UCH_BRCA_RS_181,UCH_BRCA_RS_181,74,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,19,1,Pos,Pos,Neg,6,L,,,,9.264886856,9.264886856,0,0,1,,-0.022505343
+UCH_BRCA_RS_182,UCH_BRCA_RS_182,56,2 Female,"03 American Indian, Aleutian, or Eskimo",0 Non-Spanish; non-Hispanic,D&L,2,18,1,Pos,Pos,Neg,8,L,,,,8.112252235,8.112252235,0,0,0,,-0.43131763
+UCH_BRCA_RS_183,UCH_BRCA_RS_183,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,1,13,0,Pos,Pos,Neg,18,L,,,,7.241615295,7.241615295,0,0,0,,-0.48081282
+UCH_BRCA_RS_184,UCH_BRCA_RS_184,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,12,98,Neg,Neg,Neg,54,H,,,1,5.366187572,5.366187572,0,0,0,,0.46729553
+UCH_BRCA_RS_185,UCH_BRCA_RS_185,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Others,2,10,0,Pos,Pos,Neg,17,L,,,,8.547570229,8.547570229,0,0,0,,0.07687708
+UCH_BRCA_RS_186,UCH_BRCA_RS_186,59,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,25,0,Pos,Pos,Neg,22,L,,,,8.465435028,8.465435028,0,0,0,,-0.32408875
+UCH_BRCA_RS_187,UCH_BRCA_RS_187,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,49,0,Pos,Pos,Neg,13,L,,,,1.245722055,1.245722055,0,0,0,,-0.6423692
+UCH_BRCA_RS_188,UCH_BRCA_RS_188,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Pos,Pos,Neg,17,L,,,,8.479124069,8.479124069,0,0,1,,0.10782184
+UCH_BRCA_RS_189,UCH_BRCA_RS_189,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,20,0,Pos,Pos,Neg,42,H,,,1,7.093771458,4.188911915,1,1,1,,0.24770093
+UCH_BRCA_RS_190,UCH_BRCA_RS_190,55,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,25,1,Pos,Neg,Neg,18,L,,,,8.416152954,8.416152954,0,0,0,,-0.49720553
+UCH_BRCA_RS_191,UCH_BRCA_RS_191,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,35,0,Pos,Pos,Neg,17,L,,,,7.638603687,7.638603687,0,0,1,,-0.3659062
+UCH_BRCA_RS_192,UCH_BRCA_RS_192,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,19,0,Pos,Pos,Neg,16,L,,,,6.776180744,6.776180744,0,0,0,,-0.57643795
+UCH_BRCA_RS_193,UCH_BRCA_RS_193,42,2 Female,"96 Other Asian, including Asian/Oriental, NOS",0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Pos,Pos,Neg,14,L,,,,7.44695425,7.44695425,0,0,1,,-0.2293707
+UCH_BRCA_RS_194,UCH_BRCA_RS_194,63,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Neg,Neg,48,H,,,1,9.147159576,9.147159576,0,0,1,,0.09423283
+UCH_BRCA_RS_195,UCH_BRCA_RS_195,69,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,79,2,Pos,Pos,Neg,18,L,,,,9.141683578,9.141683578,0,0,0,,0.25510618
+UCH_BRCA_RS_196,UCH_BRCA_RS_196,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Metaplasia,3,35,98,Neg,Neg,Neg,17,L,,,1,0.761122525,0.52840519,1,1,0,,-0.2778296
+UCH_BRCA_RS_197,UCH_BRCA_RS_197,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,20,0,Pos,Pos,Neg,11,L,,,,8.955510139,8.955510139,0,0,1,,-0.5523196
+UCH_BRCA_RS_198,UCH_BRCA_RS_198,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,25,0,Pos,Pos,Neg,6,L,,,,8.996577263,8.996577263,0,0,0,,-0.55115914
+UCH_BRCA_RS_198 (2),UCH_BRCA_RS_198,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,25,0,Pos,Pos,Neg,6,L,,,,8.996577263,8.996577263,0,0,0,,-0.55115914
+UCH_BRCA_RS_198 (3),UCH_BRCA_RS_198,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,1,25,0,Pos,Pos,Neg,6,L,,,,8.996577263,8.996577263,0,0,0,,-0.55115914
+UCH_BRCA_RS_199,UCH_BRCA_RS_199,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,4,0,Pos,Pos,Neg,17,L,,,,7.876796722,7.876796722,0,0,0,,-0.30642608
+UCH_BRCA_RS_200,UCH_BRCA_RS_200,43,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Lobular,2,19,1,Pos,Pos,Neg,11,L,,,,9.149897575,9.149897575,0,0,0,,-0.38530928
+UCH_BRCA_RS_201,UCH_BRCA_RS_201,69,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,75,2,Pos,Pos,Neg,13,L,,,,9.314167976,9.314167976,0,0,1,,-0.07081555
+UCH_BRCA_RS_202,UCH_BRCA_RS_202,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Neg,Neg,35,H,,,1,8.449007988,8.449007988,0,0,0,,0.49546325
+UCH_BRCA_RS_203,UCH_BRCA_RS_203,77,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,14,0,Pos,Pos,Neg,6,L,,,,6.614647388,6.614647388,0,0,0,,-0.69666123
+UCH_BRCA_RS_204,UCH_BRCA_RS_204,59,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,37,0,Pos,Pos,Neg,9,L,,,,9.100616455,9.100616455,0,0,0,,-0.47758663
+UCH_BRCA_RS_205,UCH_BRCA_RS_205,77,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,8,L,,,,7.137577057,7.137577057,0,1,0,,-0.2524413
+UCH_BRCA_RS_206,UCH_BRCA_RS_206,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,18,L,,,,9.149897575,9.149897575,0,0,0,,-0.24208757
+UCH_BRCA_RS_207,UCH_BRCA_RS_207,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,12,1,Pos,Pos,Neg,20,L,,,1,8.180698395,8.180698395,0,0,0,,-0.5033152
+UCH_BRCA_RS_208,UCH_BRCA_RS_208,40,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,0,Pos,Pos,Neg,16,L,,,,6.732375145,6.732375145,0,0,0,,0.032740377
+UCH_BRCA_RS_209,UCH_BRCA_RS_209,75,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,23,0,Pos,Pos,Neg,21,L,,,,9.336071014,1.911019802,1,0,1,,0.4748139
+UCH_BRCA_RS_210,UCH_BRCA_RS_210,36,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,8,L,,,,6.483230591,6.483230591,0,0,0,,-0.3491186
+UCH_BRCA_RS_211,UCH_BRCA_RS_211,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,4,L,,,,7.865845203,7.865845203,0,0,0,,0.40335357
+UCH_BRCA_RS_212,UCH_BRCA_RS_212,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,17,2,Pos,Pos,Neg,20,L,,,1,7.51540041,7.51540041,0,0,0,,0.58446723
+UCH_BRCA_RS_213,UCH_BRCA_RS_213,46,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,21,0,Pos,Pos,Neg,15,L,,,,7.947980881,7.947980881,0,0,0,,-0.20498711
+UCH_BRCA_RS_214,UCH_BRCA_RS_214,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Paget disease,2,69,0,Pos,Pos,Neg,19,L,,,1,7.364818573,7.364818573,0,0,1,,-0.001121531
+UCH_BRCA_RS_215,UCH_BRCA_RS_215,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,60,0,Pos,Neg,Neg,18,L,,,,7.854893684,7.854893684,0,0,0,,-0.6712994
+UCH_BRCA_RS_216,UCH_BRCA_RS_216,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,120,1,Pos,Pos,Neg,7,L,,,,7.822039604,7.822039604,0,0,0,,-0.2553566
+UCH_BRCA_RS_217,UCH_BRCA_RS_217,40,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,1,Pos,Pos,Neg,23,L,,,,6.49418211,6.49418211,0,0,0,,-0.37910628
+UCH_BRCA_RS_218,UCH_BRCA_RS_218,67,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,7,0,Pos,Pos,,23,L,,,,7.780972004,7.780972004,0,0,0,,-0.06583984
+UCH_BRCA_RS_219,UCH_BRCA_RS_219,60,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Ductal,3,6,0,Pos,Neg,Neg,38,H,,,1,7.638603687,7.638603687,0,0,1,,0.52815723
+UCH_BRCA_RS_219 (2),UCH_BRCA_RS_219,60,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Ductal,3,6,0,Pos,Neg,Neg,38,H,,,1,7.638603687,7.638603687,0,0,1,,0.52815723
+UCH_BRCA_RS_219 (3),UCH_BRCA_RS_219,60,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Ductal,3,6,0,Pos,Neg,Neg,38,H,,,1,7.638603687,7.638603687,0,0,1,,0.52815723
+UCH_BRCA_RS_220,UCH_BRCA_RS_220,31,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,1,Pos,Pos,Neg,9,L,,,1,6.140999317,6.140999317,0,0,0,,-0.53496736
+UCH_BRCA_RS_221,UCH_BRCA_RS_221,52,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,4,0,Pos,Pos,Neg,44,H,,,1,8.339493752,8.339493752,0,0,0,,0.26329607
+UCH_BRCA_RS_222,UCH_BRCA_RS_222,44,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,7,3,Pos,Pos,Neg,20,L,,,1,17.99589348,17.99589348,0,0,,,-0.34785303
+UCH_BRCA_RS_222 (2),UCH_BRCA_RS_222,44,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,7,3,Pos,Pos,Neg,20,L,,,1,17.99589348,17.99589348,0,0,,,-0.34785303
+UCH_BRCA_RS_223,UCH_BRCA_RS_223,46,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Ductal,3,10,0,Pos,Pos,Neg,8,L,,,,6.814510822,6.814510822,0,0,0,,-0.08494773
+UCH_BRCA_RS_224,UCH_BRCA_RS_224,76,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,10,1,Pos,Pos,Neg,1,L,,,,6.316221714,6.316221714,0,0,0,,-0.26669356
+UCH_BRCA_RS_225,UCH_BRCA_RS_225,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,15,0,Pos,Pos,Neg,12,L,,,,7.186858177,7.186858177,0,0,0,,-0.17060214
+UCH_BRCA_RS_226,UCH_BRCA_RS_226,54,1 Male,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,36,0,Pos,Pos,Neg,2,L,,,,6.858316422,6.858316422,0,0,0,,-0.18945792
+UCH_BRCA_RS_227,UCH_BRCA_RS_227,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,28,1,Pos,Pos,Neg,20,L,,,1,7.342916012,7.342916012,0,0,0,,-0.27109683
+UCH_BRCA_RS_228,UCH_BRCA_RS_228,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Pos,Pos,Neg,19,L,,,,6.704996586,6.704996586,0,0,0,,-0.19151583
+UCH_BRCA_RS_229,UCH_BRCA_RS_229,65,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,26,0,Pos,Pos,Neg,12,L,,,,8.292949677,8.292949677,0,0,0,,-0.3482366
+UCH_BRCA_RS_230,UCH_BRCA_RS_230,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,DCIS,2,25,98,Pos,Pos,,33,H,,,,0.544832289,0.544832289,0,0,0,,-0.25590506
+UCH_BRCA_RS_231,UCH_BRCA_RS_231,62,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,18,0,Pos,Neg,Neg,44,H,,,,1.286789894,1.160848737,1,1,0,,0.1698741
+UCH_BRCA_RS_232,UCH_BRCA_RS_232,44,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,65,0,Pos,Pos,Neg,14,L,,,,7.904175282,7.904175282,0,0,1,,0.004993203
+UCH_BRCA_RS_233,UCH_BRCA_RS_233,43,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,8,0,Pos,Pos,Neg,20,L,,,,5.486652851,5.486652851,0,0,0,,0.54908496
+UCH_BRCA_RS_234,UCH_BRCA_RS_234,44,2 Female,04 Chinese,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,7,L,,,,7.200547695,7.200547695,0,0,0,,-0.14474198
+UCH_BRCA_RS_235,UCH_BRCA_RS_235,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,1,Pos,Pos,Neg,17,L,,,1,6.863791943,6.863791943,0,0,1,,-0.30077338
+UCH_BRCA_RS_236,UCH_BRCA_RS_236,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Pos,Pos,Neg,12,L,,,,6.943189621,6.943189621,0,0,1,,-0.55498064
+UCH_BRCA_RS_237,UCH_BRCA_RS_237,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,5,0,Pos,Neg,Neg,47,H,,,1,6.628336906,6.628336906,0,0,0,,0.15739103
+UCH_BRCA_RS_237 (2),UCH_BRCA_RS_237,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,5,0,Pos,Neg,Neg,47,H,,,1,6.628336906,6.628336906,0,0,0,,0.15739103
+UCH_BRCA_RS_238,UCH_BRCA_RS_238,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,7,0,Pos,Pos,Neg,19,L,,,,6.896646023,6.896646023,0,0,0,,-0.06776018
+UCH_BRCA_RS_239,UCH_BRCA_RS_239,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,1,0,Neg,Neg,Neg,53,H,,,,6.748802185,6.748802185,0,0,0,,0.36270982
+UCH_BRCA_RS_240,UCH_BRCA_RS_240,42,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,14,0,Pos,Pos,Neg,23,L,,,,6.855578423,6.855578423,0,0,1,,-0.16113934
+UCH_BRCA_RS_241,UCH_BRCA_RS_241,68,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,19,0,Pos,Pos,Neg,16,L,,,,6.261464596,6.261464596,0,0,0,,-0.6038739
+UCH_BRCA_RS_242,UCH_BRCA_RS_242,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,16,L,,,,6.880218983,6.880218983,0,0,1,,-0.20462781
+UCH_BRCA_RS_243,UCH_BRCA_RS_243,62,2 Female,01 White,2 Puerto Rican,Ductal,2,7,1,Pos,Pos,Neg,2,L,,,,6.592744827,6.592744827,0,0,0,,-0.8418364
+UCH_BRCA_RS_244,UCH_BRCA_RS_244,71,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,25,0,Pos,Neg,Neg,23,L,,,,6.680356026,6.680356026,0,0,0,,-0.52022195
+UCH_BRCA_RS_245,UCH_BRCA_RS_245,73,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,19,98,Pos,Pos,Neg,17,L,,,,6.674880028,6.674880028,0,0,1,,-0.40991464
+UCH_BRCA_RS_246,UCH_BRCA_RS_246,59,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,18,0,Pos,Pos,Neg,24,L,,,,6.825461864,6.825461864,0,0,0,,-0.27616283
+UCH_BRCA_RS_247,UCH_BRCA_RS_247,46,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,19,1,Pos,Pos,Neg,14,L,,,,6.674880028,6.674880028,0,0,0,,-0.77081954
+UCH_BRCA_RS_248,UCH_BRCA_RS_248,45,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Pos,Pos,Neg,32,H,,,1,4.783025265,4.783025265,0,0,0,,0.31649497
+UCH_BRCA_RS_249,UCH_BRCA_RS_249,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,14,0,Pos,Pos,Neg,24,L,,,,5.823408604,5.823408604,0,0,0,,-0.54053235
+UCH_BRCA_RS_250,UCH_BRCA_RS_250,39,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,10,L,,,,3.378507853,3.378507853,0,0,0,,-0.53130966
+UCH_BRCA_RS_251,UCH_BRCA_RS_251,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,1,Pos,Pos,Neg,9,L,,,,6.505133629,6.505133629,0,0,0,,-0.54368246
+UCH_BRCA_RS_252,UCH_BRCA_RS_252,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,0,Pos,Pos,Neg,9,L,,,,6.524298191,6.524298191,0,0,9,,-0.54652613
+UCH_BRCA_RS_253,UCH_BRCA_RS_253,73,2 Female,01 White,0 Non-Spanish; non-Hispanic,Paget disease,2,13,1,Pos,Pos,Neg,16,L,,,,6.521560669,6.521560669,0,0,1,,-0.48412177
+UCH_BRCA_RS_254,UCH_BRCA_RS_254,49,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,10,1,Pos,Pos,Neg,14,L,,,1,6.447638512,6.447638512,0,0,1,,-0.30813435
+UCH_BRCA_RS_255,UCH_BRCA_RS_255,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,22,0,Pos,Pos,Neg,11,L,,,,6.46132803,6.46132803,0,0,0,,0.08755447
+UCH_BRCA_RS_256,UCH_BRCA_RS_256,77,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,0,Pos,Pos,Neg,27,H,,,,6.299794674,6.299794674,0,0,0,,0.5015446
+UCH_BRCA_RS_257,UCH_BRCA_RS_257,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,23,0,Pos,Pos,Neg,0,L,,,,5.330595493,5.330595493,0,0,1,,-0.68477196
+UCH_BRCA_RS_258,UCH_BRCA_RS_258,36,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,29,0,Pos,Pos,Neg,26,H,,,1,4.895277023,4.895277023,0,0,0,,-0.18465719
+UCH_BRCA_RS_259,UCH_BRCA_RS_259,45,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,44,0,Pos,Pos,Neg,17,L,,,,6.340862274,6.340862274,0,0,0,,-0.25971463
+UCH_BRCA_RS_260,UCH_BRCA_RS_260,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,11,0,Pos,Pos,Neg,15,L,,,,6.392881393,6.392881393,0,0,0,,-0.43494752
+UCH_BRCA_RS_261,UCH_BRCA_RS_261,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,13,L,,,,6.264202595,6.264202595,0,0,0,,-0.11361505
+UCH_BRCA_RS_262,UCH_BRCA_RS_262,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,11,L,,,,5.322381973,5.322381973,0,0,0,,-0.46817297
+UCH_BRCA_RS_262 (2),UCH_BRCA_RS_262,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,11,L,,,,5.322381973,5.322381973,0,0,0,,-0.46817297
+UCH_BRCA_RS_263,UCH_BRCA_RS_263,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,16,0,Pos,Pos,Neg,23,L,,,1,6.239562035,6.239562035,0,0,1,,-0.2145885
+UCH_BRCA_RS_263 (2),UCH_BRCA_RS_263,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,16,0,Pos,Pos,Neg,23,L,,,1,6.239562035,6.239562035,0,0,1,,-0.2145885
+UCH_BRCA_RS_264,UCH_BRCA_RS_264,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,17,0,Pos,Pos,Neg,14,L,,,,7.107460499,7.107460499,0,0,0,,-0.5130318
+UCH_BRCA_RS_265,UCH_BRCA_RS_265,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,18,0,Pos,Pos,Neg,15,L,,,,7.323750973,7.323750973,0,0,0,,-0.44207543
+UCH_BRCA_RS_265 (2),UCH_BRCA_RS_265,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,18,0,Pos,Pos,Neg,15,L,,,,7.323750973,7.323750973,0,0,0,,-0.44207543
+UCH_BRCA_RS_266,UCH_BRCA_RS_266,42,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,1,Pos,Pos,Neg,14,L,,,,7.230663776,7.230663776,0,0,0,,-0.2297076
+UCH_BRCA_RS_267,UCH_BRCA_RS_267,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,1,Pos,Pos,Neg,16,L,,,,7.08008194,7.08008194,0,0,0,,-0.512464
+UCH_BRCA_RS_268,UCH_BRCA_RS_268,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,7,L,,,,7.123887539,7.123887539,0,0,0,,-0.42608973
+UCH_BRCA_RS_269,UCH_BRCA_RS_269,53,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,23,0,Pos,Neg,Neg,29,H,,,1,6.40930891,6.40930891,0,0,0,,0.110557176
+UCH_BRCA_RS_270,UCH_BRCA_RS_270,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,8,1,Pos,Pos,Neg,22,L,,,,7.030800819,7.030800819,0,0,0,,-0.1754204
+UCH_BRCA_RS_271,UCH_BRCA_RS_271,49,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,18,0,Pos,Pos,Neg,15,L,,,,5.960301399,5.960301399,0,0,0,,-0.32709712
+UCH_BRCA_RS_272,UCH_BRCA_RS_272,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,DCIS,2,15,98,Pos,Pos,,19,L,,,,5.864476204,5.864476204,0,0,0,,-0.4959944
+UCH_BRCA_RS_273,UCH_BRCA_RS_273,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,30,0,Pos,Pos,Neg,22,L,,,,5.53867197,5.53867197,0,0,1,,0.13796039
+UCH_BRCA_RS_274,UCH_BRCA_RS_274,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,25,5,Pos,Pos,Neg,22,L,,,1,5.437371731,5.437371731,0,0,1,,-0.20682399
+UCH_BRCA_RS_275,UCH_BRCA_RS_275,45,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,18,0,Pos,Pos,Neg,15,L,,,1,5.388090134,5.388090134,0,0,0,,-0.1588207
+UCH_BRCA_RS_276,UCH_BRCA_RS_276,55,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,26,3,Pos,Pos,Neg,13,L,,,,5.834360123,5.834360123,0,0,0,,-0.61346865
+UCH_BRCA_RS_277,UCH_BRCA_RS_277,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,1,Pos,Pos,Neg,20,L,,,1,6.275154114,6.275154114,0,0,1,,-0.25948277
+UCH_BRCA_RS_278,UCH_BRCA_RS_278,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,22,0,Pos,Pos,Neg,39,H,,,1,5.423682213,5.423682213,0,0,0,,0.50473636
+UCH_BRCA_RS_279,UCH_BRCA_RS_279,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,DCIS,2,7,98,Pos,Pos,,39,H,,,,5.631759167,5.631759167,0,0,0,,-0.24577697
+UCH_BRCA_RS_280,UCH_BRCA_RS_280,56,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,17,0,Pos,Pos,Neg,14,L,,,,5.711156845,5.711156845,0,0,0,,-0.13640767
+UCH_BRCA_RS_281,UCH_BRCA_RS_281,47,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Lobular,2,14,0,Pos,Pos,Neg,17,L,,,,4.281998634,4.281998634,0,0,1,,-0.3571006
+UCH_BRCA_RS_282,UCH_BRCA_RS_282,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,115,2,Pos,Pos,Neg,8,L,,,,5.694729805,5.694729805,0,0,0,,-0.32975492
+UCH_BRCA_RS_283,UCH_BRCA_RS_283,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,1,Pos,Pos,Neg,16,L,,,1,5.656399727,5.656399727,0,0,9,,-0.03238756
+UCH_BRCA_RS_284,UCH_BRCA_RS_284,74,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,24,1,Pos,Pos,Neg,18,L,,,,5.286789894,5.286789894,0,1,0,,-0.43652445
+UCH_BRCA_RS_285,UCH_BRCA_RS_285,33,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,25,0,Pos,Pos,Neg,21,L,,,1,4.062970638,4.062970638,0,0,1,,0.16668566
+UCH_BRCA_RS_286,UCH_BRCA_RS_286,51,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,5,0,Pos,Pos,Neg,46,H,,,1,5.776865005,5.776865005,0,0,0,,0.061499834
+UCH_BRCA_RS_287,UCH_BRCA_RS_287,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Others,3,15,0,Pos,Pos,Neg,10,L,,,,5.601642609,5.601642609,0,0,0,,-0.5206615
+UCH_BRCA_RS_288,UCH_BRCA_RS_288,60,2 Female,02 Black,0 Non-Spanish; non-Hispanic,DCIS,1,14,98,Pos,Pos,,10,L,,,,5.828884125,5.828884125,0,0,9,,-0.5317168
+UCH_BRCA_RS_289,UCH_BRCA_RS_289,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,12,0,Pos,Pos,,21,L,,,1,5.50581789,5.50581789,0,0,0,,0.122400336
+UCH_BRCA_RS_290,UCH_BRCA_RS_290,50,2 Female,04 Chinese,0 Non-Spanish; non-Hispanic,Ductal,1,9,0,Pos,Pos,Neg,12,L,,,,5.314168453,5.314168453,0,0,0,,-0.55426526
+UCH_BRCA_RS_291,UCH_BRCA_RS_291,68,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,42,2,Pos,Pos,Neg,13,L,,,,5.341547012,5.341547012,0,0,1,,-0.267607
+UCH_BRCA_RS_292,UCH_BRCA_RS_292,68,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,11,0,Pos,Pos,Neg,9,L,,,,6.119096279,6.119096279,0,0,1,,-0.27639982
+UCH_BRCA_RS_293,UCH_BRCA_RS_293,64,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,3,60,0,,Neg,,17,L,,,,12.57768631,12.57768631,0,0,,,-0.64762884
+UCH_BRCA_RS_294,UCH_BRCA_RS_294,61,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,12,0,Pos,Pos,Neg,21,L,,,,4.788501263,4.788501263,0,0,0,,-0.42195433
+UCH_BRCA_RS_295,UCH_BRCA_RS_295,73,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Lobular,3,27,1,Pos,Pos,Neg,18,L,,,,5.96577692,5.96577692,0,0,0,,-0.47144386
+UCH_BRCA_RS_296,UCH_BRCA_RS_296,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,19,L,,,,4.720054626,4.720054626,0,0,1,,-0.3582563
+UCH_BRCA_RS_297,UCH_BRCA_RS_297,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,11,L,,,,5.560575008,5.560575008,0,0,1,,0.28668058
+UCH_BRCA_RS_298,UCH_BRCA_RS_298,44,2 Female,08 Korean,0 Non-Spanish; non-Hispanic,Ductal,3,18,0,Pos,Pos,Neg,21,L,,,1,5.98220396,5.98220396,0,0,1,,-0.031274695
+UCH_BRCA_RS_299,UCH_BRCA_RS_299,70,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,21,L,,,,4.506502628,4.506502628,0,0,0,,0.20785964
+UCH_BRCA_RS_300,UCH_BRCA_RS_300,59,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,3,55,0,Pos,Pos,Neg,37,H,,,1,4.684462547,4.684462547,0,0,1,,-0.45378724
+UCH_BRCA_RS_301,UCH_BRCA_RS_301,65,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,23,0,Pos,Pos,Neg,20,L,,,,3.718001366,3.718001366,0,1,0,,-0.08680403
+UCH_BRCA_RS_302,UCH_BRCA_RS_302,64,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Pos,Pos,Neg,12,L,,,,5.251197815,5.251197815,0,0,0,,-0.67530864
+UCH_BRCA_RS_303,UCH_BRCA_RS_303,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,36,1,Pos,Pos,Neg,,,-0.437,H,1,4.260095596,4.260095596,0,0,1,-0.42987084,
+UCH_BRCA_RS_304,UCH_BRCA_RS_304,45,2 Female,02 Black,0 Non-Spanish; non-Hispanic,DCIS,2,,98,Pos,Pos,,10,L,,,,4.120465279,4.120465279,0,0,9,,-0.43016937
+UCH_BRCA_RS_305,UCH_BRCA_RS_305,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,42,0,Pos,Neg,Neg,9,L,0.316,L,,4.438055992,4.438055992,0,0,0,-0.02709481,0.12382927
+UCH_BRCA_RS_306,UCH_BRCA_RS_306,56,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,22,0,Pos,Pos,Neg,36,H,,,1,4.145106316,4.145106316,0,0,0,,0.34459248
+UCH_BRCA_RS_307,UCH_BRCA_RS_307,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,23,0,Pos,Pos,Neg,20,L,,,,4.54483223,4.54483223,0,0,0,,-0.3657005
+UCH_BRCA_RS_308,UCH_BRCA_RS_308,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,19,0,Pos,Neg,Neg,31,H,,,1,4.50102663,4.50102663,0,0,0,,-0.14234966
+UCH_BRCA_RS_309,UCH_BRCA_RS_309,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,30,0,Pos,Pos,Neg,27,H,,,1,3.767282724,3.767282724,0,0,0,,-0.26804897
+UCH_BRCA_RS_310,UCH_BRCA_RS_310,34,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,45,2,Pos,Pos,Neg,,,-0.247,H,2,3.118412018,3.118412018,0,0,1,0.16274193,
+UCH_BRCA_RS_310 (2),UCH_BRCA_RS_310,34,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,45,2,Pos,Pos,Neg,,,-0.247,H,2,3.118412018,3.118412018,0,0,1,0.16274193,
+UCH_BRCA_RS_311,UCH_BRCA_RS_311,73,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,98,Pos,Neg,Neg,19,L,,,,2.96235466,2.96235466,0,0,0,,-0.15957065
+UCH_BRCA_RS_312,UCH_BRCA_RS_312,35,2 Female,01 White,0 Non-Spanish; non-Hispanic,Tabular,1,7,0,Pos,Pos,Neg,16,L,,,,4.572210789,4.572210789,0,0,0,,-0.5118334
+UCH_BRCA_RS_313,UCH_BRCA_RS_313,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,19,0,Pos,Pos,Neg,21,L,,,,4.216289997,4.216289997,0,0,0,,-0.11934842
+UCH_BRCA_RS_314,UCH_BRCA_RS_314,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,1,Pos,Pos,Neg,,,0.211,L,,4.369609833,4.369609833,0,0,1,0.17253672,
+UCH_BRCA_RS_315,UCH_BRCA_RS_315,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,24,L,,,,4.470910549,4.470910549,0,0,0,,-0.3864355
+UCH_BRCA_RS_316,UCH_BRCA_RS_316,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,1,Pos,Pos,Neg,,,0.412,L,,4.279260635,4.279260635,0,0,,0.49630603,
+UCH_BRCA_RS_317,UCH_BRCA_RS_317,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,23,0,Pos,Pos,Neg,12,L,,,,4.410677433,4.410677433,0,0,1,,-0.51250845
+UCH_BRCA_RS_317 (2),UCH_BRCA_RS_317,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,23,0,Pos,Pos,Neg,12,L,,,,4.410677433,4.410677433,0,0,1,,-0.51250845
+UCH_BRCA_RS_318,UCH_BRCA_RS_318,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,7,0,Pos,Pos,Neg,10,L,,,,4.339493275,4.339493275,0,0,0,,-0.3077835
+UCH_BRCA_RS_319,UCH_BRCA_RS_319,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Neg,Neg,17,L,,,,4.331279755,4.331279755,0,0,0,,-0.4997244
+UCH_BRCA_RS_319 (2),UCH_BRCA_RS_319,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Neg,Neg,17,L,,,,4.331279755,4.331279755,0,0,0,,-0.4997244
+UCH_BRCA_RS_320,UCH_BRCA_RS_320,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,12,0,Pos,Pos,Neg,26,H,,,,4.298425674,4.298425674,0,0,0,,-0.2757456
+UCH_BRCA_RS_321,UCH_BRCA_RS_321,29,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,20,3,Neg,Neg,Neg,,,-0.928,H,2,5.59069109,5.59069109,0,0,0,-0.43846735,
+UCH_BRCA_RS_321 (2),UCH_BRCA_RS_321,29,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,20,3,Neg,Neg,Neg,,,-0.928,H,2,5.59069109,5.59069109,0,0,0,-0.43846735,
+UCH_BRCA_RS_322,UCH_BRCA_RS_322,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,20,0,Pos,Pos,Neg,14,L,,,,5.204654217,5.204654217,0,0,0,,-0.46533963
+UCH_BRCA_RS_323,UCH_BRCA_RS_323,61,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Lobular,2,9,0,Pos,Pos,Neg,27,H,,,1,5.015742779,5.015742779,0,0,0,,-0.3225578
+UCH_BRCA_RS_324,UCH_BRCA_RS_324,61,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,11,0,Pos,Pos,Neg,29,H,,,1,5.032169819,5.032169819,0,0,0,,-0.33489722
+UCH_BRCA_RS_325,UCH_BRCA_RS_325,42,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,7,0,Pos,Pos,Neg,15,L,,,,3.693360806,3.693360806,0,0,0,,-0.3770207
+UCH_BRCA_RS_326,UCH_BRCA_RS_326,50,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,7,0,Pos,Pos,Neg,27,H,,,,3.928815842,3.928815842,0,0,0,,0.051524665
+UCH_BRCA_RS_327,UCH_BRCA_RS_327,69,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,15,L,,,,3.956194401,3.956194401,0,0,1,,-0.6260378
+UCH_BRCA_RS_328,UCH_BRCA_RS_328,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,10,0,Pos,Pos,Neg,12,L,,,,3.063655138,3.063655138,0,0,0,,-0.72458404
+UCH_BRCA_RS_329,UCH_BRCA_RS_329,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,7,1,Pos,Pos,Neg,,,0.66,L,,3.805612564,3.805612564,0,0,0,0.56187505,
+UCH_BRCA_RS_329 (2),UCH_BRCA_RS_329,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,7,1,Pos,Pos,Neg,,,0.66,L,,3.805612564,3.805612564,0,0,0,0.56187505,
+UCH_BRCA_RS_329 (3),UCH_BRCA_RS_329,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,7,1,Pos,Pos,Neg,,,0.66,L,,3.805612564,3.805612564,0,0,0,0.56187505,
+UCH_BRCA_RS_330,UCH_BRCA_RS_330,71,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,15,1,Pos,Pos,Neg,,,0.179,L,,3.876796722,3.876796722,0,0,0,0.462277,
+UCH_BRCA_RS_331,UCH_BRCA_RS_331,64,2 Female,99 Unknown,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Pos,Pos,Neg,24,L,,,,3.868583202,3.868583202,0,0,1,,-0.5967858
+UCH_BRCA_RS_332,UCH_BRCA_RS_332,44,2 Female,99 Unknown,0 Non-Spanish; non-Hispanic,Lobular,2,55,0,Pos,Pos,Neg,6,L,,,,3.915126562,3.915126562,0,0,0,,-0.78459257
+UCH_BRCA_RS_333,UCH_BRCA_RS_333,50,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,1,15,0,Pos,Pos,Neg,14,L,,,,3.832991123,3.832991123,0,0,1,,-0.5890385
+UCH_BRCA_RS_334,UCH_BRCA_RS_334,69,2 Female,99 Unknown,0 Non-Spanish; non-Hispanic,Lobular,2,15,0,Pos,Pos,Neg,22,L,,,,3.597535849,3.597535849,0,0,0,,-0.29154453
+UCH_BRCA_RS_335,UCH_BRCA_RS_335,77,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,20,L,,,,2.798083544,2.798083544,0,0,0,,-0.6488861
+UCH_BRCA_RS_335 (2),UCH_BRCA_RS_335,77,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,20,L,,,,2.798083544,2.798083544,0,0,0,,-0.6488861
+UCH_BRCA_RS_336,UCH_BRCA_RS_336,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,17,4,Pos,Neg,Neg,,,0.319,L,,3.857631683,3.857631683,0,0,0,0.17967206,
+UCH_BRCA_RS_337,UCH_BRCA_RS_337,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,27,2,Pos,Pos,Neg,,,-0.17,H,1,4.142368317,4.142368317,0,0,0,0.15620983,
+UCH_BRCA_RS_337 (2),UCH_BRCA_RS_337,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,27,2,Pos,Pos,Neg,,,-0.17,H,1,4.142368317,4.142368317,0,0,0,0.15620983,
+UCH_BRCA_RS_338,UCH_BRCA_RS_338,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,10,0,Pos,Pos,Neg,10,L,,,,3.51813817,3.51813817,0,0,0,,-0.69345784
+UCH_BRCA_RS_339,UCH_BRCA_RS_339,44,2 Female,01 White,1 Mexican (includes Chicano),Ductal,2,6,0,Pos,Pos,Neg,7,L,,,,3.742641926,3.742641926,0,0,0,,-0.16414948
+UCH_BRCA_RS_340,UCH_BRCA_RS_340,64,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,22,0,Pos,Pos,Neg,14,L,,,,4.279260635,4.279260635,0,0,1,,-0.19118175
+UCH_BRCA_RS_341,UCH_BRCA_RS_341,37,2 Female,98 Other,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,1,25,3,Pos,Pos,Neg,,,0.409,L,1,3.362080812,3.362080812,0,0,1,0.43976703,
+UCH_BRCA_RS_342,UCH_BRCA_RS_342,74,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,100,0,Pos,Neg,Neg,19,L,,,,3.778234005,3.778234005,0,0,0,,-0.44667697
+UCH_BRCA_RS_343,UCH_BRCA_RS_343,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,15,0,Pos,Neg,Neg,16,L,,,,3.772758484,3.772758484,0,0,0,,-0.652725
+UCH_BRCA_RS_343 (2),UCH_BRCA_RS_343,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,15,0,Pos,Neg,Neg,16,L,,,,3.772758484,3.772758484,0,0,0,,-0.652725
+UCH_BRCA_RS_343 (3),UCH_BRCA_RS_343,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,15,0,Pos,Neg,Neg,16,L,,,,3.772758484,3.772758484,0,0,0,,-0.652725
+UCH_BRCA_RS_344,UCH_BRCA_RS_344,45,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,2,18,0,Pos,Pos,Neg,11,L,,,,3.802874804,3.802874804,0,0,0,,-0.59588194
+UCH_BRCA_RS_345,UCH_BRCA_RS_345,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,1,Pos,Pos,Neg,,,0.782,L,1,3.192333937,3.192333937,0,0,1,0.37307796,
+UCH_BRCA_RS_346,UCH_BRCA_RS_346,47,2 Female,98 Other,0 Non-Spanish; non-Hispanic,Ductal,2,19,0,Pos,Pos,Neg,17,L,,,,3.438740492,3.438740492,0,0,0,,-0.536248
+UCH_BRCA_RS_347,UCH_BRCA_RS_347,74,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,17,1,Pos,Pos,Neg,18,L,,,,3.742641926,3.742641926,0,0,0,,-0.53942525
+UCH_BRCA_RS_348,UCH_BRCA_RS_348,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,17,1,Pos,Pos,Neg,,,0.148,L,1,3.567419529,3.567419529,0,0,0,0.30761895,
+UCH_BRCA_RS_348 (2),UCH_BRCA_RS_348,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,17,1,Pos,Pos,Neg,,,0.148,L,1,3.567419529,3.567419529,0,0,0,0.30761895,
+UCH_BRCA_RS_349,UCH_BRCA_RS_349,72,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,50,0,Pos,Pos,Neg,14,L,,,,3.649555206,3.649555206,0,1,0,,0.122465245
+UCH_BRCA_RS_350,UCH_BRCA_RS_350,74,2 Female,02 Black,2 Puerto Rican,Ductal,3,14,0,Pos,Neg,Neg,35,H,,,1,3.759069204,3.759069204,0,0,0,,-0.03885867
+UCH_BRCA_RS_351,UCH_BRCA_RS_351,40,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,16,1,Pos,Pos,Neg,12,L,,,,3.745379925,3.745379925,0,0,1,,-0.43512514
+UCH_BRCA_RS_352,UCH_BRCA_RS_352,64,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Neg,Neg,Neg,,,-0.69,H,,3.879534483,3.879534483,0,0,0,-0.53611267,
+UCH_BRCA_RS_353,UCH_BRCA_RS_353,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,17,0,Pos,Pos,Neg,11,L,,,,3.334702253,3.334702253,0,0,0,,-0.5100009
+UCH_BRCA_RS_354,UCH_BRCA_RS_354,40,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,3,23,0,Pos,Pos,Neg,,,-0.805,H,1,2.53251195,2.53251195,0,0,0,-0.812169,
+UCH_BRCA_RS_355,UCH_BRCA_RS_355,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,1,Pos,Pos,Neg,,,0.168,L,,3.652292967,3.652292967,0,0,0,0.2813827,
+UCH_BRCA_RS_356,UCH_BRCA_RS_356,60,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,43,1,Pos,Pos,Neg,,,0.126,L,,4.136892319,4.136892319,0,0,0,0.5015253,
+UCH_BRCA_RS_357,UCH_BRCA_RS_357,37,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,3,25,1,Pos,Pos,Neg,,,0.88,L,,2.636550426,2.636550426,0,0,1,0.39900023,
+UCH_BRCA_RS_357 (2),UCH_BRCA_RS_357,37,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,3,25,1,Pos,Pos,Neg,,,0.88,L,,2.636550426,2.636550426,0,0,1,0.39900023,
+UCH_BRCA_RS_357 (3),UCH_BRCA_RS_357,37,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,3,25,1,Pos,Pos,Neg,,,0.88,L,,2.636550426,2.636550426,0,0,1,0.39900023,
+UCH_BRCA_RS_358,UCH_BRCA_RS_358,38,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,8,L,,,,3.548254728,3.548254728,0,0,0,0.5082202,-0.67533314
+UCH_BRCA_RS_358 (2),UCH_BRCA_RS_358,38,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,8,L,,,,3.548254728,3.548254728,0,0,0,0.5082202,-0.67533314
+UCH_BRCA_RS_358 (3),UCH_BRCA_RS_358,38,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,8,L,,,,3.548254728,3.548254728,0,0,0,0.5082202,-0.67533314
+UCH_BRCA_RS_359,UCH_BRCA_RS_359,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,10,L,,,,3.578371048,3.578371048,0,0,0,,-0.16341935
+UCH_BRCA_RS_360,UCH_BRCA_RS_360,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,23,L,,,,3.644079447,3.644079447,0,0,0,,-0.09483652
+UCH_BRCA_RS_361,UCH_BRCA_RS_361,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,23,0,Pos,Pos,Neg,22,L,,,,3.594798088,3.594798088,0,0,9,,-0.5403011
+UCH_BRCA_RS_362,UCH_BRCA_RS_362,53,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,9,0,Pos,Pos,Neg,13,L,,,,3.564681768,3.564681768,0,0,0,,-0.30135176
+UCH_BRCA_RS_363,UCH_BRCA_RS_363,73,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,3,15,0,Pos,Neg,Neg,45,H,,,1,3.572895288,3.572895288,0,0,0,,0.5774015
+UCH_BRCA_RS_364,UCH_BRCA_RS_364,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,19,0,Pos,Pos,Neg,22,L,,,1,3.638603687,3.638603687,0,0,0,,0.31534088
+UCH_BRCA_RS_365,UCH_BRCA_RS_365,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,100,5,Pos,Pos,Neg,,,-0.179,H,1,3.241615295,3.241615295,0,0,1,0.52428275,
+UCH_BRCA_RS_366,UCH_BRCA_RS_366,70,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,20,0,Pos,Pos,Neg,13,L,,,,3.192333937,3.192333937,0,0,0,,-0.4792953
+UCH_BRCA_RS_367,UCH_BRCA_RS_367,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,26,1,Pos,Pos,,,,-0.243,H,1,3.46885705,3.46885705,0,0,0,0.027481627,
+UCH_BRCA_RS_368,UCH_BRCA_RS_368,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,4,L,,,,3.436002731,3.436002731,0,0,0,,-0.13129032
+UCH_BRCA_RS_368 (2),UCH_BRCA_RS_368,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,4,L,,,,3.436002731,3.436002731,0,0,0,,-0.13129032
+UCH_BRCA_RS_369,UCH_BRCA_RS_369,42,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,19,2,Pos,Pos,Neg,,,-0.083,H,1,3.624914408,3.624914408,0,0,1,0.42239454,
+UCH_BRCA_RS_369 (2),UCH_BRCA_RS_369,42,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,19,2,Pos,Pos,Neg,,,-0.083,H,1,3.624914408,3.624914408,0,0,1,0.42239454,
+UCH_BRCA_RS_370,UCH_BRCA_RS_370,40,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,37,1,Pos,Pos,Neg,,,-0.539,H,1,3.44695425,3.44695425,0,0,0,0.29389182,
+UCH_BRCA_RS_370 (2),UCH_BRCA_RS_370,40,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,37,1,Pos,Pos,Neg,,,-0.539,H,1,3.44695425,3.44695425,0,0,0,0.29389182,
+UCH_BRCA_RS_371,UCH_BRCA_RS_371,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,21,3,Pos,Pos,Neg,,,-0.189,H,1,3.425051451,3.425051451,0,0,9,0.46737677,
+UCH_BRCA_RS_372,UCH_BRCA_RS_372,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,1,Pos,Pos,Neg,,,0.095,L,,3.244353294,3.244353294,0,0,1,0.5086379,
+UCH_BRCA_RS_373,UCH_BRCA_RS_373,38,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,8,L,0.366,L,,3.548254728,3.548254728,0,0,0,0.5082202,-0.67533314
+UCH_BRCA_RS_374,UCH_BRCA_RS_374,43,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,11,2,Pos,Pos,Neg,9,L,0.005,L,,3.550992489,3.550992489,0,0,1,0.34584326,-0.3517854
+UCH_BRCA_RS_375,UCH_BRCA_RS_375,41,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,15,0,Pos,Pos,,21,L,,,,3.416837692,3.416837692,0,0,0,,-0.12802508
+UCH_BRCA_RS_376,UCH_BRCA_RS_376,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,15,0,Pos,Pos,Neg,16,L,,,,3.436002731,3.436002731,0,0,0,,-0.19826636
+UCH_BRCA_RS_377,UCH_BRCA_RS_377,47,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,32,1,Pos,Pos,Neg,,,-0.339,H,1,3.416837692,3.416837692,0,0,1,0.43166825,
+UCH_BRCA_RS_378,UCH_BRCA_RS_378,69,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,16,L,,,,3.362080812,3.362080812,0,0,0,,-0.35220748
+UCH_BRCA_RS_379,UCH_BRCA_RS_379,71,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,6,L,,,,3.416837692,3.416837692,0,0,1,,-0.305934
+UCH_BRCA_RS_380,UCH_BRCA_RS_380,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,10,0,Pos,Pos,Neg,20,L,,,,3.274469614,3.274469614,0,0,0,,-0.4969504
+UCH_BRCA_RS_381,UCH_BRCA_RS_381,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Neg,Neg,21,L,,,,3.134839058,3.134839058,0,0,1,,-0.39969322
+UCH_BRCA_RS_382,UCH_BRCA_RS_382,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,18,0,Pos,Pos,Neg,32,H,,,2,4.134154797,4.134154797,0,0,0,,0.7897883
+UCH_BRCA_RS_382 (2),UCH_BRCA_RS_382,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,18,0,Pos,Pos,Neg,32,H,,,2,4.134154797,4.134154797,0,0,0,,0.7897883
+UCH_BRCA_RS_383,UCH_BRCA_RS_383,41,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,12,L,,,,3.030800819,3.030800819,0,0,1,,-0.76064205
+UCH_BRCA_RS_384,UCH_BRCA_RS_384,45,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,60,0,Pos,Pos,Neg,12,L,,,,3.318275213,3.318275213,0,0,0,,-0.7012317
+UCH_BRCA_RS_385,UCH_BRCA_RS_385,71,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,11,1,Pos,Pos,Neg,,,0.156,L,,3.345653772,3.345653772,0,0,0,-0.011265835,
+UCH_BRCA_RS_386,UCH_BRCA_RS_386,52,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,13,2,Pos,Neg,Neg,,,-0.396,H,1,3.296372414,3.296372414,0,0,0,0.46783316,
+UCH_BRCA_RS_387,UCH_BRCA_RS_387,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,12,0,Pos,Pos,Neg,28,H,,,,3.282683134,3.282683134,0,0,0,,-0.6663326
+UCH_BRCA_RS_388,UCH_BRCA_RS_388,73,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Neg,Neg,14,L,,,,4.213552475,4.213552475,0,0,0,,0.056634784
+UCH_BRCA_RS_389,UCH_BRCA_RS_389,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,36,1,Pos,Pos,Neg,,,0.114,L,,4.257358074,4.257358074,0,0,0,0.46367604,
+UCH_BRCA_RS_389 (2),UCH_BRCA_RS_389,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,36,1,Pos,Pos,Neg,,,0.114,L,,4.257358074,4.257358074,0,0,0,0.46367604,
+UCH_BRCA_RS_390,UCH_BRCA_RS_390,29,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,18,95,Neg,Neg,,,,-1,H,,3.216974735,,,0,9,-0.5390206,
+UCH_BRCA_RS_390 (2),UCH_BRCA_RS_390,29,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,18,95,Neg,Neg,,,,-1,H,,3.216974735,,,0,9,-0.5390206,
+UCH_BRCA_RS_390 (3),UCH_BRCA_RS_390,29,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,18,95,Neg,Neg,,,,-1,H,,3.216974735,,,0,9,-0.5390206,
+UCH_BRCA_RS_391,UCH_BRCA_RS_391,56,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,100,1,Pos,Neg,Neg,,,-0.149,H,1,3.728952885,3.728952885,0,0,0,0.22504424,
+UCH_BRCA_RS_392,UCH_BRCA_RS_392,41,2 Female,99 Unknown,0 Non-Spanish; non-Hispanic,Ductal,2,17,0,Pos,Pos,Neg,21,L,,,,4.038330078,4.038330078,0,0,1,,-0.29249835
+UCH_BRCA_RS_393,UCH_BRCA_RS_393,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,18,0,Pos,Pos,Neg,15,L,,,,3.96988368,3.96988368,0,0,1,,-0.22131456
+UCH_BRCA_RS_394,UCH_BRCA_RS_394,62,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,3,35,0,Pos,Pos,Neg,25,L,,,1,4.164270878,4.164270878,0,0,0,,-0.34534645
+UCH_BRCA_RS_395,UCH_BRCA_RS_395,75,2 Female,05 Japanese,0 Non-Spanish; non-Hispanic,Ductal,1,7,1,Pos,Pos,Neg,,,0.576,L,,4.098562717,4.098562717,0,0,0,0.4896134,
+UCH_BRCA_RS_396,UCH_BRCA_RS_396,24,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,14,0,Neg,Neg,Neg,,,-0.619,H,1,15.45790577,15.45790577,0,0,,0.26288497,
+UCH_BRCA_RS_396 (2),UCH_BRCA_RS_396,24,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,14,0,Neg,Neg,Neg,,,-0.619,H,1,15.45790577,15.45790577,0,0,,0.26288497,
+UCH_BRCA_RS_397,UCH_BRCA_RS_397,75,2 Female,99 Unknown,0 Non-Spanish; non-Hispanic,Lobular,2,35,0,Pos,Pos,Neg,10,L,,,,2.683093786,2.683093786,0,0,0,,-0.575128
+UCH_BRCA_RS_398,UCH_BRCA_RS_398,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,40,1,Pos,Pos,Neg,,,-0.205,H,1,3.668720007,3.668720007,0,0,1,0.3715133,
+UCH_BRCA_RS_398 (2),UCH_BRCA_RS_398,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,40,1,Pos,Pos,Neg,,,-0.205,H,1,3.668720007,3.668720007,0,0,1,0.3715133,
+UCH_BRCA_RS_399,UCH_BRCA_RS_399,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,19,0,Pos,Pos,Neg,14,L,,,,3.99452424,3.99452424,0,0,0,,-0.5746699
+UCH_BRCA_RS_400,UCH_BRCA_RS_400,41,2 Female,99 Unknown,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,9,L,,,,2.929500341,2.929500341,0,0,0,,-0.43273488
+UCH_BRCA_RS_401,UCH_BRCA_RS_401,70,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,24,0,Pos,Pos,Neg,25,L,,,,2.146475077,2.146475077,0,0,0,,-0.43058723
+UCH_BRCA_RS_402,UCH_BRCA_RS_402,51,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Papillary,2,33,0,Pos,Pos,Neg,14,L,,,,3.934291601,3.934291601,0,0,9,,-0.26970458
+UCH_BRCA_RS_403,UCH_BRCA_RS_403,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,28,0,Pos,Pos,Neg,12,L,,,,2.997946501,2.997946501,0,0,1,,-0.32134035
+UCH_BRCA_RS_404,UCH_BRCA_RS_404,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,14,0,Pos,Pos,Neg,8,L,,,,3.247091055,3.247091055,0,0,0,,-0.54812914
+UCH_BRCA_RS_405,UCH_BRCA_RS_405,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,9,0,Pos,Pos,Neg,11,L,,,,2.694045067,2.694045067,0,0,0,,-0.49898967
+UCH_BRCA_RS_406,UCH_BRCA_RS_406,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,25,1,Pos,Pos,Neg,,,-0.325,H,,3.060917139,,,0,0,0.25341782,
+UCH_BRCA_RS_407,UCH_BRCA_RS_407,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,18,0,Pos,Pos,Neg,,,0.168,L,,2.798083544,2.798083544,0,0,0,-0.21309993,
+UCH_BRCA_RS_408,UCH_BRCA_RS_408,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,23,0,Pos,Pos,Neg,10,L,,,,2.343600273,2.343600273,0,0,0,,-0.42851323
+UCH_BRCA_RS_409,UCH_BRCA_RS_409,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,13,1,Pos,Pos,Neg,,,0.137,L,,2.863791943,2.863791943,0,0,0,0.4578752,
+UCH_BRCA_RS_410,UCH_BRCA_RS_410,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,14,0,Pos,Pos,Neg,13,L,,,,2.767967224,2.767967224,0,0,0,,-0.35126486
+UCH_BRCA_RS_411,UCH_BRCA_RS_411,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,8,0,Neg,Pos,Neg,33,H,-0.039,H,,2.677618027,2.677618027,0,0,0,0.41549084,-0.38831457
+UCH_BRCA_RS_412,UCH_BRCA_RS_412,69,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,16,L,,,,1.0102669,1.0102669,0,0,0,,-0.37632313
+UCH_BRCA_RS_413,UCH_BRCA_RS_413,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,25,0,Pos,Neg,Neg,26,H,,,1,2.817248344,2.817248344,0,0,1,,-0.13405429
+UCH_BRCA_RS_414,UCH_BRCA_RS_414,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,14,0,Pos,Pos,Neg,25,L,,,,2.814510584,2.814510584,0,0,0,,-0.009177136
+UCH_BRCA_RS_415,UCH_BRCA_RS_415,39,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,7,0,Pos,Pos,Neg,,,0.14,L,,2.798083544,2.798083544,0,0,0,0.076805495,
+UCH_BRCA_RS_415 (2),UCH_BRCA_RS_415,39,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,7,0,Pos,Pos,Neg,,,0.14,L,,2.798083544,2.798083544,0,0,0,0.076805495,
+UCH_BRCA_RS_416,UCH_BRCA_RS_416,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,12,0,Pos,Pos,Pos,30,H,,,1,2.806297064,2.806297064,0,0,0,,0.71558136
+UCH_BRCA_RS_416 (2),UCH_BRCA_RS_416,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,12,0,Pos,Pos,Pos,30,H,,,1,2.806297064,2.806297064,0,0,0,,0.71558136
+UCH_BRCA_RS_417,UCH_BRCA_RS_417,51,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Pos,Neg,19,L,,,,2.422997952,2.422997952,0,0,0,,-0.52532357
+UCH_BRCA_RS_417 (2),UCH_BRCA_RS_417,51,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Pos,Neg,19,L,,,,2.422997952,2.422997952,0,0,0,,-0.52532357
+UCH_BRCA_RS_418,UCH_BRCA_RS_418,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,29,0,Pos,Pos,Neg,19,L,,,,2.819986343,2.819986343,0,0,0,,0.17150699
+UCH_BRCA_RS_418 (2),UCH_BRCA_RS_418,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,29,0,Pos,Pos,Neg,19,L,,,,2.819986343,2.819986343,0,0,0,,0.17150699
+UCH_BRCA_RS_419,UCH_BRCA_RS_419,39,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,16,1,Pos,Pos,Neg,,,-0.222,H,1,2.830937624,2.830937624,0,0,0,0.17168297,
+UCH_BRCA_RS_419 (2),UCH_BRCA_RS_419,39,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,16,1,Pos,Pos,Neg,,,-0.222,H,1,2.830937624,2.830937624,0,0,0,0.17168297,
+UCH_BRCA_RS_420,UCH_BRCA_RS_420,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,15,0,Pos,Pos,Neg,19,L,,,,3.184120417,3.184120417,0,0,0,,-0.39665613
+UCH_BRCA_RS_421,UCH_BRCA_RS_421,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,24,0,Pos,Pos,Neg,18,L,,,,2.015058279,,,0,0,,-0.6742005
+UCH_BRCA_RS_422,UCH_BRCA_RS_422,58,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Lobular,2,20,0,Pos,Pos,Neg,18,L,,,,2.685831547,2.685831547,0,0,0,,-0.4823474
+UCH_BRCA_RS_422 (2),UCH_BRCA_RS_422,58,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Lobular,2,20,0,Pos,Pos,Neg,18,L,,,,2.685831547,2.685831547,0,0,0,,-0.4823474
+UCH_BRCA_RS_422 (3),UCH_BRCA_RS_422,58,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Lobular,2,20,0,Pos,Pos,Neg,18,L,,,,2.685831547,2.685831547,0,0,0,,-0.4823474
+UCH_BRCA_RS_422 (4),UCH_BRCA_RS_422,58,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Lobular,2,20,0,Pos,Pos,Neg,18,L,,,,2.685831547,2.685831547,0,0,0,,-0.4823474
+UCH_BRCA_RS_423,UCH_BRCA_RS_423,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,1,22,0,Pos,Neg,Neg,19,L,,,,2.453114271,2.453114271,0,0,0,,-0.58461654
+UCH_BRCA_RS_424,UCH_BRCA_RS_424,70,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,11,0,Pos,Neg,Neg,19,L,,,,2.661190987,2.661190987,0,0,0,,-0.31010792
+UCH_BRCA_RS_425,UCH_BRCA_RS_425,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,3,53,1,Pos,Pos,Neg,,,-0.885,H,1,2.789870024,2.789870024,0,0,0,-0.28112224,
+UCH_BRCA_RS_426,UCH_BRCA_RS_426,40,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,1,Pos,Pos,Neg,,,0.274,L,,2.491444111,2.491444111,0,0,1,0.42412347,
+UCH_BRCA_RS_427,UCH_BRCA_RS_427,66,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,2,10,0,Pos,Pos,Neg,19,L,,,,2.669404507,2.669404507,0,0,0,,-0.2723189
+UCH_BRCA_RS_428,UCH_BRCA_RS_428,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,25,1,Pos,Pos,Neg,,,-0.175,H,1,1.785078764,1.785078764,0,0,0,0.3086432,
+UCH_BRCA_RS_429,UCH_BRCA_RS_429,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,19,0,Pos,Neg,Neg,18,L,,,,2.099931479,2.099931479,0,0,0,,-0.03352196
+UCH_BRCA_RS_429 (2),UCH_BRCA_RS_429,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,19,0,Pos,Neg,Neg,18,L,,,,2.099931479,2.099931479,0,0,0,,-0.03352196
+UCH_BRCA_RS_430,UCH_BRCA_RS_430,75,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,19,0,Pos,Neg,Neg,24,L,,,,2.395619392,2.395619392,0,0,0,,-0.45985982
+UCH_BRCA_RS_431,UCH_BRCA_RS_431,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,30,0,Pos,Pos,Neg,14,L,,,,2.94045186,2.94045186,0,0,9,,-0.4247177
+UCH_BRCA_RS_432,UCH_BRCA_RS_432,39,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Pos,,,0.081,L,1,2.521560669,2.521560669,0,0,0,0.4620104,
+UCH_BRCA_RS_432 (2),UCH_BRCA_RS_432,39,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Pos,,,0.081,L,1,2.521560669,2.521560669,0,0,0,0.4620104,
+UCH_BRCA_RS_432 (3),UCH_BRCA_RS_432,39,2 Female,"15 Asian Indian or Pakistani, NOS",0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Pos,,,0.081,L,1,2.521560669,2.521560669,0,0,0,0.4620104,
+UCH_BRCA_RS_433,UCH_BRCA_RS_433,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,1,Pos,Pos,Neg,,,0.014,L,1,3.156741858,3.156741858,0,0,0,0.2748224,
+UCH_BRCA_RS_434,UCH_BRCA_RS_434,50,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,20,98,Pos,Pos,Neg,10,L,,,1,20.424366,20.424366,0,0,,,-0.6155015
+UCH_BRCA_RS_435,UCH_BRCA_RS_435,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,16,0,Pos,Pos,Neg,23,L,,,,2.299794674,2.299794674,0,0,0,,-0.33978024
+UCH_BRCA_RS_436,UCH_BRCA_RS_436,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,41,98,Pos,Pos,Neg,29,H,,,,2.680356026,2.680356026,0,0,1,,-0.19123188
+UCH_BRCA_RS_437,UCH_BRCA_RS_437,40,2 Female,04 Chinese,0 Non-Spanish; non-Hispanic,Ductal,2,25,0,Pos,Pos,Neg,14,L,,,,1.144421577,1.144421577,0,0,0,,-0.14878862
+UCH_BRCA_RS_438,UCH_BRCA_RS_438,64,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,16,0,Pos,Neg,Neg,22,L,,,,2.499657869,2.499657869,0,0,0,,-0.46868658
+UCH_BRCA_RS_439,UCH_BRCA_RS_439,46,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,35,0,Pos,Pos,Neg,22,L,,,,2.551676989,2.551676989,0,0,0,,-0.15065704
+UCH_BRCA_RS_440,UCH_BRCA_RS_440,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,35,0,Pos,Pos,Neg,16,L,,,,3.299110174,3.299110174,0,0,0,,-0.31359684
+UCH_BRCA_RS_441,UCH_BRCA_RS_441,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,26,0,Pos,Pos,Neg,2,L,,,,2.51060915,2.51060915,0,0,0,,-0.1566286
+UCH_BRCA_RS_442,UCH_BRCA_RS_442,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,2,Pos,Pos,Neg,,,-0.167,H,1,2.420260191,2.420260191,0,0,0,0.07166516,
+UCH_BRCA_RS_443,UCH_BRCA_RS_443,69,1 Male,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,19,0,Pos,Pos,Neg,13,L,,,,3.063655138,3.063655138,0,0,0,,0.45537865
+UCH_BRCA_RS_444,UCH_BRCA_RS_444,43,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,17,2,Pos,Pos,Neg,,,0.108,L,,2.51060915,2.51060915,0,0,0,0.46523142,
+UCH_BRCA_RS_445,UCH_BRCA_RS_445,75,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,24,L,,,,2.420260191,2.420260191,0,0,0,,-0.42822757
+UCH_BRCA_RS_446,UCH_BRCA_RS_446,75,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,19,1,Pos,Pos,Neg,,,0.167,L,,3.208761215,3.208761215,0,0,0,0.49170136,
+UCH_BRCA_RS_446 (2),UCH_BRCA_RS_446,75,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,19,1,Pos,Pos,Neg,,,0.167,L,,3.208761215,3.208761215,0,0,0,0.49170136,
+UCH_BRCA_RS_447,UCH_BRCA_RS_447,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Mucinous,1,9,0,Pos,Pos,Neg,4,L,,,,1.99315536,1.99315536,0,0,0,,-0.14284664
+UCH_BRCA_RS_448,UCH_BRCA_RS_448,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,3,55,0,Pos,Pos,,15,L,,,,3.071868658,3.071868658,0,0,0,,-0.6811635
+UCH_BRCA_RS_448 (2),UCH_BRCA_RS_448,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,3,55,0,Pos,Pos,,15,L,,,,3.071868658,3.071868658,0,0,0,,-0.6811635
+UCH_BRCA_RS_449,UCH_BRCA_RS_449,61,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,10,0,Pos,Neg,Neg,48,H,,,1,2.379192352,2.379192352,0,0,0,,0.35069293
+UCH_BRCA_RS_450,UCH_BRCA_RS_450,43,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,24,1,Pos,Pos,Neg,,,0.047,L,,2.392881632,2.392881632,0,0,1,0.35287836,
+UCH_BRCA_RS_451,UCH_BRCA_RS_451,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,22,0,Pos,Pos,Neg,12,L,,,,3.159479856,3.159479856,0,0,0,,-0.09107788
+UCH_BRCA_RS_451 (2),UCH_BRCA_RS_451,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,22,0,Pos,Pos,Neg,12,L,,,,3.159479856,3.159479856,0,0,0,,-0.09107788
+UCH_BRCA_RS_452,UCH_BRCA_RS_452,65,2 Female,02 Black,0 Non-Spanish; non-Hispanic,D&L,2,101,0,Pos,Pos,Neg,,,-0.099,H,,4.405201912,,,0,0,0.32058522,
+UCH_BRCA_RS_453,UCH_BRCA_RS_453,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,14,0,Pos,Neg,Neg,26,H,,,,3.277207375,3.277207375,0,0,1,,-0.22489013
+UCH_BRCA_RS_454,UCH_BRCA_RS_454,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,3,Pos,Neg,Neg,,,0.394,L,,3.047227859,3.047227859,0,0,1,0.3884615,
+UCH_BRCA_RS_455,UCH_BRCA_RS_455,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,20,L,,,,3.05544138,3.05544138,0,0,0,,-0.384501
+UCH_BRCA_RS_456,UCH_BRCA_RS_456,61,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,16,0,Pos,Pos,Neg,15,L,,,,3.01163578,3.01163578,0,0,0,,-0.658739
+UCH_BRCA_RS_457,UCH_BRCA_RS_457,69,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,12,1,Pos,Pos,Neg,11,L,,,,3.696098566,3.696098566,0,0,0,,-0.44579914
+UCH_BRCA_RS_458,UCH_BRCA_RS_458,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,20,1,Pos,Pos,Neg,,,0.399,L,,1.894592762,1.894592762,0,0,1,0.46834412,
+UCH_BRCA_RS_459,UCH_BRCA_RS_459,73,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,16,1,Pos,Pos,Neg,,,-0.121,H,,3.05544138,3.05544138,0,0,0,0.49708143,
+UCH_BRCA_RS_460,UCH_BRCA_RS_460,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,19,L,,,,3.044490099,3.044490099,0,0,0,,-0.6354023
+UCH_BRCA_RS_461,UCH_BRCA_RS_461,43,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,28,1,Pos,Pos,Neg,,,0.131,L,,3.096509218,3.096509218,0,0,0,0.4943638,
+UCH_BRCA_RS_462,UCH_BRCA_RS_462,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,10,0,Pos,Pos,Neg,27,H,,,,14.1382618,14.1382618,0,0,,,0.242952
+UCH_BRCA_RS_463,UCH_BRCA_RS_463,61,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,15,0,Neg,Neg,Neg,,,-0.168,H,1,3.143052816,3.143052816,0,0,0,-0.10733687,
+UCH_BRCA_RS_464,UCH_BRCA_RS_464,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,13,1,Pos,Pos,Neg,,,-0.253,H,1,3.030800819,3.030800819,0,0,0,0.3120178,
+UCH_BRCA_RS_465,UCH_BRCA_RS_465,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,35,0,Pos,Pos,Neg,67,H,,,1,2.047912359,2.047912359,0,0,0,,-0.17641638
+UCH_BRCA_RS_465 (2),UCH_BRCA_RS_465,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,35,0,Pos,Pos,Neg,67,H,,,1,2.047912359,2.047912359,0,0,0,,-0.17641638
+UCH_BRCA_RS_466,UCH_BRCA_RS_466,77,2 Female,01 White,0 Non-Spanish; non-Hispanic,Others,2,25,0,Pos,Pos,Neg,,,0.185,L,,2.058863878,2.058863878,0,0,0,0.50882894,
+UCH_BRCA_RS_467,UCH_BRCA_RS_467,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,D&L,2,15,1,Pos,Pos,Neg,,,0.414,L,,2.01232028,2.01232028,0,0,0,0.54554015,
+UCH_BRCA_RS_468,UCH_BRCA_RS_468,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,10,1,Pos,Pos,Neg,,,0.398,L,1,16.09308624,16.09308624,0,0,,0.48899573,
+UCH_BRCA_RS_468 (2),UCH_BRCA_RS_468,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,10,1,Pos,Pos,Neg,,,0.398,L,1,16.09308624,16.09308624,0,0,,0.48899573,
+UCH_BRCA_RS_468 (3),UCH_BRCA_RS_468,57,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,10,1,Pos,Pos,Neg,,,0.398,L,1,16.09308624,16.09308624,0,0,,0.48899573,
+UCH_BRCA_RS_469,UCH_BRCA_RS_469,71,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,21,1,Pos,Pos,Neg,,,0.061,L,,1.960301161,1.960301161,0,0,1,0.51244104,
+UCH_BRCA_RS_470,UCH_BRCA_RS_470,62,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,7,0,Pos,Pos,Neg,26,H,,,,1.932922602,1.932922602,0,0,0,,-0.07478981
+UCH_BRCA_RS_470 (2),UCH_BRCA_RS_470,62,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,7,0,Pos,Pos,Neg,26,H,,,,1.932922602,1.932922602,0,0,0,,-0.07478981
+UCH_BRCA_RS_471,UCH_BRCA_RS_471,48,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,22,2,Pos,Pos,Neg,,,-0.042,H,,1.779603004,1.779603004,0,0,0,0.47375867,
+UCH_BRCA_RS_472,UCH_BRCA_RS_472,56,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,25,1,Pos,Pos,Neg,,,0.145,L,,2.280629635,2.280629635,0,0,0,0.5258372,
+UCH_BRCA_RS_473,UCH_BRCA_RS_473,47,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,23,7,Pos,Pos,Neg,,,0.09,L,1,1.99315536,1.99315536,0,0,1,0.32198817,
+UCH_BRCA_RS_474,UCH_BRCA_RS_474,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,8,0,Neg,Neg,Neg,18,L,,,,2.050650358,2.050650358,0,0,0,,-0.019078037
+UCH_BRCA_RS_475,UCH_BRCA_RS_475,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,18,3,Pos,Pos,Neg,,,-0.162,H,1,1.804243684,1.804243684,0,0,1,0.2747612,
+UCH_BRCA_RS_475 (2),UCH_BRCA_RS_475,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,18,3,Pos,Pos,Neg,,,-0.162,H,1,1.804243684,1.804243684,0,0,1,0.2747612,
+UCH_BRCA_RS_475 (3),UCH_BRCA_RS_475,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,18,3,Pos,Pos,Neg,,,-0.162,H,1,1.804243684,1.804243684,0,0,1,0.2747612,
+UCH_BRCA_RS_476,UCH_BRCA_RS_476,47,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,21,1,Pos,Pos,Neg,,,0.011,L,,1.902806282,1.902806282,0,0,1,0.43925014,
+UCH_BRCA_RS_477,UCH_BRCA_RS_477,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,26,0,Pos,Pos,Neg,19,L,,,,2.006844521,2.006844521,0,0,0,,-0.5241454
+UCH_BRCA_RS_478,UCH_BRCA_RS_478,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,9,L,,,,1.99589324,1.99589324,0,0,0,,-0.40676582
+UCH_BRCA_RS_479,UCH_BRCA_RS_479,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,23,1,Pos,Pos,Neg,,,0.26,L,,0.725530446,0.725530446,0,0,1,0.4995281,
+UCH_BRCA_RS_480,UCH_BRCA_RS_480,89,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,150,2,Pos,Neg,Neg,,,0.001,L,,1.01300478,1.01300478,0,0,0,0.43005615,
+UCH_BRCA_RS_481,UCH_BRCA_RS_481,56,2 Female,01 White,4 South or Central American (except Brazil),Ductal,3,6,1,Pos,Pos,Neg,,,-0.296,H,1,1.765913725,1.765913725,0,0,0,0.15888461,
+UCH_BRCA_RS_481 (2),UCH_BRCA_RS_481,56,2 Female,01 White,4 South or Central American (except Brazil),Ductal,3,6,1,Pos,Pos,Neg,,,-0.296,H,1,1.765913725,1.765913725,0,0,0,0.15888461,
+UCH_BRCA_RS_481 (3),UCH_BRCA_RS_481,56,2 Female,01 White,4 South or Central American (except Brazil),Ductal,3,6,1,Pos,Pos,Neg,,,-0.296,H,1,1.765913725,1.765913725,0,0,0,0.15888461,
+UCH_BRCA_RS_481 (4),UCH_BRCA_RS_481,56,2 Female,01 White,4 South or Central American (except Brazil),Ductal,3,6,1,Pos,Pos,Neg,,,-0.296,H,1,1.765913725,1.765913725,0,0,0,0.15888461,
+UCH_BRCA_RS_482,UCH_BRCA_RS_482,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,29,0,Pos,Pos,Neg,4,L,,,,1.834360003,1.834360003,0,0,0,,-0.39200056
+UCH_BRCA_RS_482 (2),UCH_BRCA_RS_482,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,29,0,Pos,Pos,Neg,4,L,,,,1.834360003,1.834360003,0,0,0,,-0.39200056
+UCH_BRCA_RS_483,UCH_BRCA_RS_483,61,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,40,1,Pos,Pos,Neg,,,0.309,L,,1.292265534,1.292265534,0,0,0,0.48028398,
+UCH_BRCA_RS_484,UCH_BRCA_RS_484,49,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,9,L,,,,2.157426357,2.157426357,0,0,0,,-0.61588687
+UCH_BRCA_RS_485,UCH_BRCA_RS_485,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,1,Pos,Pos,Neg,,,0.264,L,,1.631759048,1.631759048,0,0,0,0.49141574,
+UCH_BRCA_RS_485 (2),UCH_BRCA_RS_485,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,1,Pos,Pos,Neg,,,0.264,L,,1.631759048,1.631759048,0,0,0,0.49141574,
+UCH_BRCA_RS_486,UCH_BRCA_RS_486,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,70,0,Pos,Pos,Neg,13,L,,,,1.774127364,1.774127364,0,0,0,,-0.59279937
+UCH_BRCA_RS_487,UCH_BRCA_RS_487,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,15,L,,,,1.50581789,1.50581789,0,0,0,,-0.7759241
+UCH_BRCA_RS_488,UCH_BRCA_RS_488,73,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,22,0,Pos,Pos,Neg,18,L,,,,2.03422308,1.785078764,1,0,0,,-0.33095732
+UCH_BRCA_RS_489,UCH_BRCA_RS_489,65,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,29,2,Pos,Pos,Neg,,,-0.096,H,2,1.848049283,1.848049283,0,0,0,-0.0361985,
+UCH_BRCA_RS_489 (2),UCH_BRCA_RS_489,65,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,29,2,Pos,Pos,Neg,,,-0.096,H,2,1.848049283,1.848049283,0,0,0,-0.0361985,
+UCH_BRCA_RS_490,UCH_BRCA_RS_490,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,21,1,Pos,Pos,Neg,,,0.094,L,,1.733059525,1.733059525,0,0,0,0.18961067,
+UCH_BRCA_RS_491,UCH_BRCA_RS_491,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,0,Pos,Neg,Neg,23,L,,,,1.708418846,,,0,0,,-0.6448887
+UCH_BRCA_RS_492,UCH_BRCA_RS_492,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,43,0,Pos,Neg,Neg,23,L,,,,1.702943206,1.702943206,0,0,1,,-0.5797313
+UCH_BRCA_RS_493,UCH_BRCA_RS_493,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,30,0,Pos,Neg,Neg,18,L,,,,2.332648754,2.332648754,0,0,0,,-0.5680714
+UCH_BRCA_RS_493 (2),UCH_BRCA_RS_493,59,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,30,0,Pos,Neg,Neg,18,L,,,,2.332648754,2.332648754,0,0,0,,-0.5680714
+UCH_BRCA_RS_494,UCH_BRCA_RS_494,75,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,32,0,Pos,Pos,Neg,3,L,,,,1.842573524,1.842573524,0,0,1,,-0.5693553
+UCH_BRCA_RS_495,UCH_BRCA_RS_495,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,16,0,Pos,Pos,Neg,60,H,,,1,1.51950717,1.51950717,0,0,0,,0.041153103
+UCH_BRCA_RS_496,UCH_BRCA_RS_496,32,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,21,0,Pos,Pos,,,,-0.326,H,,10.34633827,10.34633827,0,0,0,0.3389249,
+UCH_BRCA_RS_497,UCH_BRCA_RS_497,43,2 Female,99 Unknown,9 Unknown whether Spanish or not; not stated in pt record,Ductal,2,17,1,Pos,Pos,Neg,,,0.448,L,,2.220396996,2.220396996,0,0,0,0.5370848,
+UCH_BRCA_RS_498,UCH_BRCA_RS_498,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,16,1,Pos,Pos,Neg,,,-0.357,H,1,1.656399727,1.656399727,0,0,0,0.5009581,
+UCH_BRCA_RS_499,UCH_BRCA_RS_499,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,10,0,Pos,Pos,Neg,21,L,,,,1.522245049,1.522245049,0,0,0,,-0.1658558
+UCH_BRCA_RS_499 (2),UCH_BRCA_RS_499,68,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,10,0,Pos,Pos,Neg,21,L,,,,1.522245049,1.522245049,0,0,0,,-0.1658558
+UCH_BRCA_RS_500,UCH_BRCA_RS_500,41,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,15,1,Pos,Pos,Neg,,,0.342,L,,1.388090372,1.388090372,0,0,0,0.32427004,
+UCH_BRCA_RS_501,UCH_BRCA_RS_501,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,15,0,Pos,Pos,,6,L,,,,2.236824036,2.236824036,0,0,0,,-0.51550347
+UCH_BRCA_RS_502,UCH_BRCA_RS_502,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Mucinous,2,9,0,Pos,Neg,Neg,22,L,,,,1.557837129,1.557837129,0,0,0,,-0.39718786
+UCH_BRCA_RS_503,UCH_BRCA_RS_503,53,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,1,Pos,Pos,Neg,,,-0.158,H,1,1.626283407,1.626283407,0,0,1,0.2091704,
+UCH_BRCA_RS_504,UCH_BRCA_RS_504,71,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,17,0,Pos,Pos,Neg,29,H,,,1,1.694729686,1.694729686,0,0,0,,0.7916782
+UCH_BRCA_RS_505,UCH_BRCA_RS_505,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,30,3,Pos,Pos,Neg,,,-0.073,H,2,1.607118368,1.607118368,0,0,1,0.44562265,
+UCH_BRCA_RS_506,UCH_BRCA_RS_506,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,80,2,Pos,Pos,Neg,,,-0.142,H,1,1.582477808,1.582477808,0,0,0,0.21429597,
+UCH_BRCA_RS_507,UCH_BRCA_RS_507,60,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,17,1,Pos,Pos,Neg,,,0.009,L,,1.363449693,1.363449693,0,0,1,0.121453054,
+UCH_BRCA_RS_508,UCH_BRCA_RS_508,62,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,34,0,Pos,Pos,Neg,15,L,,,,1.634496927,1.634496927,0,0,0,,-0.40043983
+UCH_BRCA_RS_509,UCH_BRCA_RS_509,67,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,17,0,Pos,Pos,Neg,25,L,,,,1.533196449,1.533196449,0,0,1,,0.11597003
+UCH_BRCA_RS_510,UCH_BRCA_RS_510,43,2 Female,08 Korean,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,10,L,,,,1.672826886,1.672826886,0,0,0,,-0.1782161
+UCH_BRCA_RS_510 (2),UCH_BRCA_RS_510,43,2 Female,08 Korean,0 Non-Spanish; non-Hispanic,Ductal,2,21,0,Pos,Pos,Neg,10,L,,,,1.672826886,1.672826886,0,0,0,,-0.1782161
+UCH_BRCA_RS_511,UCH_BRCA_RS_511,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,60,1,Pos,Pos,Neg,,,0.362,L,,1.566050649,1.566050649,0,0,1,0.50410515,
+UCH_BRCA_RS_512,UCH_BRCA_RS_512,70,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,24,0,Pos,Pos,Neg,18,L,,,,1.637234807,1.637234807,0,0,0,,0.2695022
+UCH_BRCA_RS_513,UCH_BRCA_RS_513,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,26,2,Pos,Pos,Neg,,,-0.002,H,1,2.201231956,2.201231956,0,0,0,0.43133655,
+UCH_BRCA_RS_514,UCH_BRCA_RS_514,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,1,Pos,Pos,Neg,29,H,0.091,L,1,1.549623489,1.549623489,0,0,0,0.12747845,-0.23792453
+UCH_BRCA_RS_515,UCH_BRCA_RS_515,71,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Pos,Neg,8,L,,,,2.165639877,2.165639877,0,0,0,,-0.4842622
+UCH_BRCA_RS_516,UCH_BRCA_RS_516,66,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Neg,Neg,Neg,,,-0.798,H,1,1.366187572,1.366187572,0,0,0,0.32421276,
+UCH_BRCA_RS_517,UCH_BRCA_RS_517,44,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,10,0,Pos,Pos,Neg,19,L,,,,1.251197815,1.251197815,0,0,0,,0.012334088
+UCH_BRCA_RS_518,UCH_BRCA_RS_518,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,30,0,Pos,Neg,Neg,30,H,,,1,1.262149215,1.262149215,0,0,1,,-0.5096697
+UCH_BRCA_RS_518 (2),UCH_BRCA_RS_518,54,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,30,0,Pos,Neg,Neg,30,H,,,1,1.262149215,1.262149215,0,0,1,,-0.5096697
+UCH_BRCA_RS_519,UCH_BRCA_RS_519,74,1 Male,01 White,0 Non-Spanish; non-Hispanic,DCIS,2,35,98,Pos,Pos,,17,L,,,,0.314852834,0.314852834,0,0,0,,-0.36535835
+UCH_BRCA_RS_520,UCH_BRCA_RS_520,77,2 Female,01 White,9 Unknown whether Spanish or not; not stated in pt record,Ductal,2,26,0,Pos,Pos,Neg,5,L,,,,1.368925452,1.368925452,0,0,0,,-0.53322345
+UCH_BRCA_RS_521,UCH_BRCA_RS_521,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,13,0,Pos,Neg,Neg,44,H,,,1,2.247775555,2.247775555,0,0,0,,0.41200137
+UCH_BRCA_RS_521 (2),UCH_BRCA_RS_521,56,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,13,0,Pos,Neg,Neg,44,H,,,1,2.247775555,2.247775555,0,0,0,,0.41200137
+UCH_BRCA_RS_522,UCH_BRCA_RS_522,38,2 Female,16 Asian Indian,0 Non-Spanish; non-Hispanic,Ductal,3,15,0,Pos,Pos,Neg,29,H,,,1,1.626283407,1.626283407,0,0,0,,0.6590384
+UCH_BRCA_RS_523,UCH_BRCA_RS_523,63,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,29,2,Pos,Neg,Neg,,,-0.382,H,1,1.880903482,1.880903482,0,0,1,-0.08161746,
+UCH_BRCA_RS_524,UCH_BRCA_RS_524,67,2 Female,01 White,0 Non-Spanish; non-Hispanic,Papillary,2,15,0,Pos,Pos,Neg,13,L,,,,2.182067156,2.182067156,0,0,0,,-0.20851804
+UCH_BRCA_RS_525,UCH_BRCA_RS_525,47,2 Female,01 White,9 Unknown whether Spanish or not; not stated in pt record,Lobular,2,15,0,Pos,Pos,Neg,11,L,,,,2.110882998,2.110882998,0,0,0,,-0.7214251
+UCH_BRCA_RS_526,UCH_BRCA_RS_526,65,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,11,0,Pos,Pos,Neg,17,L,,,,2.132785797,2.132785797,0,0,0,,-0.51620585
+UCH_BRCA_RS_527,UCH_BRCA_RS_527,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,17,0,Pos,Pos,Neg,27,H,,,1,2.283367634,2.283367634,0,0,0,,0.052051377
+UCH_BRCA_RS_528,UCH_BRCA_RS_528,26,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,1,0,Pos,Pos,,,,-0.306,H,,7.734428406,5.724845886,1,0,1,0.28929383,
+UCH_BRCA_RS_528 (2),UCH_BRCA_RS_528,26,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,1,0,Pos,Pos,,,,-0.306,H,,7.734428406,5.724845886,1,0,1,0.28929383,
+UCH_BRCA_RS_528 (3),UCH_BRCA_RS_528,26,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,2,1,0,Pos,Pos,,,,-0.306,H,,7.734428406,5.724845886,1,0,1,0.28929383,
+UCH_BRCA_RS_529,UCH_BRCA_RS_529,40,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,,23,L,,,,2.193018436,2.193018436,0,0,0,,-0.18853135
+UCH_BRCA_RS_530,UCH_BRCA_RS_530,58,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,20,L,,,,1.00205338,1.00205338,0,0,0,,-0.14365567
+UCH_BRCA_RS_531,UCH_BRCA_RS_531,62,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,25,0,Pos,Pos,Neg,17,L,,,,2.277891874,2.277891874,0,0,1,,-0.103270724
+UCH_BRCA_RS_531 (2),UCH_BRCA_RS_531,62,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,25,0,Pos,Pos,Neg,17,L,,,,2.277891874,2.277891874,0,0,1,,-0.103270724
+UCH_BRCA_RS_532,UCH_BRCA_RS_532,66,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Lobular,2,13,1,Pos,Pos,Neg,,,0.135,L,,2.036961079,2.036961079,0,0,0,0.45121595,
+UCH_BRCA_RS_533,UCH_BRCA_RS_533,54,2 Female,01 White,9 Unknown whether Spanish or not; not stated in pt record,D&L,2,15,2,Pos,Pos,Neg,,,0.209,L,,0.739219725,0.739219725,0,0,0,0.45190218,
+UCH_BRCA_RS_534,UCH_BRCA_RS_534,40,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,1,10,0,Neg,Neg,Pos,2,L,,,,18.13004875,18.13004875,0,0,,,-0.66661716
+UCH_BRCA_RS_535,UCH_BRCA_RS_535,48,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,16,1,Pos,Pos,Neg,,,-0.085,H,1,1.420944571,1.420944571,0,0,0,0.5177006,
+UCH_BRCA_RS_536,UCH_BRCA_RS_536,70,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,3,11,0,Pos,Pos,Neg,41,H,,,1,1.223819256,1.223819256,0,0,1,,-0.09261195
+UCH_BRCA_RS_537,UCH_BRCA_RS_537,64,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,20,0,Pos,Pos,Neg,10,L,,,,1.284052014,1.284052014,0,0,0,,-0.43647826
+UCH_BRCA_RS_538,UCH_BRCA_RS_538,60,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,2,16,0,Pos,Pos,Neg,11,L,,,,1.278576374,1.278576374,0,0,0,,-0.5758522
+UCH_BRCA_RS_539,UCH_BRCA_RS_539,32,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,14,0,Pos,Pos,Neg,16,L,,,1,18.6365509,18.6365509,0,0,,,0.084956266
+UCH_BRCA_RS_540,UCH_BRCA_RS_540,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Lobular,2,29,0,Pos,Pos,Neg,24,L,,,,1.303216934,1.303216934,0,0,0,,-0.2980029
+UCH_BRCA_RS_541,UCH_BRCA_RS_541,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,9,L,,,,1.097878218,1.097878218,0,0,0,,-0.6215539
+UCH_BRCA_RS_541 (2),UCH_BRCA_RS_541,50,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,13,0,Pos,Pos,Neg,9,L,,,,1.097878218,1.097878218,0,0,0,,-0.6215539
+UCH_BRCA_RS_542,UCH_BRCA_RS_542,70,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,17,0,Pos,Pos,Neg,21,L,,,,1.555099249,1.555099249,0,0,0,,-0.29624698
+UCH_BRCA_RS_543,UCH_BRCA_RS_543,55,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,12,0,Pos,Neg,Neg,27,H,,,1,1.196440816,1.196440816,0,0,0,,0.19769812
+UCH_BRCA_RS_544,UCH_BRCA_RS_544,45,2 Female,02 Black,0 Non-Spanish; non-Hispanic,Ductal,3,25,1,Pos,Pos,Neg,,,-0.765,H,1,1.215605736,1.215605736,0,0,1,-0.1935665,
+UCH_BRCA_RS_545,UCH_BRCA_RS_545,51,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,15,0,Pos,Pos,Neg,15,L,,,,1.305954814,1.305954814,0,0,0,,-0.357129
+UCH_BRCA_RS_546,UCH_BRCA_RS_546,52,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,28,0,Pos,Pos,Neg,11,L,,,,1.314168334,1.314168334,0,0,1,,-0.3024109
+UCH_BRCA_RS_547,UCH_BRCA_RS_547,34,2 Female,01 White,"6 Spanish, NOS; Hispanic, NOS; Latino, NOS",Ductal,3,30,0,Pos,Pos,Neg,20,L,,,,1.152635217,1.152635217,0,0,1,,-0.32565984
+UCH_BRCA_RS_548,UCH_BRCA_RS_548,62,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,28,0,Pos,Pos,Neg,14,L,,,,1.152635217,1.152635217,0,0,0,,0.057564754
+UCH_BRCA_RS_549,UCH_BRCA_RS_549,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,20,0,Pos,Pos,Neg,20,L,,,1,0.900752902,0.900752902,0,0,0,,-0.23145199
+UCH_BRCA_RS_549 (2),UCH_BRCA_RS_549,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,20,0,Pos,Pos,Neg,20,L,,,1,0.900752902,0.900752902,0,0,0,,-0.23145199
+UCH_BRCA_RS_549 (3),UCH_BRCA_RS_549,48,2 Female,01 White,0 Non-Spanish; non-Hispanic,Ductal,2,20,0,Pos,Pos,Neg,20,L,,,1,0.900752902,0.900752902,0,0,0,,-0.23145199
