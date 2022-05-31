@@ -5,21 +5,6 @@ Provides estimates for risk of recurrence from digital histology / multimodal pr
 
 ## Attribution
 If you use this code in your work or find it helpful, please consider citing our preprint ***.
-```
-@article{howard_impact_2021,
-	title = {The impact of site-specific digital histology signatures on deep learning model accuracy and bias},
-	volume = {12},
-	issn = {2041-1723},
-	url = {https://www.nature.com/articles/s41467-021-24698-1},
-	doi = {10.1038/s41467-021-24698-1},
-	pages = {1--13},
-	number = {1},
-	journaltitle = {Nature Communications},
-	shortjournal = {Nat Commun},
-	author = {Howard, Frederick M. and Dolezal, James and Kochanny, Sara and Schulte, Jefree and Chen, Heather and Heij, Lara and Huo, Dezheng and Nanda, Rita and Olopade, Olufunmilayo I. and Kather, Jakob N. and Cipriani, Nicole and Grossman, Robert L. and Pearson, Alexander T.},
-	date = {2021-07-20},
-}
-```
 
 ## Installation
 The associated files can be downloaded to a project directory. Installation takes < 5 minutes on a standard desktop computer. Runtime for hyperparameter optimization is approximately 96 hours for 50 iterations. Runtime for model training of the tumor region of interest and recurence score predictive models was approximately 4 hours. The analysis of results is performed in < 1 minute. All software was tested on CentOS 8 with an AMD EPYC 7302 16-Core Processor and 4x A100 SXM 40 GB GPUs.
