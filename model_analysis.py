@@ -19,7 +19,6 @@ from sklearn import preprocessing
 import numpy.random as rng
 from scipy.stats import pearsonr
 from tableone import TableOne
-import openpyxl
 from os.path import join
 import slideflow as sf
 import os
@@ -35,7 +34,6 @@ ODX_vars = ['grade', 'tumor_size', 'PR', 'ductal', 'lobular', 'ductlob', 'medull
 
 def find_eval(project, label, outcome, epoch=1, kfold = None):
     """Finds matching eval directory.
-
     Args:
         project (slideflow.Project): Project.
         label (str): Experimental label.
@@ -43,11 +41,9 @@ def find_eval(project, label, outcome, epoch=1, kfold = None):
             (biscuit.utils.OUTCOME). Defaults to None.
         epoch (int, optional): Epoch number of saved model. Defaults to None.
         kfold (int, optional): K-fold iteration. Defaults to None.
-
     Raises:
         MultipleModelsFoundError: If multiple matches are found.
         ModelNotFoundError: If no match is found.
-
     Returns:
         str: path to eval directory
     """
@@ -65,7 +61,6 @@ def find_eval(project, label, outcome, epoch=1, kfold = None):
         raise Exception(f"No matching eval found for label {label}")
     else:
         return join(project.eval_dir, matching[0])
-
 
 # AUC comparison adapted from
 # https://github.com/Netflix/vmaf/
@@ -308,15 +303,6 @@ def r_confidence_interval(r, alpha, n):
 
     # Return a sequence
     return (z_to_r(lo), z_to_r(hi))
-
-
-
-def dfCount(df, callout):
-    global diffCount
-    print(callout + ": " + str(len(df.index)))
-    if diffCount > -1:
-        print(callout + " (diff): " + str(diffCount - len(df.index)))
-    diffCount = len(df.index)
 
 
 def load_data(filename=None, savefile=None, loadfile=None, lower=True, rec_score = 'odx'):
@@ -911,7 +897,7 @@ def applySizeCutoffs(df):
     df.loc[df.AJCC_T == 't1a', 'tumor_size'] = 2.5
     df.loc[df.AJCC_T == 't1b', 'tumor_size'] = 7.5
     df.loc[df.AJCC_T == 't1c', 'tumor_size'] = 15
-    df.loc[dfAJCC_T == 't2', 'tumor_size'] = 35
+    df.loc[df.AJCC_T == 't2', 'tumor_size'] = 35
     df.loc[df.AJCC_T == 't2a', 'tumor_size'] = 35
     df.loc[df.AJCC_T == 't2b', 'tumor_size'] = 35
     df.loc[df.AJCC_T == 't3', 'tumor_size'] = 50
@@ -922,6 +908,11 @@ def applySizeCutoffs(df):
     df.loc[df.AJCC_T == 'tx', 'tumor_size'] = 35
     return df
 
+def roundp(p, d):
+    if round(p, d) == 0:
+        return p
+    else:
+        return round(p, d)
 
 def prognosticPlot(df, column):
     """Generates a string with prognostic accuracy of variable in column
@@ -943,12 +934,34 @@ def prognosticPlot(df, column):
     if len(dfcph[dfcph.recur == 1].index) <= 1:
         return "Two few events to estimate"
     cph.fit(dfcph, duration_col='year_recur', event_col='recur')
-    standard_scaler = preprocessing.StandardScaler()
-    dfcph[column] = standard_scaler.fit_transform(dfcph[column])
+    #Old method for preprocesing; now using per SD to standardize
+    #standard_scaler = preprocessing.StandardScaler()
+    #dfcph[column] = standard_scaler.fit_transform(dfcph[column])
+    if column[0] == 'comb': #log scale given comb is a logistic regression
+        dfcph[column[0]] = np.log(dfcph[column[0]])
+    dfcph[column[0]] = dfcph[column[0]] / dfcph[column[0]].std()
     cph2.fit(dfcph, duration_col='year_recur', event_col='recur')
-    return column[0] + "," + str(round(cph.hazard_ratios_[0], 3)) + " (" + str(round(exp(cph.confidence_intervals_["95% lower-bound"][0]), 3)) + " - " + str(round(exp(cph.confidence_intervals_["95% upper-bound"][0]), 3)) + "), " + str(round(cph.summary['p'][0], 3)) + "," + str(round(cph2.hazard_ratios_[0], 3)) + " (" + str(round(exp(cph2.confidence_intervals_["95% lower-bound"][0]), 3)) + " - " + str(round(exp(cph2.confidence_intervals_["95% upper-bound"][0]), 3)) + "), " + str(round(cph2.summary['p'][0], 3)) + "," + str(round(cph.concordance_index_, 3))
+    try:
+        ci1 = round(exp(cph.confidence_intervals_["95% lower-bound"][0]), 3)
+    except OverflowError:
+        ci1 = float('inf')
+    try:
+        ci2 = round(exp(cph.confidence_intervals_["95% upper-bound"][0]), 3)
+    except OverflowError:
+        ci2 = float('inf')
 
-def prognosticPlotThreshold(df, ax, column):
+    try:
+        ci3 = round(exp(cph2.confidence_intervals_["95% lower-bound"][0]), 3)
+    except OverflowError:
+        ci3 = float('inf')
+    try:
+        ci4 = round(exp(cph2.confidence_intervals_["95% upper-bound"][0]), 3)
+    except OverflowError:
+        ci4 = float('inf')
+
+    return column[0] + "," + str(round(cph.hazard_ratios_[0], 3)) + " (" + str(ci1) + " - " + str(ci2) + "), " + str(roundp(cph.summary['p'][0], 3)) + "," + str(round(cph2.hazard_ratios_[0], 3)) + " (" + str(ci3) + " - " + str(ci4) + "), " + str(roundp(cph2.summary['p'][0], 3)) + "," + str(round(cph.concordance_index_, 3))
+
+def prognosticPlotThreshold(df, ax = None, column = None):
     """Generates a plot of comparative prognostic accuracy for two groups identified by a threshold column
 
     Parameters
@@ -968,16 +981,16 @@ def prognosticPlotThreshold(df, ax, column):
     g1 = dfcph[dfcph[column] == 0]
     g2 = dfcph[dfcph[column] == 1]
     cph.fit(dfcph, duration_col='year_recur', event_col='recur')
-    kmf1 = KaplanMeierFitter()
-    kmf2 = KaplanMeierFitter()
-    kmf1.fit(g1['year_recur'], g1['recur'], label='Predicted Low Risk').plot_survival_function(ax=ax, ci_show=False)
-    kmf2.fit(g2['year_recur'], g2['recur'], label='Predicted High Risk').plot_survival_function(ax=ax, ci_show=False)
-    add_at_risk_counts(kmf1, kmf2, ax=ax)
-    ax.set_ylabel("Disease Free Survival")
-    ax.set_xlabel("Years")
-    ax.set_ylim([0.85, 1.0])
-    ax.legend(loc = 'upper right')
-    ax.annotate("HR " + str(round(cph.hazard_ratios_[0], 3)) + " (" + str(round(exp(cph.confidence_intervals_["95% lower-bound"][0]), 3)) + " - " + str(round(exp(cph.confidence_intervals_["95% upper-bound"][0]), 3)) + "), p = " + str(round(cph.summary['p'][0], 3)), (0, 0.87), annotation_clip=False, fontsize=12)
+    if ax:
+        kmf1 = KaplanMeierFitter()
+        kmf2 = KaplanMeierFitter()
+        kmf1.fit(g1['year_recur'], g1['recur'], label='Predicted Low Risk').plot_survival_function(ax=ax, ci_show=False)
+        kmf2.fit(g2['year_recur'], g2['recur'], label='Predicted High Risk').plot_survival_function(ax=ax, ci_show=False)
+        add_at_risk_counts(kmf1, kmf2, ax=ax)
+        ax.set_xlabel("Years")
+        ax.set_ylim([0.899, 1.001])
+        ax.legend(loc = 'upper right')
+        ax.annotate("HR " + str(round(cph.hazard_ratios_[0], 2)) + " (" + str(round(exp(cph.confidence_intervals_["95% lower-bound"][0]), 2)) + " - " + str(round(exp(cph.confidence_intervals_["95% upper-bound"][0]), 2)) + "), p = " + str(round(cph.summary['p'][0], 3)), (3.5, 0.95), annotation_clip=False, fontsize=12)
     if len(g1[g1.recur == 1]) == 0:
         return str("N/A (No events)")
     return str(round(cph.hazard_ratios_[0], 3)) + " (" + str(round(exp(cph.confidence_intervals_["95% lower-bound"][0]), 3)) + " - " + str(round(exp(cph.confidence_intervals_["95% upper-bound"][0]), 3)) + ")"
@@ -1098,7 +1111,7 @@ def plotAUROCODX(df, ax, columns, names, outcome):
     ax.set_xlabel('False Positive Rate')
     ax.set_title("University of Chicago (Validation)")
     ax.annotate("b", (-0.05, 1.05), annotation_clip = False, fontsize=12, weight='bold')
-    plt.show()
+    #plt.show()
     return ret_dict
 
 def calcSensSpec(df, columns, outcome):
@@ -1119,8 +1132,13 @@ def calcSensSpec(df, columns, outcome):
         thresh_dict[c] = {}
         sens = len(df[(df[c + "_thresh"] == 1) & (df[outcome] == 1)].index) / len(df[(df[outcome] == 1)].index)
         spec = len(df[(df[c + "_thresh"] == 0) & (df[outcome] == 0)].index) / len(df[(df[outcome] == 0)].index)
+        ppv = len(df[(df[c + "_thresh"] == 1) & (df[outcome] == 1)].index) / len(df[(df[c + "_thresh"] == 1)].index)
+        npv = len(df[(df[c + "_thresh"] == 0) & (df[outcome] == 0)].index) / len(df[(df[c + "_thresh"] == 0)].index)
+
         thresh_dict[c]['Sen'] = sens
         thresh_dict[c]['Spec'] = spec
+        thresh_dict[c]['PPV'] = ppv
+        thresh_dict[c]['NPV'] = npv
     return thresh_dict
 
 def plot_ci_manual(t, s_err, n, x, x2, y2, ax=None):
@@ -1569,9 +1587,9 @@ def getThresh(df, pred_path, pred_clin, outcome, avg_coefs = True, cutoff = 0.95
     df1 = df.copy()
     if avg_coefs:
         perform_met = {}
-        perform_met[pred_path] = {'Sen':0, 'Spec':0, 'Thresh':0}
-        perform_met[pred_clin] = {'Sen':0, 'Spec':0, 'Thresh':0}
-        perform_met["comb"] = {'Sen':0, 'Spec':0, 'Thresh':0}
+        perform_met[pred_path] = {'Sen':0, 'Spec':0, 'PPV':0, 'NPV':0,'Thresh':0}
+        perform_met[pred_clin] = {'Sen':0, 'Spec':0, 'PPV':0, 'NPV':0, 'Thresh':0}
+        perform_met["comb"] = {'Sen':0, 'Spec':0, 'PPV':0, 'NPV':0, 'Thresh':0}
         pred_cols = [pred_path, pred_clin]
         for i in [1, 2, 3]:
             df_temp = df1[df1.cv_linear == float(i)].copy()
@@ -1584,28 +1602,45 @@ def getThresh(df, pred_path, pred_clin, outcome, avg_coefs = True, cutoff = 0.95
                         if interpolate:
                             alp = 1/(cutoff - tpr[ind-1])
                             bet = 1/(t - cutoff)
-                            perform_met[col]['Sen'] += (bet*t+alp*tpr[ind-1])/(3*(alp+bet))
-                            perform_met[col]['Spec'] += (bet*(1-f)+alp*(1-fpr[ind-1]))/(3*(alp+bet))
+                            prev = len(df_temp[df_temp[outcome] == 1].index) / len(df_temp.index)
+                            sen = (bet*t+alp*tpr[ind-1])/((alp+bet))
+                            spec = (bet*(1-f)+alp*(1-fpr[ind-1]))/((alp+bet))
+                            perform_met[col]['Sen'] += sen / 3
+                            perform_met[col]['Spec'] += spec / 3
+                            perform_met[col]['PPV'] += sen * prev / (3*((sen*prev) + (1-spec)*(1-prev)))
+                            perform_met[col]['NPV'] += spec * (1 - prev) / (3 * ((spec)*(1 - prev) + (1 - sen)*(prev)))
                             perform_met[col]['Thresh'] += (bet*th+alp*thresh[ind-1])/(3*(alp+bet))
                         else:
+                            prev = len(df_temp[df_temp[outcome] == 1].index) / len(df_temp.index)
+                            sen = t
+                            spec = 1 - f
                             perform_met[col]['Sen'] += t/3
                             perform_met[col]['Spec'] += (1-f)/3
+                            perform_met[col]['PPV'] += sen * prev / (3*((sen*prev) + (1-spec)*(1-prev)))
+                            perform_met[col]['NPV'] += spec * (1 - prev) / (3 * ((spec)*(1 - prev) + (1 - sen)*(prev)))
                             perform_met[col]['Thresh'] += th/3
                         break
                     elif not t_cutoff and (1-f) <= cutoff:
                         if interpolate:
                             alp = 1 / (cutoff - (1 - fpr[ind - 1]))
                             bet = 1 / ((1-f) - cutoff)
-                            perform_met[col]['Sen'] += (bet * t + alp * tpr[ind - 1]) / (3 * (alp + bet))
-                            perform_met[col]['Spec'] += (bet * (1 - f) + alp * (1 - fpr[ind - 1])) / (3 * (alp + bet))
+                            prev = len(df_temp[df_temp[outcome] == 1].index) / len(df_temp.index)
+                            sen = (bet * t + alp * tpr[ind - 1]) / ((alp + bet))
+                            spec = (bet * (1 - f) + alp * (1 - fpr[ind - 1])) / ((alp + bet))
+                            perform_met[col]['Sen'] += sen/3
+                            perform_met[col]['Spec'] += spec/3
+                            perform_met[col]['PPV'] += sen * prev / (3*((sen*prev) + (1-spec)*(1-prev)))
+                            perform_met[col]['NPV'] += spec * (1 - prev) / (3 * ((spec)*(1 - prev) + (1 - sen)*(prev)))
                             perform_met[col]['Thresh'] += (bet * th + alp * thresh[ind - 1]) / (3 * (alp + bet))
-                            perform_met[col]['Sen'] += t/3
-                            perform_met[col]['Spec'] += (1-f)/3
-                            perform_met[col]['Thresh'] += th/3
                         else:
+                            prev = len(df_temp[df_temp[outcome] == 1].index) / len(df_temp.index)
+                            sen = t
+                            spec = 1 - f
                             perform_met[col]['Sen'] += t/3
                             perform_met[col]['Spec'] += (1-f)/3
                             perform_met[col]['Thresh'] += th/3
+                            perform_met[col]['PPV'] += sen * prev / (3*((sen*prev) + (1-spec)*(1-prev)))
+                            perform_met[col]['NPV'] += spec * (1 - prev) / (3 * ((spec)*(1 - prev) + (1 - sen)*(prev)))
                         break
         return perform_met
     raise NotImplementedError
@@ -1752,15 +1787,20 @@ def eval_model(df1, ax, clin_model, outcome, prognostic_models = True):
     if clin_model != "ten_score":
         clin_name = "Clinical Model"
 
-    r1 = plotAUROCODX(dfout, ax, ['percent_tiles_positive0', clin_model, 'comb'], ['DL Path', clin_name, 'Combined Model'], outcome_cat)
-    r2 = plotCorrelationODX(dfout, ['percent_tiles_positive0', clin_model, 'comb'], ['DL Path', clin_name, 'Combined Model'], outcome)
+    if prognostic_models:
+        r1 = plotAUROCODX(dfout, ax[0][1], ['percent_tiles_positive0', clin_model, 'comb'], ['DL Path', clin_name, 'Combined Model'], outcome_cat)
+    else:
+        r1 = plotAUROCODX(dfout, ax[1], ['percent_tiles_positive0', clin_model, 'comb'],
+                          ['DL Path', clin_name, 'Combined Model'], outcome_cat)
+        plt.show()
     thresh = calcSensSpec(dfout, ['percent_tiles_positive0', clin_model, 'comb'], outcome_cat)
 
     if prognostic_models:
         dfprog = df1.copy()
-        dfprog = dfprog[['chemo', 'percent_tiles_positive0', 'recur', 'year_recur', 'comb', 'regionalnodespositive'] + [clin_model] + [outcome]].dropna().reset_index()
+        dfprog = dfprog[['chemo', 'percent_tiles_positive0', 'recur', 'year_recur', 'dead', 'year_FU', 'comb', 'regionalnodespositive'] + [clin_model] + [outcome]].dropna().reset_index()
         dfprog.loc[dfprog.regionalnodespositive == 98, 'regionalnodespositive'] = 0
         dfprog.loc[dfprog.regionalnodespositive == 95, 'regionalnodespositive'] = 1
+        print("Disease Free Interval")
         print("Variable,HR (95% CI), p, HR (95% CI) scaled, p, C-Index, AUROC")
         print("No Chemo - n = " + str(len(dfprog[dfprog.chemo == 0].index)))
         recur_plot_cph(dfprog[dfprog.chemo == 0], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
@@ -1768,38 +1808,77 @@ def eval_model(df1, ax, clin_model, outcome, prognostic_models = True):
         recur_plot_cph(dfprog[dfprog.chemo == 1], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
         print("Overall - n = " + str(len(dfprog.index)))
         recur_plot_cph(dfprog, ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
-        print("Node negative - n = " + str(len(dfprog[dfprog.regionalnodespositive <= 1].index)))
-        recur_plot_cph(dfprog[dfprog.regionalnodespositive <= 1], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
+        print("Disease Free Survival")
+        dfprog.loc[dfprog.dead == 1, 'recur'] = 1
+        print("Variable,HR (95% CI), p, HR (95% CI) scaled, p, C-Index, AUROC")
+        print("No Chemo - n = " + str(len(dfprog[dfprog.chemo == 0].index)))
+        recur_plot_cph(dfprog[dfprog.chemo == 0], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
+        print("Chemo  - n = " + str(len(dfprog[dfprog.chemo == 1].index)))
+        recur_plot_cph(dfprog[dfprog.chemo == 1], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
+        print("Overall - n = " + str(len(dfprog.index)))
+        recur_plot_cph(dfprog, ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
 
+        print("Overall Survival")
+        dfprog['recur'] = dfprog['dead']
+        dfprog['year_recur'] = dfprog['year_FU']
+        print("Variable,HR (95% CI), p, HR (95% CI) scaled, p, C-Index, AUROC")
+        print("No Chemo - n = " + str(len(dfprog[dfprog.chemo == 0].index)))
+        recur_plot_cph(dfprog[dfprog.chemo == 0], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
+        print("Chemo  - n = " + str(len(dfprog[dfprog.chemo == 1].index)))
+        recur_plot_cph(dfprog[dfprog.chemo == 1], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
+        print("Overall - n = " + str(len(dfprog.index)))
+        recur_plot_cph(dfprog, ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
 
 
         dfprog = df1.copy()
-        dfprog = dfprog[['chemo', 'recur', 'year_recur', 'comb_thresh', 'percent_tiles_positive0', 'percent_tiles_positive0_thresh'] + [clin_model + '_thresh'] + [outcome]].dropna()
-        fig, axs = plt.subplots(1, 2, figsize=(12, 6), dpi=300, sharex = True)
-        prognosticPlotThreshold(dfprog, axs[0], clin_model + '_thresh')
-        prognosticPlotThreshold(dfprog, axs[1], 'comb_thresh')
+        dfprog = dfprog[['chemo', 'recur', 'year_recur', 'dead', 'comb_thresh', 'percent_tiles_positive0', 'percent_tiles_positive0_thresh'] + [clin_model + '_thresh'] + [outcome]].dropna()
+        #fig, axs = plt.subplots(1, 2, figsize=(12, 6), dpi=300, sharey = True)
 
-        axs[0].set_title("Tennessee Model (Target 95% Sensitivity for High Risk)")
-        axs[0].annotate("c", (-2.5, 1.01), annotation_clip = False, fontsize=12, weight='bold')
-        axs[1].set_title("Combined Model (Target 95% Sensitivity for High Risk)")
-        axs[1].annotate("d", (-2.5, 1.01), annotation_clip = False, fontsize=12, weight='bold')
+        prognosticPlotThreshold(dfprog[dfprog.chemo == 0], ax[1][0], clin_model + '_thresh')
+        prognosticPlotThreshold(dfprog[dfprog.chemo == 0], ax[1][1], 'comb_thresh')
+        ax[1][0].set_ylabel("Recurrence Free Interval")
+        ax[1][0].set_title("Tennessee Model (High Sensitivity Threshold)")
+        ax[1][0].set_xlim([-0.1, 10.1])
+        ax[1][1].set_xlim([-0.1, 10.1])
+        ax[1][0].annotate("c", (-0.5, 1.005), annotation_clip = False, fontsize=12, weight='bold')
+        ax[1][1].set_title("Combined Model (High Sensitivity Threshold)")
+        ax[1][1].annotate("d", (-0.5, 1.005), annotation_clip = False, fontsize=12, weight='bold')
 
         plt.tight_layout()
         plt.savefig("2a.png")
         plt.show()
         fig, axs = plt.subplots(3, 1, figsize = (7.5, 12), dpi = 300)
-        thresh['comb']['HR'] = prognosticPlotThreshold(dfprog, axs[2], 'comb_thresh')
-        thresh[clin_model]['HR'] = prognosticPlotThreshold(dfprog, axs[1], clin_model + '_thresh')
-        thresh['percent_tiles_positive0']['HR'] = prognosticPlotThreshold(dfprog, axs[0], 'percent_tiles_positive0_thresh')
+        thresh['comb']['HR'] = prognosticPlotThreshold(dfprog,None, 'comb_thresh')
+        thresh[clin_model]['HR'] = prognosticPlotThreshold(dfprog, None, clin_model + '_thresh')
+        thresh['percent_tiles_positive0']['HR'] = prognosticPlotThreshold(dfprog, None, 'percent_tiles_positive0_thresh')
+
+        thresh['comb']['HRendo'] = prognosticPlotThreshold(dfprog[dfprog.chemo == 0], axs[2], 'comb_thresh')
+        thresh[clin_model]['HRendo'] = prognosticPlotThreshold(dfprog[dfprog.chemo == 0], axs[1], clin_model + '_thresh')
+        thresh['percent_tiles_positive0']['HRendo'] = prognosticPlotThreshold(dfprog[dfprog.chemo == 0], axs[0], 'percent_tiles_positive0_thresh')
         axs[0].set_title("DL Path")
         axs[1].set_title("Tennessee Model")
         axs[2].set_title("Combined Model")
+
         plt.tight_layout()
         plt.show()
 
+        dfprog.loc[dfprog.dead == 1, 'recur'] = 1
+        thresh['comb']['HR_RFS'] = prognosticPlotThreshold(dfprog, None, 'comb_thresh')
+        thresh[clin_model]['HR_RFS'] = prognosticPlotThreshold(dfprog, None, clin_model + '_thresh')
+        thresh['percent_tiles_positive0']['HR_RFS'] = prognosticPlotThreshold(dfprog, None, 'percent_tiles_positive0_thresh')
+
+        thresh['comb']['HRendo_RFS'] = prognosticPlotThreshold(dfprog[dfprog.chemo == 0], None, 'comb_thresh')
+        thresh[clin_model]['HRendo_RFS'] = prognosticPlotThreshold(dfprog[dfprog.chemo == 0], None, clin_model + '_thresh')
+        thresh['percent_tiles_positive0']['HRendo_RFS'] = prognosticPlotThreshold(dfprog[dfprog.chemo == 0], None, 'percent_tiles_positive0_thresh')
+
+
     #plt.show()
+
+    r2 = plotCorrelationODX(dfout, ['percent_tiles_positive0', clin_model, 'comb'],
+                            ['DL Path', clin_name, 'Combined Model'], outcome)
     for c in ['percent_tiles_positive0', clin_model, 'comb']:
         r2[c] = r2[c] + "," + r1[c]
+
     return r2, thresh
 
 
@@ -1850,14 +1929,23 @@ def testMultivariate(df, show = False, outcome = 'RS', NCDB = False, prognostic_
 
     pred_cols = ['percent_tiles_positive0', 'ten_score']
     outcome_cat = 'odx85_cat'
-    fig, axs = plt.subplots(1,2, figsize=(12,6), dpi=300, sharey = True)
+    if prognostic_plots:
+        fig, axs = plt.subplots(2,2, figsize=(12,12), dpi=300, sharey = 'row')
+    else:
+        fig, axs = plt.subplots(1,2, figsize=(12, 6), dpi=300, sharey='row')
     if outcome == 'mpscore':
         outcome_cat = 'mp_cat'
     if NCDB:
         pred_cols = ['percent_tiles_positive0', 'pred_score']
-        clf, clf_ncdb, thresh, r0 = fitMultivariate(ax = axs[0], outcome = outcome_cat, NCDB = NCDB)
+        if prognostic_plots:
+            clf, clf_ncdb, thresh, r0 = fitMultivariate(ax = axs[0][0], outcome = outcome_cat, NCDB = NCDB)
+        else:
+            clf, clf_ncdb, thresh, r0 = fitMultivariate(ax=axs[0], outcome=outcome_cat, NCDB=NCDB)
     else:
-        clf, thresh, r0 = fitMultivariate(ax = axs[0], outcome=outcome_cat, NCDB=NCDB)
+        if prognostic_plots:
+            clf, thresh, r0 = fitMultivariate(ax = axs[0][0], outcome=outcome_cat, NCDB=NCDB)
+        else:
+            clf, thresh, r0 = fitMultivariate(ax=axs[0], outcome=outcome_cat, NCDB=NCDB)
     calcClinModelUCMC(df)
     df = df.dropna(subset = ['percent_tiles_positive0']).copy()
     if NCDB:
@@ -1868,13 +1956,13 @@ def testMultivariate(df, show = False, outcome = 'RS', NCDB = False, prognostic_
     df['comb'] = clf.predict_proba(df[pred_cols])[:, 1]
     df = applyThresh(df, pred_cols[1], thresh)
 
-    r1, thresh2 = eval_model(df, axs[1], pred_cols[1], outcome, prognostic_plots)
+    r1, thresh2 = eval_model(df, axs, pred_cols[1], outcome, prognostic_plots)
     for ci in ['percent_tiles_positive0', pred_cols[1], 'comb']:
         r0[ci] = r0[ci] + "," + r1[ci]
     if prognostic_plots:
-        print("Sen, Spec, Sen, Spec, HR")
+        print("Sen, Spec, PPV, NPV, Sen, Spec, PPV, NPV, HR, HRendo, HR_RFS, HR_RFSendo")
         for c in ['percent_tiles_positive0', pred_cols[1],  'comb']:
-            print(str(round(thresh[c]['Sen']*100,1)) + "," + str(round(thresh[c]['Spec']*100,1))+ "," + str(round(thresh2[c]['Sen']*100,1)) + "," + str(round(thresh2[c]['Spec']*100,1))+ "," +thresh2[c]['HR'])
+            print(str(round(thresh[c]['Sen']*100,1)) + "," + str(round(thresh[c]['Spec']*100,1))+ "," + str(round(thresh[c]['PPV']*100,1)) + "," + str(round(thresh[c]['NPV']*100,1))+ "," + str(round(thresh2[c]['Sen']*100,1)) + "," + str(round(thresh2[c]['Spec']*100,1))+ "," + str(round(thresh2[c]['PPV']*100,1)) + "," + str(round(thresh2[c]['NPV']*100,1))+ "," +thresh2[c]['HR'] + "," +thresh2[c]['HRendo'] + "," +thresh2[c]['HR_RFS'] + "," +thresh2[c]['HRendo_RFS'])
     return r0
 
 def testODX(ten_score = True, NCDB = False, race_subset = None, prognostic_plots = True):
@@ -1907,6 +1995,7 @@ def testODX(ten_score = True, NCDB = False, race_subset = None, prognostic_plots
         prognostic_plots = False
 
     df1 = df1[df1.hist_type != 'DCIS'].copy()
+    df1 = df1.drop_duplicates(subset='patient')
     if ten_score:
         r0 = testMultivariate(df1, show = True, outcome = 'RS', NCDB = False, prognostic_plots = prognostic_plots)
     if NCDB:
@@ -1938,8 +2027,7 @@ def testMP(ten_score = False, NCDB = True, prognostic_plots = False):
         df2['patient'] = df2['patient'].astype(str)
         df1 = df1.merge(df2, on='patient', how='left')
     else:
-        df1['percent_tiles_positive0'] = df1['percent_tiles_positive0_odx']
-
+        df1['percent_tiles_positive0'] = df1['percent_tiles_positive0_mp']
     df1['percent_tiles_positive0'] = -1 * df1['percent_tiles_positive0_mp']
     df1 = df1.drop_duplicates(subset='patient')
     if ten_score:
@@ -2000,7 +2088,6 @@ def describeCohortODX():
 
     df = pd.read_csv(join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv"))
     df = df.dropna(subset=['RS'])
-    df = df[df.hist_type != 'DCIS']
     df = df.drop_duplicates(subset ='patient')
     columns = ['Age', 'sex', 'race_1', 'Spanish_Hispanic_Origin', 'hist_type', 'grade', 'tumor_size', 'nodes', 'ER', 'PR', 'HER2', 'RS', 'dup_chemo', 'year_FU', 'recur', 'dead']
     categorical = ['sex', 'race_1', 'Spanish_Hispanic_Origin', 'hist_type', 'grade', 'nodes', 'ER', 'PR', 'HER2', 'dup_chemo', 'recur', 'dead']
@@ -2017,7 +2104,6 @@ def describeCohortMP():
 
     df = pd.read_csv(join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv"))
     df = df.dropna(subset=['mpscore'])
-    df = df[df.hist_type != 'DCIS']
     df = df.drop_duplicates(subset ='patient')
     columns = ['Age', 'sex', 'race_1', 'Spanish_Hispanic_Origin', 'hist_type', 'grade', 'tumor_size', 'nodes', 'ER', 'PR', 'HER2', 'mpscore', 'dup_chemo', 'year_FU', 'recur', 'dead']
     categorical = ['sex', 'race_1', 'Spanish_Hispanic_Origin', 'hist_type', 'grade', 'nodes', 'ER', 'PR', 'HER2', 'dup_chemo', 'recur', 'dead']
@@ -2070,13 +2156,32 @@ def describeCohortTCGA():
     print(mytable.tabulate(tablefmt='github'))
     mytable.to_excel('TCGA Cohort.xlsx')
 
+def correlateNecrosisLVI():
+    pred_cols = ['percent_tiles_positive0']
+    df1 = pd.read_csv(join(PROJECT_ROOT, "UCH_RS", "tcga_brca_complete.csv"))
+    dfs = []
+    for i in [1,2,3]:
+        dfa = pd.read_csv(join(PROJECT_ROOT, "saved_results", "odx85_cat" + str(i)+ ".csv"))
+        dfa['cv_linear'] = i
+        dfs += [dfa]
+    df1 = df1.merge(pd.concat(dfs), left_on="patient", right_on="patient", how="left")
+    from scipy.stats import ttest_ind
+    print("Characteristic, n, T-statistic, p-value")
+    def printTstat(name, n, t):
+        print(name + "," + str(n) +"," + str(round(t[0], 3)) + "," + str(t[1]))
+    printTstat("Necrosis", len(df1[df1['Necrosis'].isin(['Present','Absent'])].index), ttest_ind(df1.loc[df1.Necrosis == 'Present', 'percent_tiles_positive0'], df1.loc[df1.Necrosis == 'Absent', 'percent_tiles_positive0']))
+    printTstat("LVI", len(df1[df1['Lymphovascular Invasion (LVI)'].isin(['Present','Absent'])].index), ttest_ind(df1.loc[df1['Lymphovascular Invasion (LVI)'] == 'Present', 'percent_tiles_positive0'], df1.loc[df1['Lymphovascular Invasion (LVI)'] == 'Absent', 'percent_tiles_positive0']))
+    printTstat("Epithelial Grade", len(df1[df1['Epithelial'].isin([3,2,1])].index), ttest_ind(df1.loc[df1['Epithelial'] < 3, 'percent_tiles_positive0'], df1.loc[df1['Epithelial'] == 3, 'percent_tiles_positive0']))
+    printTstat("Pleomorph Grade", len(df1[df1['Pleomorph'].isin([3,2,1])].index), ttest_ind(df1.loc[df1['Pleomorph'] < 3, 'percent_tiles_positive0'], df1.loc[df1['Pleomorph'] == 3, 'percent_tiles_positive0']))
+    printTstat("Mitosis Grade", len(df1[df1['Mitosis'].isin(['(score = 3) >10 per 10 HPF', '(score = 1) 0 to 5 per 10 HPF', '(score = 2) 6 to 10 per 10 HPF'])].index), ttest_ind(df1.loc[df1['Mitosis'].isin(['(score = 1) 0 to 5 per 10 HPF', '(score = 2) 6 to 10 per 10 HPF']), 'percent_tiles_positive0'], df1.loc[df1['Mitosis'] == '(score = 3) >10 per 10 HPF', 'percent_tiles_positive0']))
+    printTstat("Overall Grade", len(df1[df1['Grade'].isin([3,2,1])].index), ttest_ind(df1.loc[df1['Grade'] < 3, 'percent_tiles_positive0'], df1.loc[df1['Grade'] == 3, 'percent_tiles_positive0']))
 
 def main():
 
     parser = argparse.ArgumentParser(description = "Helper to guide through model training.")
     parser.add_argument('-s', '--saved', action="store_true", help='If provided, will use saved stats for parameter calculation.')
     parser.add_argument('-p', '--project_root', required=False, type=str, help='Path to project directory (if not provided, assumes subdirectory of this script).')
-    args = parser.parse_args()  
+    args = parser.parse_args()
     global RUN_FROM_OLD_STATS
     global PROJECT_ROOT
     if args.project_root:
@@ -2088,14 +2193,16 @@ def main():
     describeCohortMP()
     describeCohortTCGA()
     plot_hp_search('hpopt.csv')
-	print("---------PREDICTIONS FOR ONCOTYPE MODEL---------")
+    print("---------PREDICTIONS FOR ONCOTYPE MODEL---------")
     testODX(ten_score = True, NCDB = False, prognostic_plots = True)
-	print("---------PREDICTIONS FOR MAMMAPRINT MODEL---------")
+    print("---------PREDICTIONS FOR MAMMAPRINT MODEL---------")
     testMP(ten_score = False, NCDB = True, prognostic_plots = False)
     print("---------PREDICTIONS FOR ONCOTYPE MODEL (WHITE SUBSET)---------")
-	testODX(ten_score = True, NCDB = False, race_subset = 'White')
+    testODX(ten_score = True, NCDB = False, race_subset = 'White')
     print("---------PREDICTIONS FOR ONCOTYPE MODEL (BLACK SUBSET)---------")
-	testODX(ten_score = True, NCDB = False, race_subset = 'Black')
+    testODX(ten_score = True, NCDB = False, race_subset = 'Black')
+    print("---------CORRELATION BETWEEN PREDICTIONS AND PATH FEATURES---------")
+    correlateNecrosisLVI()
 
 if __name__ == '__main__':
     main()
