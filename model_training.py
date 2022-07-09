@@ -75,7 +75,8 @@ hp_opt = ModelParams(tile_px= 299,
                     optimizer = "Adam",
                     pooling = "avg",
                     toplayer_epochs = 0,
-                    trainable_layers = 0)
+                    trainable_layers = 0,
+                    onehot_pool = 'false')
                     
                                         
 
@@ -92,7 +93,7 @@ def get_model_results(path, metric, variable):
     try:
         csv = pd.read_csv(join(path, 'results_log.csv'))
         model_res = next(csv.iterrows())[1]
-        return eval(model_res[variable])[metric][0]
+        return eval(model_res[metric])[variable][0]
     except Exception as e:
         return -1
 
@@ -184,9 +185,9 @@ def get_model_performance(SFP, prefix, count, outcomes = ['odx85', 'GHI_RS_Model
             continue
     if cv_models:
         for m in cv_models:
-            if get_model_results(m, outcome=outcome, variable="tile_auc") == -1:
+            if get_model_results(m, metric="tile_auc", variable=outcome) == -1:
                 continue
-            res += [get_model_results(m, outcome=outcome, variable="tile_auc")]
+            res += [get_model_results(m, metric="tile_auc", variable=outcome)]
         return sum(res)/len(res)
     return 0
 
@@ -337,9 +338,9 @@ def get_runner(SFP, prefix):
             model_count = model_count + 1
             res = []
             for m in cv_models:
-                if get_model_results(m, outcome=outcome, variable="tile_auc") == -1:
+                if get_model_results(m, metric="tile_auc", variable=outcome) == -1:
                     continue
-                res += [get_model_results(m, outcome=outcome, variable="tile_auc")]             
+                res += [get_model_results(m, metric="tile_auc", variable=outcome)]             
             res_avg += sum(res)/len(res)
         return 1 - res_avg
     return train_model
@@ -429,9 +430,9 @@ def brca_cancer_detection_module(tile_px = 299, tile_um = 302, normalizer = 'rei
     )
     res = []
     for m in cv_models:
-        if get_model_results(m, outcome=outcome, variable="tile_auc") == -1:
+        if get_model_results(m, metric="tile_auc", variable="roi") == -1:
             continue
-        res += [get_model_results(m, outcome=outcome, variable="tile_auc")]
+        res += [get_model_results(m, metric="tile_auc", variable="roi")]
     print("AVERAGE TILE-LEVEL AUROC FOR CANCER PREDICTION: " + str(sum(res)/len(res)))
 
 
@@ -623,7 +624,7 @@ def main():
     if args.validate:
         test_models()
     if args.heatmaps_odx_roi:
-        if args.heatmaps_tumor_roi == 'TCGA':
+        if args.heatmaps_odx_roi == 'TCGA':
             SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
             exp_label = "ODX_Final_BRCAROI"
             SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "tcga_brca_complete.csv")            
@@ -631,14 +632,13 @@ def main():
             for i in [1,2,3]:
                 m = find_model(SFP, exp_label, outcome='GHI_RS_Model_NJEM.2004_PMID.15591335', epoch=1, kfold=i)
                 SFP.generate_heatmaps(model=m, filters={'CV3_odx85_mip':str(i)}, outdir = join(PROJECT_ROOT, 'UCH_RS/heatmaps_tcga'), resolution='low', batch_size=32, roi_method ='none', show_roi = True, buffer=join(PROJECT_ROOT, 'buffer'))
-        if args.heatmaps_tumor_roi == 'UCH':
+        if args.heatmaps_odx_roi == 'UCH':
             SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
             SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv")
             SFP.sources = ["UCH_BRCA_RS"]
             exp_label = "ODX_Final_BRCAROI"
             m = find_model(SFP, exp_label, outcome='GHI_RS_Model_NJEM.2004_PMID.15591335', epoch=1)
             SFP.generate_heatmaps(model=m, outdir = join(PROJECT_ROOT, 'UCH_RS/heatmaps_uch'), resolution='low', batch_size=32, roi_method ='none', show_roi = True, buffer=join(PROJECT_ROOT, 'buffer'))
-
     if args.heatmaps_tumor_roi:
         hp = None
         if hpsearch == 'old':
