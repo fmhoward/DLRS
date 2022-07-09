@@ -72,7 +72,7 @@ To evaluate performance characteristics of the trained model, run model_analysis
 model_analysis.py -s
 ```
 
-To make new predictions using our trained models, please <a href='https://zenodo.org/record/6597167'>download the trained models from Zenodo</a> and extract the zip into the PROJECTS folder. Predictions can be made with the <a href='https://slideflow.dev/'>Slideflow evaluate function</a> or by specifying slides and associated clinical characteristics in the UCH_RS project folder, and running model_training.py -v and model_analysis.py as above.
+To make new predictions using our trained models, please <a href='doi.org/10.5281/zenodo.6792391'>download the trained models from Zenodo</a> and extract the zip into the PROJECTS folder. Predictions can be made with the <a href='https://slideflow.dev/'>Slideflow evaluate function</a> or by specifying slides and associated clinical characteristics in the UCH_RS project folder, and running model_training.py -v and model_analysis.py as above.
 
 ## Model interpretation
 To view heatmaps from trained models, run model_training.py with the --heatmaps_tumor_roi or --heatmaps_odx_roi, and specify 'TCGA' or 'UCH' depending on which dataset you want to generate heatmaps for:
