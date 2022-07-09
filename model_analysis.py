@@ -220,11 +220,11 @@ def calc_pvalue(aucs, sigma):
        aucs: 1D array of AUCs
        sigma: AUC DeLong covariances
     Returns:
-       log10(pvalue)
+       z-statistic, log10(pvalue)
     """
     l = np.array([[1, -1]])
     z = np.abs(np.diff(aucs)) / np.sqrt(np.dot(np.dot(l, sigma), l.T))
-    return np.log10(2) + scipy.stats.norm.logsf(z, loc=0, scale=1) / np.log(10)
+    return z, np.log10(2) + scipy.stats.norm.logsf(z, loc=0, scale=1) / np.log(10)
 
 
 def compute_ground_truth_statistics(ground_truth, sample_weight):
@@ -959,7 +959,7 @@ def prognosticPlot(df, column):
     except OverflowError:
         ci4 = float('inf')
 
-    return column[0] + "," + str(round(cph.hazard_ratios_[0], 3)) + " (" + str(ci1) + " - " + str(ci2) + "), " + str(roundp(cph.summary['p'][0], 3)) + "," + str(round(cph2.hazard_ratios_[0], 3)) + " (" + str(ci3) + " - " + str(ci4) + "), " + str(roundp(cph2.summary['p'][0], 3)) + "," + str(round(cph.concordance_index_, 3))
+    return column[0] + "," + str(round(cph.hazard_ratios_[0], 3)) + " (" + str(ci1) + " - " + str(ci2) + "), " + str(roundp(cph.summary['p'][0], 3)) + "," + str(round(cph2.hazard_ratios_[0], 3)) + " (" + str(ci3) + " - " + str(ci4) + "), " + str(roundp(cph2.summary['z'][0], 3)) + ", " + str(roundp(cph2.summary['p'][0], 3)) + "," + str(round(cph.concordance_index_, 3))
 
 def prognosticPlotThreshold(df, ax = None, column = None):
     """Generates a plot of comparative prognostic accuracy for two groups identified by a threshold column
@@ -1100,8 +1100,10 @@ def plotAUROCODX(df, ax, columns, names, outcome):
     for c,n in zip(columns, names):
         res = plotAUROC(ax, df, outcome = outcome, predictor = c, predictor_name = n, n_bootstraps = None)
         ret_dict[c] = res + ","
-    ret_dict[columns[1]] += str(round(10 ** delong_roc_test(df[outcome], df[columns[1]], df['comb'])[0][0], 3))
-    ret_dict['percent_tiles_positive0'] += str(round(10 ** delong_roc_test(df[outcome], df['percent_tiles_positive0'], df['comb'])[0][0], 3))
+    z, p = delong_roc_test(df[outcome], df[columns[1]], df['comb'])
+    ret_dict[columns[1]] += str(round(z[0][0],3)) + "," + str(round(10 ** p[0][0], 3))
+    z, p = delong_roc_test(df[outcome], df['percent_tiles_positive0'], df['comb'])
+    ret_dict['percent_tiles_positive0'] += str(round(z[0][0],3)) + "," + str(round(10 ** p[0][0], 3))
     ret_dict['comb'] += "-"
     ax.legend()
     ax.plot([0, 1], [0, 1],'k--')
@@ -1800,15 +1802,16 @@ def eval_model(df1, ax, clin_model, outcome, prognostic_models = True):
         dfprog = dfprog[['chemo', 'percent_tiles_positive0', 'recur', 'year_recur', 'dead', 'year_FU', 'comb', 'regionalnodespositive'] + [clin_model] + [outcome]].dropna().reset_index()
         dfprog.loc[dfprog.regionalnodespositive == 98, 'regionalnodespositive'] = 0
         dfprog.loc[dfprog.regionalnodespositive == 95, 'regionalnodespositive'] = 1
-        print("Disease Free Interval")
-        print("Variable,HR (95% CI), p, HR (95% CI) scaled, p, C-Index, AUROC")
+        print("**Disease Free Interval**")
+        print("Variable,HR (95% CI), p, HR (95% CI) scaled, z, p, C-Index, AUROC")
         print("No Chemo - n = " + str(len(dfprog[dfprog.chemo == 0].index)))
         recur_plot_cph(dfprog[dfprog.chemo == 0], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
         print("Chemo  - n = " + str(len(dfprog[dfprog.chemo == 1].index)))
         recur_plot_cph(dfprog[dfprog.chemo == 1], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
         print("Overall - n = " + str(len(dfprog.index)))
         recur_plot_cph(dfprog, ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
-        print("Disease Free Survival")
+        print()
+        print("**Disease Free Survival**")
         dfprog.loc[dfprog.dead == 1, 'recur'] = 1
         print("Variable,HR (95% CI), p, HR (95% CI) scaled, p, C-Index, AUROC")
         print("No Chemo - n = " + str(len(dfprog[dfprog.chemo == 0].index)))
@@ -1817,8 +1820,9 @@ def eval_model(df1, ax, clin_model, outcome, prognostic_models = True):
         recur_plot_cph(dfprog[dfprog.chemo == 1], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
         print("Overall - n = " + str(len(dfprog.index)))
         recur_plot_cph(dfprog, ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
+        print()
 
-        print("Overall Survival")
+        print("**Overall Survival**")
         dfprog['recur'] = dfprog['dead']
         dfprog['year_recur'] = dfprog['year_FU']
         print("Variable,HR (95% CI), p, HR (95% CI) scaled, p, C-Index, AUROC")
@@ -1828,7 +1832,7 @@ def eval_model(df1, ax, clin_model, outcome, prognostic_models = True):
         recur_plot_cph(dfprog[dfprog.chemo == 1], ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
         print("Overall - n = " + str(len(dfprog.index)))
         recur_plot_cph(dfprog, ['percent_tiles_positive0'] + [clin_model] + ['comb'] + [outcome])
-
+        print()
 
         dfprog = df1.copy()
         dfprog = dfprog[['chemo', 'recur', 'year_recur', 'dead', 'comb_thresh', 'percent_tiles_positive0', 'percent_tiles_positive0_thresh'] + [clin_model + '_thresh'] + [outcome]].dropna()
@@ -1960,9 +1964,11 @@ def testMultivariate(df, show = False, outcome = 'RS', NCDB = False, prognostic_
     for ci in ['percent_tiles_positive0', pred_cols[1], 'comb']:
         r0[ci] = r0[ci] + "," + r1[ci]
     if prognostic_plots:
-        print("Sen, Spec, PPV, NPV, Sen, Spec, PPV, NPV, HR, HRendo, HR_RFS, HR_RFSendo")
+        print("**Performance characteristics at 95% sensitivity threshold**")
+        print("Sen (TCGA), Spec (TCGA), PPV (TCGA), NPV (TCGA), Sen (UCMC), Spec (UCMC), PPV (UCMC), NPV (UCMC), HR, HRendo, HR_RFS, HR_RFSendo")
         for c in ['percent_tiles_positive0', pred_cols[1],  'comb']:
             print(str(round(thresh[c]['Sen']*100,1)) + "," + str(round(thresh[c]['Spec']*100,1))+ "," + str(round(thresh[c]['PPV']*100,1)) + "," + str(round(thresh[c]['NPV']*100,1))+ "," + str(round(thresh2[c]['Sen']*100,1)) + "," + str(round(thresh2[c]['Spec']*100,1))+ "," + str(round(thresh2[c]['PPV']*100,1)) + "," + str(round(thresh2[c]['NPV']*100,1))+ "," +thresh2[c]['HR'] + "," +thresh2[c]['HRendo'] + "," +thresh2[c]['HR_RFS'] + "," +thresh2[c]['HRendo_RFS'])
+        print()
     return r0
 
 def testODX(ten_score = True, NCDB = False, race_subset = None, prognostic_plots = True):
@@ -2000,12 +2006,15 @@ def testODX(ten_score = True, NCDB = False, race_subset = None, prognostic_plots
         r0 = testMultivariate(df1, show = True, outcome = 'RS', NCDB = False, prognostic_plots = prognostic_plots)
     if NCDB:
         r1 = testMultivariate(df1, show=True, outcome='RS', NCDB=True, prognostic_plots=prognostic_plots)
+    print("**Performance for Prediction in TCGA / UCMC**")
+    print("Model,Pearson r (TCGA),AUROC (TCGA),Pearson r (UCMC), AUROC (UCMC),z,p")
     if ten_score:
         for k, v in r0.items():
             print(k + "," + v)
     if NCDB:
         for k,v in r1.items():
             print(k + "," + v)
+    print()
 
 
 def testMP(ten_score = False, NCDB = True, prognostic_plots = False):
@@ -2034,13 +2043,15 @@ def testMP(ten_score = False, NCDB = True, prognostic_plots = False):
         r0 = testMultivariate(df1, show = True, outcome = 'mpscore', NCDB = False, prognostic_plots = prognostic_plots)
     if NCDB:
         r1 = testMultivariate(df1, show=True, outcome='mpscore', NCDB=True, prognostic_plots=prognostic_plots)
+    print("**Performance for Prediction in TCGA / UCMC**")
+    print("Model,Pearson r (TCGA),AUROC (TCGA),Pearson r (UCMC), AUROC (UCMC),z,p")
     if ten_score:
         for k, v in r0.items():
             print(k + "," + v)
     if NCDB:
         for k,v in r1.items():
             print(k + "," + v)
-
+    print()
 
 def organizeDataUCMC(df):
     """Categorizes the University of Chicago Dataset
