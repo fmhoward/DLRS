@@ -242,15 +242,23 @@ python model_analysis.py -rev #The -rev or --train_reverse command will train mo
 To generate predictions on an external dataset (i.e. to test this on new patients), the necessary columns to include in the annotations file are:
 ```
 patient - patient identifier
+slide - slide file name
 Age - numeric age in years - for calculation of clinical nomogram
 hist_type - histologic subtype - Ductal, Lobular, D&L, or Other - for calculation of clinical nomogram
 grade - 1, 2, or 3 - for calculation of clinical nomogram
 tumor_size - tumor size measured in mm - for calculation of clinical nomogram
 PR  - 'Pos', or 'Neg', for calculation of clinical nomogram
 ```
+
+This should be followed by setting up the datasets.json as above with a new dataset reflecting the slide directory of your new images, and the location you would like to store tfrecords. 
+
+The model_training file can be used to extract slides and generate predictions for this new dataset:
+```
+python model_training.py --extract --annotation <annotation.csv file name, assumed to be in /PROJECTS/UCH/> --source <dataset name specified in dataset.json>
+python model_training.py --validate --annotation <annotation.csv file name, assumed to be in /PROJECTS/UCH/> --source <dataset name specified in dataset.json>
+```
 	
-	
-The model_analysis file can use such an annotation file to generate predictions on patients with unknown Oncotype score -
+The model_analysis file can use the annotation file (with proper annotations for the nomogram) along with the pathologic predictions from model_training.py to generate predictions on patients with unknown Oncotype score -
 ```
 python model_analysis.py -pred --outcome <RS for Oncotype or MP for MammaPrint> --dataset <name of CSV file with annotations in the UCH_RS folder> --exp_label <name of the experiment label used in model training>
 ```
@@ -258,6 +266,7 @@ python model_analysis.py -pred --outcome <RS for Oncotype or MP for MammaPrint> 
 These predictions will be saved in the project root as "<dataset>_predictions.csv"; with columns including percent_tiles_positive_0, ten_score, and comb - corresponding to the numeric predictions of the pathologic, clinical, and combinedl models. Columns percent_tiles_positive_0_thresh, ten_score_thresh, and comb_thresh - correspond to a binary of whether a patient was predicted high risk (1) or low risk (0) using the high sensitivity threshold.
 
 To make new predictions using our frozen trained models for this analysis, please <a href='doi.org/10.5281/zenodo.6792391'>download the trained models from Zenodo</a> and extract the zip into the PROJECTS folder.
+
 
 ## Model interpretation
 To view heatmaps from trained models, run model_training.py with the --heatmaps_tumor_roi or --heatmaps_odx_roi, and specify 'TCGA' or 'UCH' depending on which dataset you want to generate heatmaps for:
