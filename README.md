@@ -76,7 +76,7 @@ To perform hyperparameter optimization, run the model_training.py file with the 
 model_training.py --hpsearch run --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
 ```
 
-This code will automatically run hyperparameter optimization for the specified iterations. The following parameters are used for the hyperparameter search
+This code will automatically run hyperparameter optimization for the specified iterations. The following range of parameters are used for the hyperparameter search
 ```
 Dropout: 0 - 0.5
 Hidden Layer Width (dimension of fully connected layers after Xception backbone): 128 - 1024
@@ -109,16 +109,18 @@ To train models for tumor detection and region of interest annotation, run model
 ```
 model_training.py -t --hpsearch read --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
 ```
+	
+This will search for the saved tile-level AUROC results from models stored within /PROJECTS/UCH_RS/models/ with the prefix DESIRED_PREFIX, identifying the hyperparameter combination with the highest tile-level AUROC.
 
-This will search for the saved tile-level AUROC results from models stored within /PROJECTS/UCH_RS/models/ with the prefix 
-
-Or, if you do not want to rerun hyperparameter optimization and would prefer to use stored hyperparameters from our optimization:
+Or, if you do not want to rerun hyperparameter optimization and would prefer to use stored hyperparameters from our optimization, they can automatically be  loaded as follows:
 ```
 model_training.py -t --hpsearch old
 ```
 
+This command will train models on the entire TCGA dataset for prediction of MammaPrint and OncotypeDx scores, as well as three models trained for cross validation (again using the CV3_odx85_mip and CV3_mp85_mip headers to specify the folds). Predictions will be made for the held out 1/3 of the data, and saved in the /PROJECTS/UCH_RS/eval/ folder.
+	
 ## Model validation
-To validate models in an external dataset, run model_training.py with the -v flag:
+To validate the trained models in an external dataset, run model_training.py with the -v flag:
 ```
 model_training.py -v
 ```
