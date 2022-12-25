@@ -22,7 +22,7 @@ If you use this code in your work or find it helpful, please consider citing our
 ```
 
 ## Installation
-The associated files can be downloaded to a project directory. Installation takes < 5 minutes on a standard desktop computer. Runtime for hyperparameter optimization is approximately 96 hours for 50 iterations. Runtime for model training of the tumor region of interest and recurence score predictive models was approximately 4 hours. The analysis of results is performed in < 1 minute. All software was tested on CentOS 8 with an AMD EPYC 7302 16-Core Processor and 4x A100 SXM 40 GB GPUs.
+This github repository should be downloaded to a project directory. Installation takes < 5 minutes on a standard desktop computer. Runtime for hyperparameter optimization is approximately 96 hours for 50 iterations. Runtime for model training of the tumor region of interest and recurence score predictive models was approximately 4 hours. The analysis of results is performed in < 1 minute. All software was tested on CentOS 8 with an AMD EPYC 7302 16-Core Processor and 4x A100 SXM 40 GB GPUs.
 
 Requirements:
 * python 3.8
@@ -35,26 +35,82 @@ Requirements:
 * Libvips 8.9
 * pandas 1.3.5
 * numpy 1.21.2
+* smac 1.4.0
 * IBM's CPLEX 12.10.0 and <a href='https://www.ibm.com/support/knowledgecenter/en/SSSA5P_12.8.0/ilog.odms.cplex.help/CPLEX/GettingStarted/topics/set_up/Python_setup.html'>CPLEX's python API</a>
 For full environment used for model testing please see the requirements.yml file
 
-## Overview
-First, to replicate model results, the datasets file must be configured to navigate to local slide storage and region of interest annotations for the TCGA and external validation / testing datasets. Please also specify directory for TFRECORD file storage.
+## Setup
+This package heavily utilizes the <a href='https://github.com/jamesdolezal/slideflow/tree/master/slideflow'>Slideflow repository</a>, and reading the associated <a href='https://slideflow.dev/'>extensive documentation<a> is recommended to familiarize users with the workflow used in this project.
+
+After downloading the associated files, the first step is to edit the datasets.json (located in the main directory of this repository) to reflect the location of where slide images are stored for the TCGA and UCMC datasets. The TCGA slide images can be downloaded from <a href='https://portal.gdc.cancer.gov'>https://portal.gdc.cancer.gov</a>. The extracted anonymized tfrecord files from the UCMC dataset are available from Zenodo. 
+
+Each 'dataset' within the datasets.json has four elements:
+"slides": location of the whole slide images
+"roi": location of region of interest annotations. We have provided our region of interest annotations from TCGA in the /roi/ directory
+"tiles": location to extract free image tiles. We disable this in our extract image function
+"tfrecords": location of tfrecords containing the extracted image tiles for slides
 
 ## Slide Extraction
-Slide extraction can be performed by running the model_training.py file with the -e option.
+Slide extraction can be performed by running the model_training.py file with the -e option. This will automatically extract tfrecords from associated slide images. The code assumes the PROJECTS folder which contains the list of slides to use for each project is located in the directory that the model_training.py script is run from. Extraction is automatically performed with slideflow - for example - 
+
+```
+SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS")) # specifies the location of the project folder
+SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "uch_brca_complete.csv") # specifies the location of the annotations file to use as a guide for slides to extract
+SFP.sources = ["UCH_BRCA_RS"] # specifies the dataset location
+SFP.extract_tiles(tile_px=tile_px, tile_um=tile_um, skip_missing_roi=False, save_tiles=False, skip_extracted=overwrite, roi_method = 'ignore', source="UCH_BRCA_RS", buffer=join(PROJECT_ROOT, "buffer")) # extracts tiles for the 'UCH_BRCA_RS' dataset using the specified tile pixel size (302), tile size in microns (299), without using regions of interest
+```
+
+The following sets of data are created for this project
+```
+UCH_BRCA_RS - extracted tiles from University of Chicago slides. These should be placed in the appropriate tfrecords directory from the datasets.json using the anonymized files uploaded to Zenodo
+UCH_BRCA_RS_FULL_ROI - extracted tiles from University of Chicago slides using pathologist specified regions of interest - an optional dataset used to assess training models from University of Chicago and validating on TCGA, not used for primary analysis of this project. 
+TCGA_BRCA_FULL_ROI - extracted tiles from TCGA using specified regions of interest
+TCGA_BRCA_NO_ROI - extracted tiles from TCGA without regions of interest
+TCGA_BRCA_NORMAL - extracted tiles from TCGA using inverse region of interest (essentially the normal tissue surrounding tumors in the dataset, used for training the tumor likelihood model)
+TCGA_BRCA_FILTERED - a dataset where tiles are filtered from the TCGA using the tumor detection module rather than pathologist annotations - an optional dataset not used for the primary analysis of this project
+```
 
 ## Hyperparameter optimization
-To perform hyperparameter optimization, run the model_training.py file with the following parameters (for 50 runs for hyperparameter optimization):
+To perform hyperparameter optimization, run the model_training.py file with the following parameters (example given for 50 runs for hyperparameter optimization):
 ```
 model_training.py --hpsearch run --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
 ```
+
+This code will automatically run hyperparameter optimization for the specified iterations. The following parameters are used for the hyperparameter search
+```
+Dropout: 0 - 0.5
+Hidden Layer Width (dimension of fully connected layers after Xception backbone): 128 - 1024
+Hidden Layers (number of fully connected hidden layers): 1 - 5
+Learning Rate: 0.00001 - 0.001
+Learning Rate Decay Steps (# of batches until applying learning rate decay): 128 - 1024
+Learning Rate Decay Ratio (ratio with which to reduce the learning rate): 0 - 1
+Learning Rate Decay (whether to decay learning rate): True / False
+Loss (for linear loss, will train models on numerical recurrence score; for categorical loss will train on high / low cutoff of recurrence score): mean squared error, mean absolute error, sparse categorical cross entropy
+Batch Size: 8 - 128
+Augment (‘x’ performs horizontal flipping, ‘y’ performs vertical flipping, ‘r’ performs rotation, ‘j’ performs random JPEG compression): xyr, xyrj, xyrjb
+Normalizer (whether to apply stain normalization): reinhard, none
+L1 weight: 0 - 0.1
+L1 (whether to perform L1 regularization): True, False
+L2 weight: 0 - 0.1
+L2 (whether to perform L2 regularization): True, False
+L1 dense weight: 0 - 0.1
+L1 dense (whether to perform l1 regularization to dense layers): True, False
+L2 dense weight: 0 - 0.1
+L2 dense (whether to perform l1 regularization to dense layers): True, False
+```
+
+Optimization is done using the <a href='https://pypi.org/project/smac/'>SMAC package</a>. Optimization is performed across two sets of three cross folds (listed in the tcga_brca_complete.csv file as CV3_odx85_mip and CV3_mp85_mip. These cross folds were chosen using <a href='https://github.com/fmhoward/PreservedSiteCV'>site preserved</a> splits to optimize the balance of high versus low risk OncotypeDx and MammaPrint recurrence scores. These splits can be regenerated, if desired, using the createCrossfoldsRS function in the model_analysis.py file. 
+
+<img src="https://github.com/fmhoward/DLRS/blob/main/bayesian.png?raw=true" width="600">
+
 
 ## Model training
 To train models for tumor detection and region of interest annotation, run model_training.py with the following parameters:
 ```
 model_training.py -t --hpsearch read --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
 ```
+
+This will search for the saved tile-level AUROC results from models stored within /PROJECTS/UCH_RS/models/ with the prefix 
 
 Or, if you do not want to rerun hyperparameter optimization and would prefer to use stored hyperparameters from our optimization:
 ```
