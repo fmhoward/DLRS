@@ -124,17 +124,37 @@ python model_training.py -t --hpsearch old
 ```
 
 This command will train models on the entire TCGA dataset for prediction of MammaPrint and OncotypeDx scores, as well as three models trained for cross validation (again using the CV3_odx85_mip and CV3_mp85_mip headers to specify the folds). Predictions will be made for the held out 1/3 of the data, and saved in the /PROJECTS/UCH_RS/eval/ folder.
+	
+Several special keyword arguments can be provided to train models in an alternative fashion:
+```
+python model_training.py -t --hpsearch old -uf #The -uf or --use_filtered command will train models using tiles selected by the tumor-likelihood model instead of from pathologist annotations
+python model_training.py -t --hpsearch old -tr #The -tr or --train_receptors command will train models using only HR+/HER2- patients from TCGA
+python model_training.py -t --hpsearch old -rev #The -rev or --train_reverse command will train models on the UCMC dataset for validation in TCGA
+```
 
-Model training within this script is performed automatically using the slideflow train command, which can be set up as follows:
+
+Model training within this script is performed automatically using the slideflow train command. This could be performed manually outside of this automated script if desired as follows (example given for training 3 cross fold validated models within TCGA).
 
 ```
 SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
 SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "tcga_brca_complete.csv")
 SFP.sources = ["TCGA_BRCA_FULL_ROI"]
+hp = hp_opt #uses saved optimal hyperparameters from optimization
+odx_train_name = "GHI_RS_Model_NJEM.2004_PMID.15591335" #numerical OncotypeDx score in annotation file
+odx_val_name = "odx85" #categorical representation of OncotypeDx score in annotation file
+exp_label = "ODX_Final_BRCAROI"
+hp.weight_model = assign_tumor_roi_model(SFP_TUMOR_ROI, hp.tile_px, hp.normalizer) #assigns the tumor likelihood model (only used for validation)
 SFP.train(exp_label=exp_label, outcome_label_headers=odx_train_name,  val_outcome_label_headers=odx_val_name, params = hp, filters = mergeDict(filters, {odx_val_name: ["H","L"]}), val_strategy = 'k-fold-manual', val_k_fold=3, val_k_fold_header = "CV3_odx85_mip", multi_gpu=True, save_predictions=True)
+
+#Key arguments used in our slideflow training setup -
 #exp_label - defaults to ODX_Final_BRCAROI - saved label for the experiment
 #outcome_label_headers - defaults to the recurrence score header in the TCGA dataset - GHI_RS_Model_NJEM.2004_PMID.15591335 for Oncotype and Pcorr_NKI70_Good_Correlation_Nature.2002_PMID.11823860 for MammaPrint
-#params - specifies model hyperparameters using the 
+#params - assigns model hyperparameters as described above
+#filters - specify ranges allowed for specific columns in the annotations file
+#val_strategy - set to k-fold-manual to allow k-fold cross validation with a consistent set of preserved site folds as generated above and included in our annotations file
+#val_k_fold_header - specifies the header that assigns specific k-fold to each patient
+#multi_gpu - allows training to utilize all available GPUs
+#save_predictions - to save the outcome of model training
 ```
 	
 ## Model validation
