@@ -51,7 +51,13 @@ Each 'dataset' within the datasets.json has four elements:
 "tfrecords": location of tfrecords containing the extracted image tiles for slides
 
 ## Slide Extraction
-Slide extraction can be performed by running the model_training.py file with the -e option. This will automatically extract tfrecords from associated slide images. The code assumes the PROJECTS folder which contains the list of slides to use for each project is located in the directory that the model_training.py script is run from. Extraction is automatically performed with slideflow - for example - 
+Slide extraction can be performed by running the following command:
+	
+```	
+python model_training.py -e
+```
+	
+This will automatically extract tfrecords from associated slide images. The code assumes the PROJECTS folder which contains the list of slides to use for each project is located in the directory that the model_training.py script is run from. This script automatically performs extraction with the slideflow backbone, for example -
 
 ```
 SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS")) # specifies the location of the project folder
@@ -73,7 +79,7 @@ TCGA_BRCA_FILTERED - a dataset where tiles are filtered from the TCGA using the 
 ## Hyperparameter optimization
 To perform hyperparameter optimization, run the model_training.py file with the following parameters (example given for 50 runs for hyperparameter optimization):
 ```
-model_training.py --hpsearch run --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
+python model_training.py --hpsearch run --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
 ```
 
 This code will automatically run hyperparameter optimization for the specified iterations. The following range of parameters are used for the hyperparameter search
@@ -107,17 +113,29 @@ Optimization is done using the <a href='https://pypi.org/project/smac/'>SMAC pac
 ## Model training
 To train models for tumor detection and region of interest annotation, run model_training.py with the following parameters:
 ```
-model_training.py -t --hpsearch read --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
+python model_training.py -t --hpsearch read --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
 ```
 	
 This will search for the saved tile-level AUROC results from models stored within /PROJECTS/UCH_RS/models/ with the prefix DESIRED_PREFIX, identifying the hyperparameter combination with the highest tile-level AUROC.
 
 Or, if you do not want to rerun hyperparameter optimization and would prefer to use stored hyperparameters from our optimization, they can automatically be  loaded as follows:
 ```
-model_training.py -t --hpsearch old
+python model_training.py -t --hpsearch old
 ```
 
 This command will train models on the entire TCGA dataset for prediction of MammaPrint and OncotypeDx scores, as well as three models trained for cross validation (again using the CV3_odx85_mip and CV3_mp85_mip headers to specify the folds). Predictions will be made for the held out 1/3 of the data, and saved in the /PROJECTS/UCH_RS/eval/ folder.
+
+Model training within this script is performed automatically using the slideflow train command, which can be set up as follows:
+
+```
+SFP = sf.Project(join(PROJECT_ROOT, "UCH_RS"))
+SFP.annotations = join(PROJECT_ROOT, "UCH_RS", "tcga_brca_complete.csv")
+SFP.sources = ["TCGA_BRCA_FULL_ROI"]
+SFP.train(exp_label=exp_label, outcome_label_headers=odx_train_name,  val_outcome_label_headers=odx_val_name, params = hp, filters = mergeDict(filters, {odx_val_name: ["H","L"]}), val_strategy = 'k-fold-manual', val_k_fold=3, val_k_fold_header = "CV3_odx85_mip", multi_gpu=True, save_predictions=True)
+#exp_label - defaults to ODX_Final_BRCAROI - saved label for the experiment
+#outcome_label_headers - defaults to the recurrence score header in the TCGA dataset - GHI_RS_Model_NJEM.2004_PMID.15591335 for Oncotype and Pcorr_NKI70_Good_Correlation_Nature.2002_PMID.11823860 for MammaPrint
+#params - specifies model hyperparameters using the 
+```
 	
 ## Model validation
 To validate the trained models in an external dataset, run model_training.py with the -v flag:
