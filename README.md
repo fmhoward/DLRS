@@ -238,7 +238,7 @@ python model_analysis.py -tr #The -tr or --train_receptors command will train mo
 python model_analysis.py -rev #The -rev or --train_reverse command will train models on the UCMC dataset for validation in TCGA
 ```
 
-## Testing Preditcions on New Patients
+## Testing Predictions on New Patients
 To generate predictions on an external dataset (i.e. to test this on new patients), the necessary columns to include in the annotations file are:
 ```
 patient - patient identifier
@@ -248,6 +248,7 @@ grade - 1, 2, or 3 - for calculation of clinical nomogram
 tumor_size - tumor size measured in mm - for calculation of clinical nomogram
 PR  - 'Pos', or 'Neg', for calculation of clinical nomogram
 ```
+	
 	
 The model_analysis file can use such an annotation file to generate predictions on patients with unknown Oncotype score -
 ```
