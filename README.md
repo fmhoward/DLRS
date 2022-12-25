@@ -213,6 +213,8 @@ To evaluate performance characteristics of the trained model, run model_analysis
 7. Generates ROC curves and fit survival models on UCMC using the predictions from the pathologic, clinical, and combined models. Evaluate the rule-out threshold performance.
 8. Computes correlation between model predictions and grade, necrosis, and lymphovascular invasion.
 
+<img src="https://github.com/fmhoward/DLRS/blob/main/analysis.png?raw=true" width="600">
+	
 Plots are saved to the root directory:
 "ROC Curves <outcome>.png" - which has ROC curves for the TCGA / UCMC datasets for all three models for the Oncotype or MammaPrint outcomes
 "Prognostic Plots <outcome>.png" - which plots Kaplan Meier curves for high versus low risk patients identified by the high sensitivity thresholds for the clinical nomogram and the combined model in the validation dataset
@@ -258,7 +260,7 @@ To make new predictions using our frozen trained models for this analysis, pleas
 ## Model interpretation
 To view heatmaps from trained models, run model_training.py with the --heatmaps_tumor_roi or --heatmaps_odx_roi, and specify 'TCGA' or 'UCH' depending on which dataset you want to generate heatmaps for:
 ```
-model_training.py --heatmaps_tumor_roi TCGA
-model_training.py --heatmaps_odx_roi TCGA
+python model_training.py --heatmaps_tumor_roi TCGA
+python model_training.py --heatmaps_odx_roi TCGA
 ```
 <img src="https://github.com/fmhoward/DLRS/blob/main/heatmaps.png?raw=true" width="600">
