@@ -202,7 +202,7 @@ sf.util.write_json(params, join(m, "params_eval.json"))
 SFP.evaluate(model=m, outcome_label_headers=odx_val_name, save_predictions=True, model_config=join(m, "params_eval.json"))
 ```
 
-##Model Analysis	
+##Replicating our Model Analysis	
 To evaluate performance characteristics of the trained model, run model_analysis.py. This script will perform the following steps:
 1. Load the TCGA dataset (from /PROJECTs/UCH_RS/tcga_brca_complete.csv) and TCGA pathology model predictions (from /PROJECTS/UCH_RS/eval/), and compute the clinical nomogram results for each patient. In the case of the MammaPrint model, the clinical predictions will be generated using a logistic regression fit on NCDB (saved in the installation directory as NCDB2017.csv).
 2. Fit three logistic regression models on 2/3 of the data using out-of-sample pathology predictions and clinical nomogram predictions. Make predictions with logistic regression model on remaining 1/3 of the data. 
@@ -238,6 +238,7 @@ python model_analysis.py -tr #The -tr or --train_receptors command will train mo
 python model_analysis.py -rev #The -rev or --train_reverse command will train models on the UCMC dataset for validation in TCGA
 ```
 
+##Testing Preditcions on New Patients
 To generate predictions on an external dataset (i.e. to test this on new patients), the necessary columns to include in the annotations file are:
 ```
 patient - patient identifier
