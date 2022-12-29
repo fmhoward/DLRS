@@ -1,7 +1,7 @@
 # Deep Learning for Recurrence Score Prediction
 Provides estimates for risk of recurrence from digital histology / multimodal predictions incorporating clinical features
 <br>
-<img src="https://github.com/fmhoward/DLRS/blob/main/overview.png?raw=true" width="600">
+<img src="https://github.com/fmhoward/DLRS/blob/main/figures/overview.png?raw=true" width="600">
 
 ## Attribution
 If you use this code in your work or find it helpful, please consider citing our preprint in <a href='https://www.biorxiv.org/content/10.1101/2022.07.07.499039v1'>bioRxiv</a>.
@@ -108,7 +108,7 @@ L2 dense (whether to perform l1 regularization to dense layers): True, False
 
 Optimization is done using the <a href='https://pypi.org/project/smac/'>SMAC package</a>. Optimization is performed across two sets of three cross folds (listed in the tcga_brca_complete.csv file as CV3_odx85_mip and CV3_mp85_mip. These cross folds were chosen using <a href='https://github.com/fmhoward/PreservedSiteCV'>site preserved</a> splits to optimize the balance of high versus low risk OncotypeDx and MammaPrint recurrence scores. These splits can be regenerated, if desired, using the createCrossfoldsRS function in the model_analysis.py file. 
 
-<img src="https://github.com/fmhoward/DLRS/blob/main/bayesian.png?raw=true" width="600">
+<img src="https://github.com/fmhoward/DLRS/blob/main/figures/bayesian.png?raw=true" width="600">
 
 
 ## Pathologic Model Training
@@ -214,7 +214,7 @@ To evaluate performance characteristics of the trained model, run model_analysis
 7. Generates ROC curves and fit survival models on UCMC using the predictions from the pathologic, clinical, and combined models. Evaluate the rule-out threshold performance.
 8. Computes correlation between model predictions and grade, necrosis, and lymphovascular invasion.
 
-<img src="https://github.com/fmhoward/DLRS/blob/main/analysis.png?raw=true" width="600">
+<img src="https://github.com/fmhoward/DLRS/blob/main/figures/analysis.png?raw=true" width="600">
 	
 Plots are saved to the root directory:
 "ROC Curves <outcome>.png" - which has ROC curves for the TCGA / UCMC datasets for all three models for the Oncotype or MammaPrint outcomes
@@ -275,4 +275,4 @@ To view heatmaps from trained models, run model_training.py with the --heatmaps_
 python model_training.py --heatmaps_tumor_roi TCGA
 python model_training.py --heatmaps_odx_roi TCGA
 ```
-<img src="https://github.com/fmhoward/DLRS/blob/main/heatmaps.png?raw=true" width="600">
+<img src="https://github.com/fmhoward/DLRS/blob/main/figures/heatmaps.png?raw=true" width="600">
