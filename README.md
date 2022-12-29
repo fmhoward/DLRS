@@ -37,6 +37,7 @@ Requirements:
 * numpy 1.21.2
 * smac 1.4.0
 * IBM's CPLEX 12.10.0 and <a href='https://www.ibm.com/support/knowledgecenter/en/SSSA5P_12.8.0/ilog.odms.cplex.help/CPLEX/GettingStarted/topics/set_up/Python_setup.html'>CPLEX's python API</a>
+
 For full environment used for model testing please see the requirements.yml file
 
 ## Setup
