@@ -43,6 +43,8 @@ For full environment used for model testing please see the requirements.yml file
 ## Setup
 This package heavily utilizes the <a href='https://github.com/jamesdolezal/slideflow/tree/master/slideflow'>Slideflow repository</a>, and reading the associated <a href='https://slideflow.dev/'>extensive documentation<a> is recommended to familiarize users with the workflow used in this project.
 
+This code supports multiple methods of reproducing our work. For the most straightforward way, skip to the  'Replicating our Model Analysis' header, and run the model_analysis.py file with the --saved option, which can regenerate our analysis from saved predictions from TCGA / UCMC. Otherwise, please continue reading for a more complete guide to replication of our work.
+
 After downloading the github repository, the first step is to edit the datasets.json (located in the main directory of this repository) to reflect the location of where slide images are stored for the TCGA and UCMC datasets. 
 
 Each 'dataset' within the datasets.json has four elements:
