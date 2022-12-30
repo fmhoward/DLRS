@@ -43,13 +43,15 @@ For full environment used for model testing please see the requirements.yml file
 ## Setup
 This package heavily utilizes the <a href='https://github.com/jamesdolezal/slideflow/tree/master/slideflow'>Slideflow repository</a>, and reading the associated <a href='https://slideflow.dev/'>extensive documentation<a> is recommended to familiarize users with the workflow used in this project.
 
-After downloading the associated files, the first step is to edit the datasets.json (located in the main directory of this repository) to reflect the location of where slide images are stored for the TCGA and UCMC datasets. The TCGA slide images can be downloaded from <a href='https://portal.gdc.cancer.gov'>https://portal.gdc.cancer.gov</a>. The extracted anonymized tfrecord files from the UCMC dataset are available from Zenodo. 
+After downloading the github repository, the first step is to edit the datasets.json (located in the main directory of this repository) to reflect the location of where slide images are stored for the TCGA and UCMC datasets. 
 
 Each 'dataset' within the datasets.json has four elements:
 "slides": location of the whole slide images
 "roi": location of region of interest annotations. We have provided our region of interest annotations from TCGA in the /roi/ directory
 "tiles": location to extract free image tiles. We disable this in our extract image function
 "tfrecords": location of tfrecords containing the extracted image tiles for slides
+
+The TCGA slide images can be downloaded from <a href='https://portal.gdc.cancer.gov'>https://portal.gdc.cancer.gov</a>. The extracted anonymized tfrecord files from the UCMC dataset, trained models, and regions of interest are available <a href='doi.org/10.5281/zenodo.7490381>from Zenodo</a>. The tfrecords descriptor should be updated to point to the path of the UCH_BRCA_RS dataset from this link. The "roi" marker should point to the appropriate folder within the ROI zip file - the ROI subfolder should be used for all TCGA models except TCGA_BRCA_NORMAL, which uses the ROI_NORM subfolder. The PROJECTS file from zenodo can replace the PROJECTS file from this repository to make use of pre-trained models. 
 
 ## Slide Extraction
 Slide extraction can be performed by running the following command:
@@ -80,7 +82,7 @@ TCGA_BRCA_FILTERED - a dataset where tiles are filtered from the TCGA using the 
 ## Hyperparameter Optimization
 To perform hyperparameter optimization, run the model_training.py file with the following parameters (example given for 50 runs for hyperparameter optimization):
 ```
-python model_training.py --hpsearch run --hpprefix DESIRED_PREFIX --hpstart 0 --hpcount 50
+python model_training.py --hpsearch run --hpprefix DESIRED_PREFIX --hpstart 1 --hpcount 50
 ```
 
 This code will automatically run hyperparameter optimization for the specified iterations. The following range of parameters are used for the hyperparameter search
@@ -221,6 +223,8 @@ Plots are saved to the root directory:
 "Prognostic Plots <outcome>.png" - which plots Kaplan Meier curves for high versus low risk patients identified by the high sensitivity thresholds for the clinical nomogram and the combined model in the validation dataset
 "Prognostic Plots TCGA <outcome>.png" - which plots Kaplan Meier curves for high versus low risk patients within TCGA
 "Correlation <outcome>.png" - which plots linear correlation between the model and true recurrence score results
+"Prognostic Comparison.png" - comparison between the prognostic outcomes of the TCGA and UCMC datasets
+"HP Search.png" - a plot of hyperparameter evolution over bayesian optimziation
 
 Baseline demographics are saved in the root directory:
 UCMC MammaPrint Cohort.xlsx
@@ -228,7 +232,9 @@ UCMC Oncotype Cohort.xlsx
 TCGA Cohort.xlsx
 TCGA HRHER2 Cohort.xlsx
 
-Remainder of performance metrics are printed to the terminal in comma separated format (survival analysis for RFI/RFS/OS including HR and C-Index; AUROC with z-statistic and p-value for comparison between combined model and clinical / pathologic models; AUPRC; correlation coefficients; and performance characteristics of the rule-out threshold)
+All performance metrics are saved in the root directory:
+predictions_<outcome>.csv - contains main predictions including AUROC/AUPRC and prognostic performance of the specified model
+correlate_pathparams.csv - contains the correlation coefficients for model predictions and pathologic parameters
 
 Several special parameters can be provided, in particular the -s command will use the saved predictions allowing easy replication of our analysis without running model_training.py:
 ```
@@ -255,13 +261,13 @@ This should be followed by setting up the datasets.json as above with a new data
 
 The model_training file can be used to extract slides and generate predictions for this new dataset:
 ```
-python model_training.py --extract --annotation <annotation.csv file name, assumed to be in /PROJECTS/UCH/> --source <dataset name specified in dataset.json>
-python model_training.py --validate --annotation <annotation.csv file name, assumed to be in /PROJECTS/UCH/> --source <dataset name specified in dataset.json>
+python model_training.py --extract --annotation <annotation.csv file name, assumed to be in /PROJECTS/UCH/> --source <dataset name specified in dataset.json> --experiment_label <unique label for experiment; duplicate models with same prefix leads to errors>
+python model_training.py --validate --annotation <annotation.csv file name, assumed to be in /PROJECTS/UCH/> --source <dataset name specified in dataset.json> --experiment_label <label>
 ```
 	
 The model_analysis file can use the annotation file (with proper annotations for the nomogram) along with the pathologic predictions from model_training.py to generate predictions on patients with unknown Oncotype score -
 ```
-python model_analysis.py -pred --outcome <RS for Oncotype or MP for MammaPrint> --dataset <name of CSV file with annotations in the UCH_RS folder> --exp_label <name of the experiment label used in model training>
+python model_analysis.py -pred --outcome <RS for Oncotype or MP for MammaPrint> --dataset <name of CSV file with annotations in the UCH_RS folder>  --experiment_label <label>
 ```
 
 These predictions will be saved in the project root as "<dataset>_predictions.csv"; with columns including percent_tiles_positive_0, ten_score, and comb - corresponding to the numeric predictions of the pathologic, clinical, and combinedl models. Columns percent_tiles_positive_0_thresh, ten_score_thresh, and comb_thresh - correspond to a binary of whether a patient was predicted high risk (1) or low risk (0) using the high sensitivity threshold.
@@ -270,9 +276,9 @@ To make new predictions using our frozen trained models for this analysis, pleas
 
 
 ## Model interpretation
-To view heatmaps from trained models, run model_training.py with the --heatmaps_tumor_roi or --heatmaps_odx_roi, and specify 'TCGA' or 'UCH' depending on which dataset you want to generate heatmaps for:
+To view heatmaps from trained models, run model_training.py with the --heatmaps_tumor_roi for tumor likelihood predictions or --heatmaps_odx for Oncotype model predictions, and specify 'TCGA' or 'UCH' depending on which dataset you want to generate heatmaps for:
 ```
 python model_training.py --heatmaps_tumor_roi TCGA
-python model_training.py --heatmaps_odx_roi TCGA
+python model_training.py --heatmaps_odx TCGA
 ```
 <img src="https://github.com/fmhoward/DLRS/blob/main/figures/heatmaps.png?raw=true" width="600">
