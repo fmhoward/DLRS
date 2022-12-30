@@ -22,7 +22,7 @@ If you use this code in your work or find it helpful, please consider citing our
 ```
 
 ## Installation
-This github repository should be downloaded to a project directory. Installation takes < 5 minutes on a standard desktop computer. Runtime for hyperparameter optimization is approximately 96 hours for 50 iterations. Runtime for model training of the tumor region of interest and recurence score predictive models was approximately 4 hours. The analysis of results is performed in < 1 minute. All software was tested on CentOS 8 with an AMD EPYC 7302 16-Core Processor and 4x A100 SXM 40 GB GPUs.
+This github repository should be downloaded to a project directory. Installation takes < 5 minutes on a standard desktop computer. Runtime for hyperparameter optimization is approximately 96 hours for 50 iterations. Runtime for model training of the tumor region of interest and recurrence score predictive models was approximately 4 hours. The analysis of results is performed in < 1 minute. All software was tested on CentOS 8 with an AMD EPYC 7302 16-Core Processor and 4x A100 SXM 40 GB GPUs.
 
 Requirements:
 * python 3.8
@@ -53,7 +53,7 @@ Each 'dataset' within the datasets.json has four elements:
 "tfrecords": location of tfrecords containing the extracted image tiles for slides
 ```
 	
-The TCGA slide images can be downloaded from <a href='https://portal.gdc.cancer.gov'>https://portal.gdc.cancer.gov</a>. The extracted anonymized tfrecord files from the UCMC dataset, trained models, and regions of interest are available <a href=doi.org/10.5281/zenodo.7490381>from Zenodo</a>. The tfrecords descriptor should be updated to point to the path of the UCH_BRCA_RS dataset from this link. The "roi" marker should point to the appropriate folder within the ROI zip file - the ROI subfolder should be used for all TCGA models except TCGA_BRCA_NORMAL, which uses the ROI_NORM subfolder. The PROJECTS file from zenodo can replace the PROJECTS file from this repository to make use of pre-trained models. 
+The TCGA slide images can be downloaded from <a href='https://portal.gdc.cancer.gov'>https://portal.gdc.cancer.gov</a>. The extracted anonymized tfrecord files from the UCMC dataset, trained models, and regions of interest are available <a href=doi.org/10.5281/zenodo.7490381>from Zenodo</a>. The tfrecords descriptor should be updated to point to the path of the UCH_BRCA_RS dataset from this link. The "roi" marker should point to the appropriate folder within the ROI zip file - the ROI subfolder should be used for all TCGA models except TCGA_BRCA_NORMAL, which uses the ROI_NORM subfolder. The PROJECTS file from Zenodo can replace the PROJECTS file from this repository to make use of pre-trained models. 
 
 ## Slide Extraction
 Slide extraction can be performed by running the following command:
@@ -187,7 +187,7 @@ SFP_TUMOR_ROI.annotations = join(PROJECT_ROOT, "TCGA_BRCA_ROI", "tumor_roi.csv")
 hp = hp_opt 
 hp.weight_model = assign_tumor_roi_model(SFP_TUMOR_ROI, hp.tile_px, hp.normalizer)
 
-#Specifiy experiment names which were used for model training, and specify the column names used for outcome from training and validaiton
+#Specifiy experiment names which were used for model training, and specify the column names used for outcome from training and validation
 exp_label = "ODX_Final_BRCAROI"
 odx_train_name = "GHI_RS_Model_NJEM.2004_PMID.15591335"
 odx_val_name = "RSHigh"
@@ -226,7 +226,7 @@ Prognostic Plots <outcome>.png - which plots Kaplan Meier curves for high versus
 Prognostic Plots TCGA <outcome>.png - which plots Kaplan Meier curves for high versus low risk patients within TCGA  	
 Correlation <outcome>.png - which plots linear correlation between the model and true recurrence score results  
 Prognostic Comparison.png - comparison between the prognostic outcomes of the TCGA and UCMC datasets  
-HP Search.png - a plot of hyperparameter evolution over bayesian optimziation  
+HP Search.png - a plot of hyperparameter evolution over Bayesian optimization  
 
 Baseline demographics are saved in the root directory:  
 UCMC MammaPrint Cohort.xlsx  
@@ -240,7 +240,7 @@ correlate_pathparams.csv - contains the correlation coefficients for model predi
 
 Several special parameters can be provided, in particular the -s command will use the saved predictions allowing easy replication of our analysis without running model_training.py:
 ```
-python model_analysis.py -s #The -s or --saved command will use saved pathologic model predictions from /PROJECT/saved_results/ and embedded in the uch_brca_complete.csv and tcga_brca_complete.csv files (rather then reloading the predictions from the /PROJECTS/UCH_RS/eval/ dircetory).
+python model_analysis.py -s #The -s or --saved command will use saved pathologic model predictions from /PROJECT/saved_results/ and embedded in the uch_brca_complete.csv and tcga_brca_complete.csv files (rather then reloading the predictions from the /PROJECTS/UCH_RS/eval/ directory).
 python model_analysis.py -uf #The -uf or --use_filtered command will train models using tiles selected by the tumor-likelihood model instead of from pathologist 
 annotations
 python model_analysis.py -tr #The -tr or --train_receptors command will train models using only HR+/HER2- patients from TCGA
@@ -272,9 +272,9 @@ The model_analysis file can use the annotation file (with proper annotations for
 python model_analysis.py -pred --outcome <RS for Oncotype or MP for MammaPrint> --dataset <name of CSV file with annotations in the UCH_RS folder>  --experiment_label <label>
 ```
 
-These predictions will be saved in the project root as "<dataset>_predictions.csv"; with columns including percent_tiles_positive_0, ten_score, and comb - corresponding to the numeric predictions of the pathologic, clinical, and combinedl models. Columns percent_tiles_positive_0_thresh, ten_score_thresh, and comb_thresh - correspond to a binary of whether a patient was predicted high risk (1) or low risk (0) using the high sensitivity threshold.
+These predictions will be saved in the project root as "<dataset>_predictions.csv"; with columns including percent_tiles_positive_0, ten_score, and comb - corresponding to the numeric predictions of the pathologic, clinical, and combined models. Columns percent_tiles_positive_0_thresh, ten_score_thresh, and comb_thresh - correspond to a binary of whether a patient was predicted high risk (1) or low risk (0) using the high sensitivity threshold.
 
-To make new predictions using our frozen trained models for this analysis, please <a href='doi.org/10.5281/zenodo.6792391'>download the trained models from Zenodo</a> and extract the zip into the PROJECTS folder.
+To make new predictions using our frozen trained models for this analysis, please <a href='doi.org/10.5281/zenodo.7490381'>download the trained models from Zenodo</a> and extract the zip into the PROJECTS folder.
 
 
 ## Model interpretation
