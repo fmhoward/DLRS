@@ -221,18 +221,12 @@ To evaluate performance characteristics of the trained model, run model_analysis
 <img src="https://github.com/fmhoward/DLRS/blob/main/figures/analysis.png?raw=true" width="600">
 	
 Plots are saved to the root directory:
-	
-"ROC Curves <outcome>.png" - which has ROC curves for the TCGA / UCMC datasets for all three models for the Oncotype or MammaPrint outcomes
-	
-"Prognostic Plots <outcome>.png" - which plots Kaplan Meier curves for high versus low risk patients identified by the high sensitivity thresholds for the clinical nomogram and the combined model in the validation dataset
-	
-"Prognostic Plots TCGA <outcome>.png" - which plots Kaplan Meier curves for high versus low risk patients within TCGA
-	
-"Correlation <outcome>.png" - which plots linear correlation between the model and true recurrence score results
-	
-"Prognostic Comparison.png" - comparison between the prognostic outcomes of the TCGA and UCMC datasets
-	
-"HP Search.png" - a plot of hyperparameter evolution over bayesian optimziation
+"ROC Curves <outcome>.png" - which has ROC curves for the TCGA / UCMC datasets for all three models for the Oncotype or MammaPrint outcome  	
+"Prognostic Plots <outcome>.png" - which plots Kaplan Meier curves for high versus low risk patients identified by the high sensitivity thresholds for the clinical nomogram and the combined model in the validation dataset  
+"Prognostic Plots TCGA <outcome>.png" - which plots Kaplan Meier curves for high versus low risk patients within TCGA  	
+"Correlation <outcome>.png" - which plots linear correlation between the model and true recurrence score results  
+"Prognostic Comparison.png" - comparison between the prognostic outcomes of the TCGA and UCMC datasets  
+"HP Search.png" - a plot of hyperparameter evolution over bayesian optimziation  
 
 Baseline demographics are saved in the root directory:
 	
