@@ -4,19 +4,27 @@ Provides estimates for risk of recurrence from digital histology / multimodal pr
 <img src="https://github.com/fmhoward/DLRS/blob/main/figures/overview.png?raw=true" width="600">
 
 ## Attribution
-If you use this code in your work or find it helpful, please consider citing our preprint in <a href='https://www.biorxiv.org/content/10.1101/2022.07.07.499039v1'>bioRxiv</a>.
+If you use this code in your work or find it helpful, please consider citing our article in <a href='https://www.nature.com/articles/s41523-023-00530-5'>npj Breast Cancer</a>.
 ```
-@article {Howard2022.07.07.499039,
-	author = {Howard, Frederick Matthew and Dolezal, James and Kochanny, Sara and Khramtsova, Galina and Vickery, Jasmine and Srisuwananukorn, Andrew and Woodard, Anna and Chen, Nan and Nanda, Rita and Perou, Charles M and Olopade, Olufunmilayo I. and Huo, Dezheng and Pearson, Alexander T.},
-	title = {Multimodal Prediction of Breast Cancer Recurrence Assays and Risk of Recurrence},
-	elocation-id = {2022.07.07.499039},
-	year = {2022},
-	doi = {10.1101/2022.07.07.499039},
-	publisher = {Cold Spring Harbor Laboratory},
-	abstract = {Gene expression-based recurrence assays are strongly recommended to guide the use of chemotherapy in hormone receptor-positive, HER2-negative breast cancer, but such testing is expensive, can contribute to delays in care, and may not be available in low-resource settings. Here, we describe the training and independent validation of a deep learning model that predicts recurrence assay result and risk of recurrence using both digital histology and clinical risk factors. We demonstrate that this approach outperforms an established clinical nomogram (area under the receiver operating characteristic curve of 0.833 versus 0.765 in the validation cohort, p = 0.003), and can identify a subset of patients with excellent prognoses who may not need further genomic testing.Competing Interest StatementThe authors have declared no competing interest.},
-	URL = {https://www.biorxiv.org/content/early/2022/07/08/2022.07.07.499039},
-	eprint = {https://www.biorxiv.org/content/early/2022/07/08/2022.07.07.499039.full.pdf},
-	journal = {bioRxiv}
+@article{howard_integration_2023,
+	title = {Integration of clinical features and deep learning on pathology for the prediction of breast cancer recurrence assays and risk of recurrence},
+	volume = {9},
+	copyright = {2023 The Author(s)},
+	issn = {2374-4677},
+	url = {https://www.nature.com/articles/s41523-023-00530-5},
+	doi = {10.1038/s41523-023-00530-5},
+	abstract = {Gene expression-based recurrence assays are strongly recommended to guide the use of chemotherapy in hormone receptor-positive, HER2-negative breast cancer, but such testing is expensive, can contribute to delays in care, and may not be available in low-resource settings. Here, we describe the training and independent validation of a deep learning model that predicts recurrence assay result and risk of recurrence using both digital histology and clinical risk factors. We demonstrate that this approach outperforms an established clinical nomogram (area under the receiver operating characteristic curve of 0.83 versus 0.76 in an external validation cohort, p = 0.0005) and can identify a subset of patients with excellent prognoses who may not need further genomic testing.},
+	language = {en},
+	number = {1},
+	urldate = {2023-04-17},
+	journal = {npj Breast Cancer},
+	author = {Howard, Frederick M. and Dolezal, James and Kochanny, Sara and Khramtsova, Galina and Vickery, Jasmine and Srisuwananukorn, Andrew and Woodard, Anna and Chen, Nan and Nanda, Rita and Perou, Charles M. and Olopade, Olufunmilayo I. and Huo, Dezheng and Pearson, Alexander T.},
+	month = apr,
+	year = {2023},
+	note = {Number: 1
+Publisher: Nature Publishing Group},
+	keywords = {Breast cancer, Prognostic markers, Translational research},
+	pages = {1--6},
 }
 
 ```
