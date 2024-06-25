@@ -63,7 +63,7 @@ Each 'dataset' within the datasets.json has four elements:
 "tfrecords": location of tfrecords containing the extracted image tiles for slides
 ```
 	
-The TCGA slide images can be downloaded from <a href='https://portal.gdc.cancer.gov'>https://portal.gdc.cancer.gov</a>. The extracted anonymized tfrecord files from the UCMC dataset, trained models, and regions of interest are available <a href=doi.org/10.5281/zenodo.7490381>from Zenodo</a>. The tfrecords descriptor should be updated to point to the path of the UCH_BRCA_RS dataset from this link. The "roi" marker should point to the appropriate folder within the ROI zip file - the ROI subfolder should be used for all TCGA models except TCGA_BRCA_NORMAL, which uses the ROI_NORM subfolder. The PROJECTS file from Zenodo can replace the PROJECTS file from this repository to make use of pre-trained models. 
+The TCGA slide images can be downloaded from <a href='https://portal.gdc.cancer.gov'>https://portal.gdc.cancer.gov</a>. The extracted anonymized tfrecord files from the UCMC dataset, trained models, and regions of interest are available <a href=http://doi.org/10.5281/zenodo.7490381>from Zenodo</a>. The tfrecords descriptor should be updated to point to the path of the UCH_BRCA_RS dataset from this link. The "roi" marker should point to the appropriate folder within the ROI zip file - the ROI subfolder should be used for all TCGA models except TCGA_BRCA_NORMAL, which uses the ROI_NORM subfolder. The PROJECTS file from Zenodo can replace the PROJECTS file from this repository to make use of pre-trained models. 
 
 ## Slide Extraction
 Slide extraction can be performed by running the following command:
